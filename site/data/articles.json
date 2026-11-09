@@ -1,12 +1,15 @@
 {
   "version": 1,
-  "generated_at": "2026-11-09T14:57:37.489964Z",
-  "last_successful_sync": "2026-11-09T14:57:37.489964Z",
+  "generated_at": "2026-11-09T14:58:21.831071Z",
+  "last_successful_sync": "2026-11-09T14:58:21.831071Z",
   "sources_checked": 7,
   "sources_total": 7,
   "source_errors": [],
   "ai_new_summaries": 0,
   "ai_errors": 1,
+  "ai_http_errors": [
+    404
+  ],
   "ai_key_configured": true,
   "new_articles": 8,
   "articles": [
@@ -61,6 +64,16 @@
       "summary_kind": "extrait"
     },
     {
+      "title": "USN-8952-2: Tornado regression",
+      "url": "https://ubuntu.com/security/notices/USN-8952-2",
+      "source": "Ubuntu Security",
+      "published_at": "2026-11-06T15:04:17Z",
+      "collected_at": "2026-11-09T14:58:21.831071Z",
+      "category": "Cybersécurité",
+      "summary_fr": "USN-8952-1 fixed vulnerabilities in Tornado. Unfortunately that update was incomplete due to an incomplete fix for CVE-2026-103263, which broke static file serving for applications that subclass Tornado's StaticFileHandler, such as Jupyter, and could introduce a regression. This update fixes the problem. We apologize for the inconvenience. Original advisory details: It was discovered that Tornado did not properly handle certain HTTP req",
+      "summary_kind": "extrait"
+    },
+    {
       "title": "The post-quantum future of web privacy",
       "url": "https://blog.cloudflare.com/vole-mole/",
       "source": "Cloudflare",
@@ -68,6 +81,26 @@
       "collected_at": "2026-11-09T14:57:37.489964Z",
       "category": "Réseaux",
       "summary_fr": "Cryptographic protocols like Privacy Pass help keep web sites safe from abuse while keeping their users private. This post looks at the quantum threat to these protocols, and some new post-quantum cryptography that may help close the gap.",
+      "summary_kind": "extrait"
+    },
+    {
+      "title": "USN-9003-1: Linux kernel (NVIDIA) vulnerabilities",
+      "url": "https://ubuntu.com/security/notices/USN-9003-1",
+      "source": "Ubuntu Security",
+      "published_at": "2026-11-06T11:30:38Z",
+      "collected_at": "2026-11-09T14:58:21.831071Z",
+      "category": "Cybersécurité",
+      "summary_fr": "It was discovered that some AMD processors did not properly perform Reverse Map Table (RMP) checks when the IOMMU accessed certain host buffers. A local attacker with hypervisor access could possibly use this to trigger an out-of-bounds condition and compromise the integrity of SEV-SNP guest memory. (CVE-2023-20585) Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system",
+      "summary_kind": "extrait"
+    },
+    {
+      "title": "USN-9002-1: Linux kernel (NVIDIA Tegra) vulnerabilities",
+      "url": "https://ubuntu.com/security/notices/USN-9002-1",
+      "source": "Ubuntu Security",
+      "published_at": "2026-11-06T11:22:23Z",
+      "collected_at": "2026-11-09T14:58:21.831071Z",
+      "category": "Cybersécurité",
+      "summary_fr": "It was discovered that the io_uring subsystem in the Linux kernel did not properly handle canceled task work when processing certain wait operations, leading to the operation being performed in the wrong task context. A local attacker could possibly use this to cause a denial of service (system crash). (CVE-2026-81010) Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the sys",
       "summary_kind": "extrait"
     },
     {
@@ -88,6 +121,56 @@
       "collected_at": "2026-11-09T14:57:37.489964Z",
       "category": "Réseaux",
       "summary_fr": "AI agents act for millions, but servers see intermediaries that strip user visibility. This post defines the problem space and introduces a collaborative approach to safely identifying, allowing, and managing this automated traffic.",
+      "summary_kind": "extrait"
+    },
+    {
+      "title": "Docker and ActiveState Extending Secure Defaults to the Packages Developers Install",
+      "url": "https://www.docker.com/blog/docker-activestate-trusted-content/",
+      "source": "Docker",
+      "published_at": "2026-11-05T15:28:22Z",
+      "collected_at": "2026-11-09T14:58:21.831071Z",
+      "category": "Conteneurs",
+      "summary_fr": "Docker partners with ActiveState to continue to provide one standard for trusted content across everything you and your teams build on.",
+      "summary_kind": "extrait"
+    },
+    {
+      "title": "CNCF Score project improved its security posture by joining the Docker-Sponsored Open Source Program",
+      "url": "https://www.docker.com/blog/cncf-score-project-improved-its-security-posture-by-joining-the-docker-sponsored-open-source-program/",
+      "source": "Docker",
+      "published_at": "2026-11-05T14:00:00Z",
+      "collected_at": "2026-11-09T14:58:21.831071Z",
+      "category": "Conteneurs",
+      "summary_fr": "See how CNCF Score improved container security with Docker Scout, Hardened Images, and the Docker-Sponsored Open Source Program.",
+      "summary_kind": "extrait"
+    },
+    {
+      "title": "See the agents, set the terms: new visibility and control for personal agents",
+      "url": "https://blog.cloudflare.com/personal-agents-visibility-control/",
+      "source": "Cloudflare",
+      "published_at": "2026-11-04T14:00:00Z",
+      "collected_at": "2026-11-09T14:58:21.831071Z",
+      "category": "Réseaux",
+      "summary_fr": "Personal AI agents have changed how users interact with the web, blurring the lines between automated and human traffic. Learn how Cloudflare gives site owners visibility and control to manage personal agent access.",
+      "summary_kind": "extrait"
+    },
+    {
+      "title": "Multiples vulnérabilités dans Apache Zookeeper (04 novembre 2026)",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1448/",
+      "source": "CERT-FR · Avis",
+      "published_at": "2026-11-04T00:00:00Z",
+      "collected_at": "2026-11-09T14:58:21.831071Z",
+      "category": "Cybersécurité",
+      "summary_fr": "De multiples vulnérabilités ont été découvertes dans Apache Zookeeper. Elles permettent à un attaquant de provoquer un déni de service à distance et un contournement de la politique de sécurité.",
+      "summary_kind": "extrait"
+    },
+    {
+      "title": "Multiples vulnérabilités dans les produits Citrix (04 novembre 2026)",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1449/",
+      "source": "CERT-FR · Avis",
+      "published_at": "2026-11-04T00:00:00Z",
+      "collected_at": "2026-11-09T14:58:21.831071Z",
+      "category": "Cybersécurité",
+      "summary_fr": "De multiples vulnérabilités ont été découvertes dans les produits Citrix. Elles permettent à un attaquant de provoquer une exécution de code arbitraire à distance et une élévation de privilèges.",
       "summary_kind": "extrait"
     }
   ]
