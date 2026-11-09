@@ -140,6 +140,20 @@ def category_for(item):
     return item["category"]
 
 
+def is_relevant(item):
+    """Exclude promotional/developer-funding items from the broad Cloudflare feed."""
+    if item["source"] != "Cloudflare":
+        return True
+    title = item["title"].lower()
+    if any(word in title for word in ("fund", "funding", "ecosystem grant", "hackathon", "career", "hiring", "event recap")):
+        return False
+    return bool(re.search(
+        r"\b(security|cyber|privacy|zero.trust|network|internet|http|https|tls|ssl|dns|"
+        r"firewall|waf|bot|ddos|quantum|proxy|edge|cloud|api|identity|auth|"
+        r"encryption|routing|ipv6|developer platform|agent|certificate|web)\b", title
+    ))
+
+
 def fallback(item):
     return clean(item["excerpt"], 440) or "Consultez la publication originale pour en savoir plus."
 
@@ -181,7 +195,7 @@ def main():
         state = json.loads(OUTPUT.read_text(encoding="utf-8"))
     except (OSError, ValueError):
         state = {"version": 1, "articles": []}
-    known = {a["url"]: a for a in state.get("articles", []) if isinstance(a, dict) and a.get("url")}
+    known = {a["url"]: a for a in state.get("articles", []) if isinstance(a, dict) and a.get("url") and is_relevant({"title": a.get("title", ""), "source": a.get("source", "")})}
     new_candidates, source_errors, source_ok = [], [], 0
     for source in SOURCES:
         try:
@@ -202,7 +216,7 @@ def main():
     counts = {}
     selected = []
     for item in sorted(new_candidates, key=lambda x: x["published_at"] or "", reverse=True):
-        if item["url"] in seen or counts.get(item["source"], 0) >= MAX_PER_SOURCE:
+        if not is_relevant(item) or item["url"] in seen or counts.get(item["source"], 0) >= MAX_PER_SOURCE:
             continue
         if item["published_at"] and dt.datetime.fromisoformat(item["published_at"].replace("Z", "+00:00")) < cutoff:
             continue
