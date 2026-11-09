@@ -1,15 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-11-09T14:58:21.831071Z",
-  "last_successful_sync": "2026-11-09T14:58:21.831071Z",
+  "generated_at": "2026-11-09T15:00:30.975222Z",
+  "last_successful_sync": "2026-11-09T15:00:30.975222Z",
   "sources_checked": 7,
   "sources_total": 7,
   "source_errors": [],
-  "ai_new_summaries": 0,
-  "ai_errors": 1,
-  "ai_http_errors": [
-    404
-  ],
+  "ai_new_summaries": 8,
+  "ai_errors": 0,
+  "ai_http_errors": [],
   "ai_key_configured": true,
   "new_articles": 8,
   "articles": [
@@ -31,16 +29,6 @@
       "collected_at": "2026-11-09T14:57:37.489964Z",
       "category": "Systèmes",
       "summary_fr": "It was discovered that FreeRDP contained multiple security issues. An attacker could possibly use these issues to obtain sensitive information, cause FreeRDP to crash, resulting in a denial of service, or execute arbitrary code.",
-      "summary_kind": "extrait"
-    },
-    {
-      "title": "Launching the Vite Ecosystem Fund",
-      "url": "https://blog.cloudflare.com/launching-vite-ecosystem-fund/",
-      "source": "Cloudflare",
-      "published_at": "2026-11-09T13:00:00Z",
-      "collected_at": "2026-11-09T14:57:37.489964Z",
-      "category": "Réseaux",
-      "summary_fr": "Cloudflare is distributing the first $301,300 of the Vite Ecosystem Fund to open source projects and maintainers. The recipients were chosen by a panel of Vite stack core team members, including maintainers not employed by Cloudflare.",
       "summary_kind": "extrait"
     },
     {
@@ -114,16 +102,6 @@
       "summary_kind": "extrait"
     },
     {
-      "title": "Agents aren’t humans (but they kinda are)",
-      "url": "https://blog.cloudflare.com/trusted-agent-delegation/",
-      "source": "Cloudflare",
-      "published_at": "2026-11-05T17:03:04Z",
-      "collected_at": "2026-11-09T14:57:37.489964Z",
-      "category": "Réseaux",
-      "summary_fr": "AI agents act for millions, but servers see intermediaries that strip user visibility. This post defines the problem space and introduces a collaborative approach to safely identifying, allowing, and managing this automated traffic.",
-      "summary_kind": "extrait"
-    },
-    {
       "title": "Docker and ActiveState Extending Secure Defaults to the Packages Developers Install",
       "url": "https://www.docker.com/blog/docker-activestate-trusted-content/",
       "source": "Docker",
@@ -132,6 +110,26 @@
       "category": "Conteneurs",
       "summary_fr": "Docker partners with ActiveState to continue to provide one standard for trusted content across everything you and your teams build on.",
       "summary_kind": "extrait"
+    },
+    {
+      "title": "USN-9001-1: ca-certificates update",
+      "url": "https://ubuntu.com/security/notices/USN-9001-1",
+      "source": "Ubuntu Security",
+      "published_at": "2026-11-05T14:46:13Z",
+      "collected_at": "2026-11-09T15:00:30.975222Z",
+      "category": "Cybersécurité",
+      "summary_fr": "Une mise à jour de ca-certificates corrige un problème d'intégration JKS où les certificats supprimés du système n'étaient pas retirés du keystore.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "USN-8955-2: nginx vulnerabilities",
+      "url": "https://ubuntu.com/security/notices/USN-8955-2",
+      "source": "Ubuntu Security",
+      "published_at": "2026-11-05T14:40:26Z",
+      "collected_at": "2026-11-09T15:00:30.975222Z",
+      "category": "Cybersécurité",
+      "summary_fr": "Des vulnérabilités ont été corrigées dans le serveur nginx pour plusieurs versions d'Ubuntu. Un attaquant distant pouvait exploiter ces failles pour provoquer un déni de service ou exécuter du code arbitraire.",
+      "summary_kind": "ia"
     },
     {
       "title": "CNCF Score project improved its security posture by joining the Docker-Sponsored Open Source Program",
@@ -144,14 +142,14 @@
       "summary_kind": "extrait"
     },
     {
-      "title": "See the agents, set the terms: new visibility and control for personal agents",
-      "url": "https://blog.cloudflare.com/personal-agents-visibility-control/",
-      "source": "Cloudflare",
-      "published_at": "2026-11-04T14:00:00Z",
-      "collected_at": "2026-11-09T14:58:21.831071Z",
+      "title": "USN-7230-3: FRR regression",
+      "url": "https://ubuntu.com/security/notices/USN-7230-3",
+      "source": "Ubuntu Security",
+      "published_at": "2026-11-05T13:39:13Z",
+      "collected_at": "2026-11-09T15:00:30.975222Z",
       "category": "Réseaux",
-      "summary_fr": "Personal AI agents have changed how users interact with the web, blurring the lines between automated and human traffic. Learn how Cloudflare gives site owners visibility and control to manage personal agent access.",
-      "summary_kind": "extrait"
+      "summary_fr": "Une correction de sécurité Ubuntu pour FRR a introduit une régression affectant la gestion des mises à jour RPKI et le démarrage du démon BGP. Cette mise à jour résout le problème.",
+      "summary_kind": "ia"
     },
     {
       "title": "Multiples vulnérabilités dans Apache Zookeeper (04 novembre 2026)",
@@ -172,6 +170,56 @@
       "category": "Cybersécurité",
       "summary_fr": "De multiples vulnérabilités ont été découvertes dans les produits Citrix. Elles permettent à un attaquant de provoquer une exécution de code arbitraire à distance et une élévation de privilèges.",
       "summary_kind": "extrait"
+    },
+    {
+      "title": "Multiples vulnérabilités dans Google Chrome (04 novembre 2026)",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1450/",
+      "source": "CERT-FR · Avis",
+      "published_at": "2026-11-04T00:00:00Z",
+      "collected_at": "2026-11-09T15:00:30.975222Z",
+      "category": "Cybersécurité",
+      "summary_fr": "De multiples vulnérabilités non spécifiées ont été découvertes dans Google Chrome par le CERT-FR. Ces failles permettent à un attaquant de provoquer des problèmes de sécurité.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "Multiples vulnérabilités dans les produits HPE Aruba Networking (04 novembre 2026)",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1451/",
+      "source": "CERT-FR · Avis",
+      "published_at": "2026-11-04T00:00:00Z",
+      "collected_at": "2026-11-09T15:00:30.975222Z",
+      "category": "Cybersécurité",
+      "summary_fr": "De multiples vulnérabilités ont été découvertes dans les produits HPE Aruba Networking. Celles-ci permettent notamment l'exécution de code à distance, une élévation de privilèges et un déni de service.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "Multiples vulnérabilités dans Ruby on Rails (04 novembre 2026)",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1452/",
+      "source": "CERT-FR · Avis",
+      "published_at": "2026-11-04T00:00:00Z",
+      "collected_at": "2026-11-09T15:00:30.975222Z",
+      "category": "Cybersécurité",
+      "summary_fr": "De multiples vulnérabilités ont été découvertes dans Ruby on Rails. Elles permettent notamment une exécution de code arbitraire, un déni de service et une atteinte à la confidentialité des données.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "Introducing Zero Wire, a hub for investigating critical Internet vulnerabilities",
+      "url": "https://blog.cloudflare.com/zero-wire/",
+      "source": "Cloudflare",
+      "published_at": "2026-11-03T14:00:00Z",
+      "collected_at": "2026-11-09T15:00:30.975222Z",
+      "category": "Cybersécurité",
+      "summary_fr": "Cloudflare lance Zero Wire, un outil centralisant des analyses, des données de télémétrie et des correctifs pour enquêter sur les vulnérabilités critiques.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "The Ecosystem is the Answer: Docker, the Blueprint Alliance, and the Importance of Collaboration in the Agentic Era",
+      "url": "https://www.docker.com/blog/docker-blueprint-alliance-agent-baseline/",
+      "source": "Docker",
+      "published_at": "2026-11-02T14:00:00Z",
+      "collected_at": "2026-11-09T15:00:30.975222Z",
+      "category": "Conteneurs",
+      "summary_fr": "Docker a rejoint en tant que membre fondateur la Blueprint Alliance, une initiative de douze entreprises visant à créer une architecture de référence pour sécuriser les agents d'intelligence artificielle.",
+      "summary_kind": "ia"
     }
   ]
 }
