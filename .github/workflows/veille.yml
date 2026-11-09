@@ -2,6 +2,12 @@ name: Veille technologique quotidienne
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/**'
+      - 'tests/**'
+      - '.github/workflows/veille.yml'
   schedule:
     - cron: '17 6 * * *'
       timezone: Europe/Paris
