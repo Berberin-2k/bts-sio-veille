@@ -37,7 +37,7 @@ jobs:
       - name: Collecter et résumer
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GEMINI_MODEL: gemini-2.5-flash-lite
+          GEMINI_MODEL: gemini-3.5-flash-lite
         run: python scripts/collect.py
       - name: Vérifier le JSON
         run: python -m json.tool site/data/articles.json > /dev/null
