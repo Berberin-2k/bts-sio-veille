@@ -15,7 +15,7 @@ import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "site" / "data" / "articles.json"
-MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash-lite")
+MODEL = os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite")
 MAX_NEW, MAX_PER_SOURCE, MAX_STORED = 8, 3, 180
 SOURCES = [
     ("CERT-FR · Alertes", "https://cert.cyber.gouv.fr/alerte/feed/", "Cybersécurité"),
