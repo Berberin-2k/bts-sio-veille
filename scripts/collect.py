@@ -214,6 +214,7 @@ def main():
 
     key = os.getenv("GEMINI_API_KEY", "").strip()
     ai_count, ai_errors, api_disabled = 0, 0, False
+    ai_http_errors = []
     now = timestamp()
     for item in selected:
         summary, category, kind = fallback(item), category_for(item), "extrait"
@@ -226,6 +227,7 @@ def main():
             except error.HTTPError as exc:
                 ai_errors += 1
                 print(f"[WARN] Gemini HTTP {exc.code}; utilisation de l'extrait", file=sys.stderr)
+                ai_http_errors.append(exc.code)
                 api_disabled = exc.code in (400, 401, 403, 404, 429)
             except (ValueError, KeyError, IndexError, error.URLError, TimeoutError) as exc:
                 ai_errors += 1
@@ -236,12 +238,43 @@ def main():
             "category": category, "summary_fr": summary, "summary_kind": kind,
         }
 
+    # Retenter les anciens extraits lors des prochains runs si l'IA redevient disponible.
+    # Limite globale : huit appels IA par exécution.
+    if key and not api_disabled and len(selected) < MAX_NEW:
+        attempted = set(item["url"] for item in selected)
+        for old_article in sorted(known.values(), key=lambda x: x.get("collected_at") or "", reverse=True):
+            if len(attempted) >= MAX_NEW:
+                break
+            if old_article["url"] in attempted or old_article.get("summary_kind") != "extrait":
+                continue
+            attempted.add(old_article["url"])
+            old_entry = {
+                "title": old_article["title"],
+                "source": old_article["source"],
+                "excerpt": old_article.get("summary_fr", ""),
+                "category": old_article.get("category", "Systèmes"),
+            }
+            try:
+                old_article["summary_fr"], old_article["category"] = summarize(old_entry, key)
+                old_article["summary_kind"] = "ia"
+                ai_count += 1
+                time.sleep(1)
+            except error.HTTPError as exc:
+                ai_errors += 1
+                ai_http_errors.append(exc.code)
+                print(f"[WARN] Gemini HTTP {exc.code}; ancien extrait conservé", file=sys.stderr)
+                if exc.code in (400, 401, 403, 404, 429):
+                    break
+            except (ValueError, KeyError, IndexError, error.URLError, TimeoutError) as exc:
+                ai_errors += 1
+                print(f"[WARN] Gemini {type(exc).__name__}; ancien extrait conservé", file=sys.stderr)
+
     articles = sorted(known.values(), key=lambda x: x.get("published_at") or x.get("collected_at") or "", reverse=True)[:MAX_STORED]
     updated = {
         "version": 1, "generated_at": now, "last_successful_sync": now,
         "sources_checked": source_ok, "sources_total": len(SOURCES),
         "source_errors": source_errors, "ai_new_summaries": ai_count,
-        "ai_errors": ai_errors, "ai_key_configured": bool(key),
+        "ai_errors": ai_errors, "ai_http_errors": ai_http_errors, "ai_key_configured": bool(key),
         "new_articles": len(selected), "articles": articles,
     }
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
