@@ -72,7 +72,14 @@ jobs:
             git config user.name 'veille-bot'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
             git commit -m 'data: veille récente et archives quotidiennes'
-            git push
+            # Another commit can land while the collector runs. Integrate it safely;
+            # never force-push and never silently overwrite newer published JSON.
+            if ! git push origin HEAD:main; then
+              echo 'Remote updated during collection; attempting a safe rebase.'
+              git fetch origin main
+              git rebase origin/main
+              git push origin HEAD:main
+            fi
           fi
       - name: Configurer GitHub Pages
         uses: actions/configure-pages@v5
