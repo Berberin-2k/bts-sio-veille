@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "generated_at": "2026-11-10T09:04:02.509693Z",
-  "last_successful_sync": "2026-11-10T09:04:02.509693Z",
+  "generated_at": "2026-11-10T09:38:24.968640Z",
+  "last_successful_sync": "2026-11-10T09:38:24.968640Z",
   "sources_checked": 8,
   "sources_total": 8,
   "source_errors": [],
@@ -11,8 +11,8 @@
     503
   ],
   "ai_key_configured": true,
-  "new_articles": 8,
-  "recent_count": 69,
+  "new_articles": 6,
+  "recent_count": 75,
   "archive_count": 0,
   "recent_days": 60,
   "archive_days": 365,
@@ -27,10 +27,27 @@
       "category": "Cybersécurité",
       "summary_fr": "Des vulnérabilités ont été découvertes dans le serveur HTTP Apache sur plusieurs versions d'Ubuntu. Celles-ci peuvent potentiellement mener à un déni de service ou à une fuite d'informations.",
       "summary_kind": "ia",
-      "severity": "non_evaluee",
-      "severity_basis": "donnees_insuffisantes",
-      "cvss_score": null,
-      "severity_version": 1
+      "severity": "elevee",
+      "severity_basis": "nvd_cvss",
+      "cvss_score": 7.5,
+      "severity_version": 1,
+      "cve_ids": [
+        "CVE-2026-46729",
+        "CVE-2026-47360",
+        "CVE-2026-48005",
+        "CVE-2026-56153"
+      ],
+      "notice_checked_at": "2026-11-04T09:38:58.192304Z",
+      "enrichment_version": 2,
+      "cve_identified_count": 4,
+      "cve_checked_count": 2,
+      "cve_assessed_count": 2,
+      "severity_coverage": "partial",
+      "cvss_version": "3.1",
+      "severity_cve": "CVE-2026-46729",
+      "severity_source": "134c704f-9b21-4f2e-91b3-4a467353bcc0",
+      "severity_source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46729",
+      "severity_checked_at": "2026-11-10T09:38:58.192304Z"
     },
     {
       "title": "USN-8890-3: libsoup regression",
@@ -41,10 +58,29 @@
       "category": "Cybersécurité",
       "summary_fr": "Une mise à jour Ubuntu résout une régression et des vulnérabilités dans libsoup. Ces failles concernaient la gestion des requêtes HTTP et des proxys.",
       "summary_kind": "ia",
-      "severity": "non_evaluee",
-      "severity_basis": "donnees_insuffisantes",
-      "cvss_score": null,
-      "severity_version": 1
+      "severity": "elevee",
+      "severity_basis": "nvd_cvss",
+      "cvss_score": 8.2,
+      "severity_version": 1,
+      "cve_ids": [
+        "CVE-2026-4271",
+        "CVE-2026-5119",
+        "CVE-2026-6324",
+        "CVE-2026-66339",
+        "CVE-2026-77014",
+        "CVE-2026-77680"
+      ],
+      "notice_checked_at": "2026-11-04T09:38:58.192304Z",
+      "enrichment_version": 2,
+      "cve_identified_count": 6,
+      "cve_checked_count": 2,
+      "cve_assessed_count": 2,
+      "severity_coverage": "partial",
+      "cvss_version": "3.1",
+      "severity_cve": "CVE-2026-5119",
+      "severity_source": "nvd@nist.gov",
+      "severity_source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5119",
+      "severity_checked_at": "2026-11-10T09:38:58.192304Z"
     },
     {
       "title": "USN-9015-1: OpenJDK 21 vulnerabilities",
@@ -55,10 +91,31 @@
       "category": "Cybersécurité",
       "summary_fr": "Des vulnérabilités ont été découvertes dans plusieurs composants d'OpenJDK 21, affectant l'authentification et l'autorisation des utilisateurs. Un attaquant distant pourrait exploiter ces failles pour compromettre des données sensibles ou provoquer un déni de service.",
       "summary_kind": "ia",
-      "severity": "non_evaluee",
-      "severity_basis": "donnees_insuffisantes",
-      "cvss_score": null,
-      "severity_version": 1
+      "severity": "moderee",
+      "severity_basis": "nvd_cvss",
+      "cvss_score": 5.9,
+      "severity_version": 1,
+      "cve_ids": [
+        "CVE-2026-83374",
+        "CVE-2026-83376",
+        "CVE-2026-83378",
+        "CVE-2026-83380",
+        "CVE-2026-83381",
+        "CVE-2026-83387",
+        "CVE-2026-83395",
+        "CVE-2026-83400"
+      ],
+      "notice_checked_at": "2026-11-04T09:38:58.192304Z",
+      "enrichment_version": 2,
+      "cve_identified_count": 8,
+      "cve_checked_count": 5,
+      "cve_assessed_count": 5,
+      "severity_coverage": "partial",
+      "cvss_version": "3.1",
+      "severity_cve": "CVE-2026-83374",
+      "severity_source": "secalert_us@oracle.com",
+      "severity_source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-83374",
+      "severity_checked_at": "2026-11-10T09:38:58.192304Z"
     },
     {
       "title": "USN-9014-1: OpenJDK 17 vulnerabilities",
@@ -69,10 +126,31 @@
       "category": "Cybersécurité",
       "summary_fr": "Des vulnérabilités ont été découvertes dans plusieurs composants d'OpenJDK 17, permettant à un attaquant distant d'accéder à des données sensibles ou de provoquer un déni de service.",
       "summary_kind": "ia",
-      "severity": "non_evaluee",
-      "severity_basis": "donnees_insuffisantes",
-      "cvss_score": null,
-      "severity_version": 1
+      "severity": "moderee",
+      "severity_basis": "nvd_cvss",
+      "cvss_score": 5.9,
+      "severity_version": 1,
+      "cve_ids": [
+        "CVE-2026-83374",
+        "CVE-2026-83376",
+        "CVE-2026-83380",
+        "CVE-2026-83381",
+        "CVE-2026-83387",
+        "CVE-2026-83395",
+        "CVE-2026-83400",
+        "CVE-2026-87290"
+      ],
+      "notice_checked_at": "2026-11-04T09:38:58.192304Z",
+      "enrichment_version": 2,
+      "cve_identified_count": 8,
+      "cve_checked_count": 4,
+      "cve_assessed_count": 4,
+      "severity_coverage": "partial",
+      "cvss_version": "3.1",
+      "severity_cve": "CVE-2026-83374",
+      "severity_source": "secalert_us@oracle.com",
+      "severity_source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-83374",
+      "severity_checked_at": "2026-11-10T09:38:58.192304Z"
     },
     {
       "title": "USN-9013-1: Fetchmail vulnerabilities",
@@ -83,10 +161,26 @@
       "category": "Cybersécurité",
       "summary_fr": "Des vulnérabilités ont été découvertes dans Fetchmail sous Ubuntu, permettant à un attaquant distant de provoquer un déni de service ou d'exécuter du code arbitraire. Ces failles concernent le traitement des messages de journal, des codes de statut SMTP et des défis d'authentification NTLM.",
       "summary_kind": "ia",
-      "severity": "non_evaluee",
-      "severity_basis": "donnees_insuffisantes",
-      "cvss_score": null,
-      "severity_version": 1
+      "severity": "elevee",
+      "severity_basis": "nvd_cvss",
+      "cvss_score": 7.5,
+      "severity_version": 1,
+      "cve_ids": [
+        "CVE-2021-36386",
+        "CVE-2025-61962",
+        "CVE-2026-94184"
+      ],
+      "notice_checked_at": "2026-11-04T09:38:58.192304Z",
+      "enrichment_version": 2,
+      "cve_identified_count": 3,
+      "cve_checked_count": 1,
+      "cve_assessed_count": 1,
+      "severity_coverage": "partial",
+      "cvss_version": "3.1",
+      "severity_cve": "CVE-2021-36386",
+      "severity_source": "nvd@nist.gov",
+      "severity_source_url": "https://nvd.nist.gov/vuln/detail/CVE-2021-36386",
+      "severity_checked_at": "2026-11-10T09:38:58.192304Z"
     },
     {
       "title": "USN-9012-1: libheif vulnerability",
@@ -100,7 +194,14 @@
       "severity": "non_evaluee",
       "severity_basis": "donnees_insuffisantes",
       "cvss_score": null,
-      "severity_version": 1
+      "severity_version": 1,
+      "cve_ids": [],
+      "notice_checked_at": "2026-11-04T09:38:58.192304Z",
+      "enrichment_version": 2,
+      "cve_identified_count": 0,
+      "cve_checked_count": 0,
+      "cve_assessed_count": 0,
+      "severity_coverage": "unavailable"
     },
     {
       "title": "USN-9011-1: pyasn1 vulnerabilities",
@@ -111,10 +212,26 @@
       "category": "Systèmes",
       "summary_fr": "It was discovered that pyasn1 did not properly bound the size of long-form tag identifiers when parsing BER, CER, or DER encoded data. An attacker could possibly use this issue to cause applications decoding untrusted ASN.1 data to consume excessive CPU resources, resulting in a denial of service. This issue only affected Ubuntu 14.04 LTS, Ubuntu 16.04 LTS, Ubuntu 18.04 LTS, and Ubuntu 20.04 LTS. (CVE-2026-59884) It was discovered that ",
       "summary_kind": "extrait",
-      "severity": "non_evaluee",
-      "severity_basis": "donnees_insuffisantes",
-      "cvss_score": null,
-      "severity_version": 1
+      "severity": "elevee",
+      "severity_basis": "nvd_cvss",
+      "cvss_score": 7.5,
+      "severity_version": 1,
+      "cve_ids": [
+        "CVE-2026-59884",
+        "CVE-2026-59885",
+        "CVE-2026-59886"
+      ],
+      "notice_checked_at": "2026-11-04T09:38:58.192304Z",
+      "enrichment_version": 2,
+      "cve_identified_count": 3,
+      "cve_checked_count": 1,
+      "cve_assessed_count": 1,
+      "severity_coverage": "partial",
+      "cvss_version": "3.1",
+      "severity_cve": "CVE-2026-59884",
+      "severity_source": "security-advisories@github.com",
+      "severity_source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59884",
+      "severity_checked_at": "2026-11-10T09:38:58.192304Z"
     },
     {
       "title": "USN-9009-1: OpenJDK 8 vulnerabilities",
@@ -125,10 +242,33 @@
       "category": "Cybersécurité",
       "summary_fr": "Des vulnérabilités ont été découvertes dans plusieurs composants d'OpenJDK 8, permettant à un attaquant distant de lire, modifier des données sensibles ou provoquer un déni de service.",
       "summary_kind": "ia",
-      "severity": "non_evaluee",
-      "severity_basis": "donnees_insuffisantes",
-      "cvss_score": null,
-      "severity_version": 1
+      "severity": "moderee",
+      "severity_basis": "nvd_cvss",
+      "cvss_score": 5.9,
+      "severity_version": 1,
+      "cve_ids": [
+        "CVE-2026-83374",
+        "CVE-2026-83376",
+        "CVE-2026-91461",
+        "CVE-2026-83380",
+        "CVE-2026-83381",
+        "CVE-2026-87294",
+        "CVE-2026-83387",
+        "CVE-2026-83395",
+        "CVE-2026-83400",
+        "CVE-2026-87290"
+      ],
+      "notice_checked_at": "2026-11-04T09:38:58.192304Z",
+      "enrichment_version": 2,
+      "cve_identified_count": 10,
+      "cve_checked_count": 5,
+      "cve_assessed_count": 5,
+      "severity_coverage": "partial",
+      "cvss_version": "3.1",
+      "severity_cve": "CVE-2026-83374",
+      "severity_source": "secalert_us@oracle.com",
+      "severity_source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-83374",
+      "severity_checked_at": "2026-11-10T09:38:58.192304Z"
     },
     {
       "title": "USN-9010-1: OpenJDK 11 vulnerabilities",
@@ -139,10 +279,33 @@
       "category": "Cybersécurité",
       "summary_fr": "Des vulnérabilités ont été découvertes dans plusieurs composants d'OpenJDK 11, permettant à un attaquant distant d'accéder à des données sensibles ou de perturber le service. Ces failles affectent l'authentification et l'autorisation au sein de la plateforme.",
       "summary_kind": "ia",
-      "severity": "non_evaluee",
-      "severity_basis": "donnees_insuffisantes",
-      "cvss_score": null,
-      "severity_version": 1
+      "severity": "moderee",
+      "severity_basis": "nvd_cvss",
+      "cvss_score": 5.9,
+      "severity_version": 1,
+      "cve_ids": [
+        "CVE-2026-83374",
+        "CVE-2026-83376",
+        "CVE-2026-91461",
+        "CVE-2026-83380",
+        "CVE-2026-83381",
+        "CVE-2026-87294",
+        "CVE-2026-83387",
+        "CVE-2026-83395",
+        "CVE-2026-83400",
+        "CVE-2026-87290"
+      ],
+      "notice_checked_at": "2026-11-04T09:38:58.192304Z",
+      "enrichment_version": 2,
+      "cve_identified_count": 10,
+      "cve_checked_count": 5,
+      "cve_assessed_count": 5,
+      "severity_coverage": "partial",
+      "cvss_version": "3.1",
+      "severity_cve": "CVE-2026-83374",
+      "severity_source": "secalert_us@oracle.com",
+      "severity_source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-83374",
+      "severity_checked_at": "2026-11-10T09:38:58.192304Z"
     },
     {
       "title": "USN-9008-1: libnfs vulnerability",
@@ -153,10 +316,25 @@
       "category": "Systèmes",
       "summary_fr": "It was discovered that libnfs did not properly enforce the maximum size bound during ZDR decoding, resulting in an out-of-bounds write. An attacker could possibly use this issue to cause libnfs to crash, resulting in a denial of service, or execute arbitrary code.",
       "summary_kind": "extrait",
-      "severity": "non_evaluee",
-      "severity_basis": "donnees_insuffisantes",
-      "cvss_score": null,
-      "severity_version": 1
+      "severity": "elevee",
+      "severity_basis": "nvd_cvss",
+      "cvss_score": 7.1,
+      "severity_version": 1,
+      "cve_ids": [
+        "CVE-2026-108985"
+      ],
+      "notice_checked_at": "2026-11-10T09:38:58.192304Z",
+      "notice_url": "https://ubuntu.com/security/notices/USN-9008-1",
+      "enrichment_version": 2,
+      "cve_identified_count": 1,
+      "cve_checked_count": 1,
+      "cve_assessed_count": 1,
+      "severity_coverage": "complete",
+      "cvss_version": "3.1",
+      "severity_cve": "CVE-2026-108985",
+      "severity_source": "cve@mitre.org",
+      "severity_source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108985",
+      "severity_checked_at": "2026-11-10T09:38:58.192304Z"
     },
     {
       "title": "USN-9007-1: FreeRDP vulnerabilities",
@@ -167,10 +345,51 @@
       "category": "Systèmes",
       "summary_fr": "It was discovered that FreeRDP contained multiple security issues. An attacker could possibly use these issues to obtain sensitive information, cause FreeRDP to crash, resulting in a denial of service, or execute arbitrary code.",
       "summary_kind": "extrait",
-      "severity": "non_evaluee",
-      "severity_basis": "donnees_insuffisantes",
-      "cvss_score": null,
-      "severity_version": 1
+      "severity": "elevee",
+      "severity_basis": "nvd_cvss",
+      "cvss_score": 7.1,
+      "severity_version": 1,
+      "cve_ids": [
+        "CVE-2026-121412",
+        "CVE-2026-121411",
+        "CVE-2026-121410",
+        "CVE-2026-121409",
+        "CVE-2026-121408",
+        "CVE-2026-121407",
+        "CVE-2026-121406",
+        "CVE-2026-121405",
+        "CVE-2026-121404",
+        "CVE-2026-121403",
+        "CVE-2026-121402",
+        "CVE-2026-121401",
+        "CVE-2026-121400",
+        "CVE-2026-121399",
+        "CVE-2026-121398",
+        "CVE-2026-121397",
+        "CVE-2026-121396",
+        "CVE-2026-121395",
+        "CVE-2026-121394",
+        "CVE-2026-121393",
+        "CVE-2026-121392",
+        "CVE-2026-121391",
+        "CVE-2026-121390",
+        "CVE-2026-121389",
+        "CVE-2026-121388",
+        "CVE-2026-121387",
+        "CVE-2026-121386"
+      ],
+      "notice_checked_at": "2026-11-10T09:38:58.192304Z",
+      "notice_url": "https://ubuntu.com/security/notices/USN-9007-1",
+      "enrichment_version": 2,
+      "cve_identified_count": 27,
+      "cve_checked_count": 1,
+      "cve_assessed_count": 1,
+      "severity_coverage": "partial",
+      "cvss_version": "4.0",
+      "severity_cve": "CVE-2026-121412",
+      "severity_source": "disclosure@vulncheck.com",
+      "severity_source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121412",
+      "severity_checked_at": "2026-11-10T09:38:58.192304Z"
     },
     {
       "title": "USN-9001-2: ca-certificates update",
@@ -184,7 +403,15 @@
       "severity": "non_evaluee",
       "severity_basis": "donnees_insuffisantes",
       "cvss_score": null,
-      "severity_version": 1
+      "severity_version": 1,
+      "cve_ids": [],
+      "notice_checked_at": "2026-11-10T09:38:58.192304Z",
+      "notice_url": "https://ubuntu.com/security/notices/USN-9001-2",
+      "enrichment_version": 2,
+      "cve_identified_count": 0,
+      "cve_checked_count": 0,
+      "cve_assessed_count": 0,
+      "severity_coverage": "unavailable"
     },
     {
       "title": "7.4-rc2: mainline",
@@ -212,7 +439,13 @@
       "severity": "non_evaluee",
       "severity_basis": "donnees_insuffisantes",
       "cvss_score": null,
-      "severity_version": 1
+      "severity_version": 1,
+      "cve_ids": [],
+      "enrichment_version": 2,
+      "cve_identified_count": 0,
+      "cve_checked_count": 0,
+      "cve_assessed_count": 0,
+      "severity_coverage": "unavailable"
     },
     {
       "title": "The post-quantum future of web privacy",
@@ -240,7 +473,13 @@
       "severity": "non_evaluee",
       "severity_basis": "donnees_insuffisantes",
       "cvss_score": null,
-      "severity_version": 1
+      "severity_version": 1,
+      "cve_ids": [],
+      "enrichment_version": 2,
+      "cve_identified_count": 0,
+      "cve_checked_count": 0,
+      "cve_assessed_count": 0,
+      "severity_coverage": "unavailable"
     },
     {
       "title": "USN-9002-1: Linux kernel (NVIDIA Tegra) vulnerabilities",
@@ -254,7 +493,13 @@
       "severity": "non_evaluee",
       "severity_basis": "donnees_insuffisantes",
       "cvss_score": null,
-      "severity_version": 1
+      "severity_version": 1,
+      "cve_ids": [],
+      "enrichment_version": 2,
+      "cve_identified_count": 0,
+      "cve_checked_count": 0,
+      "cve_assessed_count": 0,
+      "severity_coverage": "unavailable"
     },
     {
       "title": "Docker Sandboxes vs. Containers: Choosing the Right Isolation for AI Agents",
@@ -310,7 +555,13 @@
       "severity": "non_evaluee",
       "severity_basis": "donnees_insuffisantes",
       "cvss_score": null,
-      "severity_version": 1
+      "severity_version": 1,
+      "cve_ids": [],
+      "enrichment_version": 2,
+      "cve_identified_count": 0,
+      "cve_checked_count": 0,
+      "cve_assessed_count": 0,
+      "severity_coverage": "unavailable"
     },
     {
       "title": "USN-8955-2: nginx vulnerabilities",
@@ -324,7 +575,13 @@
       "severity": "non_evaluee",
       "severity_basis": "donnees_insuffisantes",
       "cvss_score": null,
-      "severity_version": 1
+      "severity_version": 1,
+      "cve_ids": [],
+      "enrichment_version": 2,
+      "cve_identified_count": 0,
+      "cve_checked_count": 0,
+      "cve_assessed_count": 0,
+      "severity_coverage": "unavailable"
     },
     {
       "title": "CNCF Score project improved its security posture by joining the Docker-Sponsored Open Source Program",
@@ -352,7 +609,13 @@
       "severity": "non_evaluee",
       "severity_basis": "donnees_insuffisantes",
       "cvss_score": null,
-      "severity_version": 1
+      "severity_version": 1,
+      "cve_ids": [],
+      "enrichment_version": 2,
+      "cve_identified_count": 0,
+      "cve_checked_count": 0,
+      "cve_assessed_count": 0,
+      "severity_coverage": "unavailable"
     },
     {
       "title": "Multiples vulnérabilités dans les produits Siemens (05 novembre 2026)",
@@ -366,7 +629,13 @@
       "severity": "non_evaluee",
       "severity_basis": "donnees_insuffisantes",
       "cvss_score": null,
-      "severity_version": 1
+      "severity_version": 1,
+      "cve_ids": [],
+      "enrichment_version": 2,
+      "cve_identified_count": 0,
+      "cve_checked_count": 0,
+      "cve_assessed_count": 0,
+      "severity_coverage": "unavailable"
     },
     {
       "title": "Multiples vulnérabilités dans OpenOffice (05 novembre 2026)",
@@ -380,7 +649,13 @@
       "severity": "non_evaluee",
       "severity_basis": "donnees_insuffisantes",
       "cvss_score": null,
-      "severity_version": 1
+      "severity_version": 1,
+      "cve_ids": [],
+      "enrichment_version": 2,
+      "cve_identified_count": 0,
+      "cve_checked_count": 0,
+      "cve_assessed_count": 0,
+      "severity_coverage": "unavailable"
     },
     {
       "title": "Multiples vulnérabilités dans MongoDB (05 novembre 2026)",
@@ -394,7 +669,13 @@
       "severity": "non_evaluee",
       "severity_basis": "donnees_insuffisantes",
       "cvss_score": null,
-      "severity_version": 1
+      "severity_version": 1,
+      "cve_ids": [],
+      "enrichment_version": 2,
+      "cve_identified_count": 0,
+      "cve_checked_count": 0,
+      "cve_assessed_count": 0,
+      "severity_coverage": "unavailable"
     },
     {
       "title": "Multiples vulnérabilités dans les produits Elastic (04 novembre 2026)",
@@ -403,12 +684,18 @@
       "published_at": "2026-11-04T00:00:00Z",
       "collected_at": "2026-11-10T09:03:41.329866Z",
       "category": "Cybersécurité",
-      "summary_fr": "De multiples vulnérabilités ont été découvertes dans les produits Elastic. Certaines d'entre elles permettent à un attaquant de provoquer une exécution de code arbitraire à distance, un déni de service à distance et une atteinte à la confidentialité des données.",
-      "summary_kind": "extrait",
+      "summary_fr": "De multiples vulnérabilités ont été découvertes dans les produits Elastic. Celles-ci peuvent permettre à un attaquant de provoquer une exécution de code à distance, un déni de service et une atteinte à la confidentialité des données.",
+      "summary_kind": "ia",
       "severity": "non_evaluee",
       "severity_basis": "donnees_insuffisantes",
       "cvss_score": null,
-      "severity_version": 1
+      "severity_version": 1,
+      "cve_ids": [],
+      "enrichment_version": 2,
+      "cve_identified_count": 0,
+      "cve_checked_count": 0,
+      "cve_assessed_count": 0,
+      "severity_coverage": "unavailable"
     },
     {
       "title": "Multiples vulnérabilités dans les produits Symfony (04 novembre 2026)",
@@ -422,7 +709,13 @@
       "severity": "non_evaluee",
       "severity_basis": "donnees_insuffisantes",
       "cvss_score": null,
-      "severity_version": 1
+      "severity_version": 1,
+      "cve_ids": [],
+      "enrichment_version": 2,
+      "cve_identified_count": 0,
+      "cve_checked_count": 0,
+      "cve_assessed_count": 0,
+      "severity_coverage": "unavailable"
     },
     {
       "title": "Multiples vulnérabilités dans SolarWinds Dameware (04 novembre 2026)",
@@ -436,7 +729,13 @@
       "severity": "non_evaluee",
       "severity_basis": "donnees_insuffisantes",
       "cvss_score": null,
-      "severity_version": 1
+      "severity_version": 1,
+      "cve_ids": [],
+      "enrichment_version": 2,
+      "cve_identified_count": 0,
+      "cve_checked_count": 0,
+      "cve_assessed_count": 0,
+      "severity_coverage": "unavailable"
     },
     {
       "title": "Multiples vulnérabilités dans les produits Mattermost (04 novembre 2026)",
@@ -450,7 +749,13 @@
       "severity": "non_evaluee",
       "severity_basis": "donnees_insuffisantes",
       "cvss_score": null,
-      "severity_version": 1
+      "severity_version": 1,
+      "cve_ids": [],
+      "enrichment_version": 2,
+      "cve_identified_count": 0,
+      "cve_checked_count": 0,
+      "cve_assessed_count": 0,
+      "severity_coverage": "unavailable"
     },
     {
       "title": "Vulnérabilité dans Laravel (04 novembre 2026)",
@@ -464,7 +769,13 @@
       "severity": "non_evaluee",
       "severity_basis": "donnees_insuffisantes",
       "cvss_score": null,
-      "severity_version": 1
+      "severity_version": 1,
+      "cve_ids": [],
+      "enrichment_version": 2,
+      "cve_identified_count": 0,
+      "cve_checked_count": 0,
+      "cve_assessed_count": 0,
+      "severity_coverage": "unavailable"
     },
     {
       "title": "Multiples vulnérabilités dans les produits SonicWall (04 novembre 2026)",
@@ -478,7 +789,13 @@
       "severity": "non_evaluee",
       "severity_basis": "donnees_insuffisantes",
       "cvss_score": null,
-      "severity_version": 1
+      "severity_version": 1,
+      "cve_ids": [],
+      "enrichment_version": 2,
+      "cve_identified_count": 0,
+      "cve_checked_count": 0,
+      "cve_assessed_count": 0,
+      "severity_coverage": "unavailable"
     },
     {
       "title": "Vulnérabilité dans Mozilla Firefox (04 novembre 2026)",
@@ -492,7 +809,13 @@
       "severity": "non_evaluee",
       "severity_basis": "donnees_insuffisantes",
       "cvss_score": null,
-      "severity_version": 1
+      "severity_version": 1,
+      "cve_ids": [],
+      "enrichment_version": 2,
+      "cve_identified_count": 0,
+      "cve_checked_count": 0,
+      "cve_assessed_count": 0,
+      "severity_coverage": "unavailable"
     },
     {
       "title": "Vulnérabilité dans MongoDB (04 novembre 2026)",
@@ -506,7 +829,13 @@
       "severity": "non_evaluee",
       "severity_basis": "donnees_insuffisantes",
       "cvss_score": null,
-      "severity_version": 1
+      "severity_version": 1,
+      "cve_ids": [],
+      "enrichment_version": 2,
+      "cve_identified_count": 0,
+      "cve_checked_count": 0,
+      "cve_assessed_count": 0,
+      "severity_coverage": "unavailable"
     },
     {
       "title": "Multiples vulnérabilités dans NetApp StorageGRID (04 novembre 2026)",
@@ -520,7 +849,13 @@
       "severity": "non_evaluee",
       "severity_basis": "donnees_insuffisantes",
       "cvss_score": null,
-      "severity_version": 1
+      "severity_version": 1,
+      "cve_ids": [],
+      "enrichment_version": 2,
+      "cve_identified_count": 0,
+      "cve_checked_count": 0,
+      "cve_assessed_count": 0,
+      "severity_coverage": "unavailable"
     },
     {
       "title": "Multiples vulnérabilités dans Ruby on Rails (04 novembre 2026)",
@@ -534,7 +869,13 @@
       "severity": "non_evaluee",
       "severity_basis": "donnees_insuffisantes",
       "cvss_score": null,
-      "severity_version": 1
+      "severity_version": 1,
+      "cve_ids": [],
+      "enrichment_version": 2,
+      "cve_identified_count": 0,
+      "cve_checked_count": 0,
+      "cve_assessed_count": 0,
+      "severity_coverage": "unavailable"
     },
     {
       "title": "Multiples vulnérabilités dans les produits HPE Aruba Networking (04 novembre 2026)",
@@ -548,7 +889,13 @@
       "severity": "non_evaluee",
       "severity_basis": "donnees_insuffisantes",
       "cvss_score": null,
-      "severity_version": 1
+      "severity_version": 1,
+      "cve_ids": [],
+      "enrichment_version": 2,
+      "cve_identified_count": 0,
+      "cve_checked_count": 0,
+      "cve_assessed_count": 0,
+      "severity_coverage": "unavailable"
     },
     {
       "title": "Multiples vulnérabilités dans Google Chrome (04 novembre 2026)",
@@ -562,7 +909,13 @@
       "severity": "non_evaluee",
       "severity_basis": "donnees_insuffisantes",
       "cvss_score": null,
-      "severity_version": 1
+      "severity_version": 1,
+      "cve_ids": [],
+      "enrichment_version": 2,
+      "cve_identified_count": 0,
+      "cve_checked_count": 0,
+      "cve_assessed_count": 0,
+      "severity_coverage": "unavailable"
     },
     {
       "title": "Multiples vulnérabilités dans les produits Citrix (04 novembre 2026)",
@@ -576,7 +929,13 @@
       "severity": "non_evaluee",
       "severity_basis": "donnees_insuffisantes",
       "cvss_score": null,
-      "severity_version": 1
+      "severity_version": 1,
+      "cve_ids": [],
+      "enrichment_version": 2,
+      "cve_identified_count": 0,
+      "cve_checked_count": 0,
+      "cve_assessed_count": 0,
+      "severity_coverage": "unavailable"
     },
     {
       "title": "Multiples vulnérabilités dans Apache Zookeeper (04 novembre 2026)",
@@ -590,7 +949,13 @@
       "severity": "non_evaluee",
       "severity_basis": "donnees_insuffisantes",
       "cvss_score": null,
-      "severity_version": 1
+      "severity_version": 1,
+      "cve_ids": [],
+      "enrichment_version": 2,
+      "cve_identified_count": 0,
+      "cve_checked_count": 0,
+      "cve_assessed_count": 0,
+      "severity_coverage": "unavailable"
     },
     {
       "title": "Windows news you can use: October 2026",
@@ -618,7 +983,13 @@
       "severity": "non_evaluee",
       "severity_basis": "donnees_insuffisantes",
       "cvss_score": null,
-      "severity_version": 1
+      "severity_version": 1,
+      "cve_ids": [],
+      "enrichment_version": 2,
+      "cve_identified_count": 0,
+      "cve_checked_count": 0,
+      "cve_assessed_count": 0,
+      "severity_coverage": "unavailable"
     },
     {
       "title": "Where should your code live in a Docker Sandbox?",
@@ -716,7 +1087,13 @@
       "severity": "non_evaluee",
       "severity_basis": "donnees_insuffisantes",
       "cvss_score": null,
-      "severity_version": 1
+      "severity_version": 1,
+      "cve_ids": [],
+      "enrichment_version": 2,
+      "cve_identified_count": 0,
+      "cve_checked_count": 0,
+      "cve_assessed_count": 0,
+      "severity_coverage": "unavailable"
     },
     {
       "title": "Introducing Ctrl + Manage: Your shortcut to practical Windows management",
@@ -879,8 +1256,8 @@
       "published_at": "2026-10-19T20:44:01Z",
       "collected_at": "2026-11-10T09:04:02.509693Z",
       "category": "Windows",
-      "summary_fr": "Windows Task Manager now provides deeper visibility into AI workloads running on a device. Previously, the Processes tab didn't show per-process activity for the neural processing unit (NPU) or graphics processing unit (GPU) neural engine. Now, on some newer devices, this data appears alongside familiar central processing unit (CPU) and standard GPU activity on the Processes tab, while the Performance tab shows overall utilization. Whet",
-      "summary_kind": "extrait",
+      "summary_fr": "Le Gestionnaire des tâches de Windows offre désormais une meilleure visibilité sur les charges de travail liées à l'IA.",
+      "summary_kind": "ia",
       "severity": "information",
       "severity_basis": "actualite",
       "cvss_score": null,
@@ -901,6 +1278,48 @@
       "severity_version": 1
     },
     {
+      "title": "Retiring NTLM: Frequently asked questions",
+      "url": "https://techcommunity.microsoft.com/t5/windows-it-pro-blog/retiring-ntlm-frequently-asked-questions/ba-p/4550522",
+      "source": "Microsoft · Windows IT Pro",
+      "published_at": "2026-10-19T20:38:48Z",
+      "collected_at": "2026-11-10T09:38:24.968640Z",
+      "category": "Windows",
+      "summary_fr": "Microsoft annonce la transition progressive de Windows vers une authentification prioritaire par Kerberos, préparant l'abandon du protocole NTLM obsolète.",
+      "summary_kind": "ia",
+      "severity": "information",
+      "severity_basis": "actualite",
+      "cvss_score": null,
+      "severity_version": 1
+    },
+    {
+      "title": "Keep Windows activation automation working with PowerShell",
+      "url": "https://techcommunity.microsoft.com/t5/windows-it-pro-blog/keep-windows-activation-automation-working-with-powershell/ba-p/4540459",
+      "source": "Microsoft · Windows IT Pro",
+      "published_at": "2026-10-19T20:37:28Z",
+      "collected_at": "2026-11-10T09:38:24.968640Z",
+      "category": "Windows",
+      "summary_fr": "Microsoft annonce la dépréciation progressive de VBScript, impactant les scripts d'activation Windows utilisant slmgr.vbs. Il est recommandé de migrer ces processus vers le module PowerShell OSLicense.",
+      "summary_kind": "ia",
+      "severity": "information",
+      "severity_basis": "actualite",
+      "cvss_score": null,
+      "severity_version": 1
+    },
+    {
+      "title": "General Availability: User-initiated provisioning for Windows 365 Reserve",
+      "url": "https://techcommunity.microsoft.com/t5/windows-it-pro-blog/general-availability-user-initiated-provisioning-for-windows-365/ba-p/4557248",
+      "source": "Microsoft · Windows IT Pro",
+      "published_at": "2026-10-19T20:36:09Z",
+      "collected_at": "2026-11-10T09:38:24.968640Z",
+      "category": "Windows",
+      "summary_fr": "Microsoft annonce la disponibilité générale du provisionnement initié par l'utilisateur pour Windows 365 Reserve. Cette fonction permet aux employés d'accéder rapidement à un Cloud PC temporaire depuis l'application Windows en cas d'indisponibilité de leur appareil principal.",
+      "summary_kind": "ia",
+      "severity": "information",
+      "severity_basis": "actualite",
+      "cvss_score": null,
+      "severity_version": 1
+    },
+    {
       "title": "Multiples vulnérabilités dans Roundcube Webmail (19 octobre 2026)",
       "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1340/",
       "source": "CERT-FR · Avis",
@@ -912,7 +1331,13 @@
       "severity": "non_evaluee",
       "severity_basis": "donnees_insuffisantes",
       "cvss_score": null,
-      "severity_version": 1
+      "severity_version": 1,
+      "cve_ids": [],
+      "enrichment_version": 2,
+      "cve_identified_count": 0,
+      "cve_checked_count": 0,
+      "cve_assessed_count": 0,
+      "severity_coverage": "unavailable"
     },
     {
       "title": "Why Is My Kubernetes Job Still Pending? Tracing Kueue Admission with Headlamp",
@@ -983,6 +1408,56 @@
       "severity_basis": "actualite",
       "cvss_score": null,
       "severity_version": 1
+    },
+    {
+      "title": "Kubernetes v1.37: Hardening Container Storage with Bind Mount Options and EmptyDir Permissions",
+      "url": "https://kubernetes.io/blog/2026/09/16/kubernetes-v1-37-hardening-container-storage/",
+      "source": "Kubernetes",
+      "published_at": "2026-09-16T18:30:00Z",
+      "collected_at": "2026-11-10T09:38:24.968640Z",
+      "category": "Conteneurs",
+      "summary_fr": "Kubernetes v1.37 introduit des fonctionnalités de sécurité du stockage, incluant les modes de permission emptyDir et les options de montage bind. Ces outils permettent d'appliquer des politiques de sécurité strictes, telles que l'interdiction d'exécuter des binaires ou de supprimer des fichiers.",
+      "summary_kind": "ia",
+      "severity": "information",
+      "severity_basis": "actualite",
+      "cvss_score": null,
+      "severity_version": 1
+    },
+    {
+      "title": "Kubernetes v1.37: Pod-Level Resource Managers graduated to Beta",
+      "url": "https://kubernetes.io/blog/2026/09/15/kubernetes-v1-37-pod-level-resource-managers-beta/",
+      "source": "Kubernetes",
+      "published_at": "2026-09-15T18:30:00Z",
+      "collected_at": "2026-11-10T09:38:24.968640Z",
+      "category": "Conteneurs",
+      "summary_fr": "Kubernetes v1.37 intègre le passage en version bêta de la fonctionnalité des gestionnaires de ressources au niveau des pods. Cette mise à jour permet au Kubelet d'utiliser directement les déclarations de ressources des pods pour les décisions de placement matériel.",
+      "summary_kind": "ia",
+      "severity": "information",
+      "severity_basis": "actualite",
+      "cvss_score": null,
+      "severity_version": 1
+    },
+    {
+      "title": "Kubernetes Changed Block Tracking API - Beta Differences",
+      "url": "https://kubernetes.io/blog/2026/09/14/csi-changed-block-tracking-beta/",
+      "source": "Kubernetes",
+      "published_at": "2026-09-14T18:30:00Z",
+      "collected_at": "2026-11-10T09:38:24.968640Z",
+      "category": "Conteneurs",
+      "summary_fr": "Changed Block Tracking (CBT) support for CSI drivers shipped as Alpha in September 2025. With the March 2026 v1.0.0 release of the external-snapshot-metadata project, the feature moved to Beta . If you aren't yet familiar with changed block tracking for storage in Kubernetes, the Alpha announcement covers the motivation, the three primary components (the CSI SnapshotMetadata gRPC service, the SnapshotMetadataService CRD, and the externa",
+      "summary_kind": "extrait",
+      "severity": "information",
+      "severity_basis": "actualite",
+      "cvss_score": null,
+      "severity_version": 1
     }
-  ]
+  ],
+  "enrichment": {
+    "notice_requests": 12,
+    "nvd_requests": 14,
+    "enrichment_errors": 9,
+    "cvss_verified_articles": 10,
+    "enrichment_pending_articles": 9,
+    "cve_cache_records": 14
+  }
 }

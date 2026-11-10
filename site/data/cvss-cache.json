@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "entries": {
+    "CVE-2026-46729": {
+      "checked_at": "2026-11-10T09:38:58.192304Z",
+      "score": 7.5,
+      "cvss_version": "3.1",
+      "score_source": "134c704f-9b21-4f2e-91b3-4a467353bcc0"
+    },
+    "CVE-2026-4271": {
+      "checked_at": "2026-11-10T09:38:58.192304Z",
+      "score": 7.5,
+      "cvss_version": "3.1",
+      "score_source": "nvd@nist.gov"
+    },
+    "CVE-2026-83374": {
+      "checked_at": "2026-11-10T09:38:58.192304Z",
+      "score": 5.9,
+      "cvss_version": "3.1",
+      "score_source": "secalert_us@oracle.com"
+    },
+    "CVE-2026-83376": {
+      "checked_at": "2026-11-10T09:38:58.192304Z",
+      "score": 3.7,
+      "cvss_version": "3.1",
+      "score_source": "secalert_us@oracle.com"
+    },
+    "CVE-2021-36386": {
+      "checked_at": "2026-11-10T09:38:58.192304Z",
+      "score": 7.5,
+      "cvss_version": "3.1",
+      "score_source": "nvd@nist.gov"
+    },
+    "CVE-2026-59884": {
+      "checked_at": "2026-11-10T09:38:58.192304Z",
+      "score": 7.5,
+      "cvss_version": "3.1",
+      "score_source": "security-advisories@github.com"
+    },
+    "CVE-2026-91461": {
+      "checked_at": "2026-11-10T09:38:58.192304Z",
+      "score": 3.7,
+      "cvss_version": "3.1",
+      "score_source": "secalert_us@oracle.com"
+    },
+    "CVE-2026-83380": {
+      "checked_at": "2026-11-10T09:38:58.192304Z",
+      "score": 5.3,
+      "cvss_version": "3.1",
+      "score_source": "secalert_us@oracle.com"
+    },
+    "CVE-2026-108985": {
+      "checked_at": "2026-11-10T09:38:58.192304Z",
+      "score": 7.1,
+      "cvss_version": "3.1",
+      "score_source": "cve@mitre.org"
+    },
+    "CVE-2026-121412": {
+      "checked_at": "2026-11-10T09:38:58.192304Z",
+      "score": 7.1,
+      "cvss_version": "4.0",
+      "score_source": "disclosure@vulncheck.com"
+    },
+    "CVE-2026-47360": {
+      "checked_at": "2026-11-10T09:38:58.192304Z",
+      "score": 7.5,
+      "cvss_version": "3.1",
+      "score_source": "134c704f-9b21-4f2e-91b3-4a467353bcc0"
+    },
+    "CVE-2026-5119": {
+      "checked_at": "2026-11-10T09:38:58.192304Z",
+      "score": 8.2,
+      "cvss_version": "3.1",
+      "score_source": "nvd@nist.gov"
+    },
+    "CVE-2026-83378": {
+      "checked_at": "2026-11-10T09:38:58.192304Z",
+      "score": 4.8,
+      "cvss_version": "3.1",
+      "score_source": "secalert_us@oracle.com"
+    },
+    "CVE-2026-83381": {
+      "checked_at": "2026-11-10T09:38:58.192304Z",
+      "score": 4.8,
+      "cvss_version": "3.1",
+      "score_source": "secalert_us@oracle.com"
+    }
+  }
+}
