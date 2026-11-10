@@ -43,6 +43,26 @@ class CollectorTests(unittest.TestCase):
         self.assertEqual(collector.category_for({"title":"Windows 11 enterprise management update","source":"Microsoft · Windows IT Pro","excerpt":"Windows IT admin","category":"Windows"}), "Windows")
         self.assertEqual(collector.parse_feed(b"<rss><channel><item><title>Windows Server update</title><link>https://techcommunity.microsoft.com/windows/post</link><pubDate>Mon, 09 Nov 2026 10:00:00 GMT</pubDate></item></channel></rss>",("Microsoft · Windows IT Pro","https://techcommunity.microsoft.com/t5/s/gxcuf89792/rss/board?board.id=Windows-ITPro-blog","Windows"))[0]["category"],"Windows")
 
+    def test_round_robin_guarantees_windows_source_when_available(self):
+        now = dt.datetime(2026, 11, 10, tzinfo=dt.timezone.utc)
+        cutoff = now - dt.timedelta(days=60)
+        sources = [s[0] for s in collector.SOURCES]
+        candidates = []
+        for index, source in enumerate(sources):
+            for rank in range(3):
+                published = (now - dt.timedelta(days=rank+index+1)).isoformat()
+                candidates.append({
+                    "source": source, "url": f"https://example.org/{index}/{rank}",
+                    "title": "Windows management" if source == "Microsoft · Windows IT Pro" else "Security update",
+                    "excerpt": "Enterprise system information",
+                    "category": "Windows" if source == "Microsoft · Windows IT Pro" else "Systèmes",
+                    "published_at": published,
+                })
+        selected = collector.select_articles(candidates, set(), cutoff, limit=8)
+        self.assertEqual(len(selected), 8)
+        self.assertIn("Microsoft · Windows IT Pro", [x["source"] for x in selected])
+        self.assertEqual(len(set(x["source"] for x in selected)), 8)
+
     def test_sanitize(self):
         self.assertEqual(collector.clean("<p>CVE &amp; Linux</p>"), "CVE & Linux")
 
