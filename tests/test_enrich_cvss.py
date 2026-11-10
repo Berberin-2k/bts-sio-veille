@@ -44,6 +44,47 @@ class EnrichmentTests(unittest.TestCase):
                     "https://ubuntu.com/security/notices/../../etc/passwd"):
             self.assertIsNone(enrich_cvss.official_notice_url(advisory("Apache", url=url)))
 
+    def test_official_debian_advisory_url_and_untrusted_hosts(self):
+        item = advisory(
+            "DSA-6617-1 symfony security update",
+            source="Debian Security",
+            url="https://lists.debian.org/debian-security-announce/2026/msg00537.html"
+        )
+        self.assertEqual(enrich_cvss.official_notice_url(item), item["url"])
+        for url in (
+            "https://lists.debian.org.evil.example/debian-security-announce/2026/msg00537.html",
+            "http://lists.debian.org/debian-security-announce/2026/msg00537.html",
+            "https://lists.debian.org/debian-security-announce/2026/../../etc/passwd",
+            "https://evil.example/debian-security-announce/2026/msg00537.html",
+        ):
+            self.assertIsNone(enrich_cvss.official_notice_url({**item, "url": url}))
+        # Do not accidentally allow a different source to request Debian bulletins.
+        self.assertIsNone(enrich_cvss.official_notice_url({**item, "source": "Cloudflare"}))
+
+    def test_debian_notice_cve_enrichment_from_verified_advisory(self):
+        a = advisory(
+            "DSA-6617-1 symfony security update", source="Debian Security",
+            url="https://lists.debian.org/debian-security-announce/2026/msg00537.html"
+        )
+        a["severity"] = "non_evaluee"
+        cache = {}
+        fetched = []
+        def notice(url):
+            fetched.append(url)
+            return "<p>Debian notice CVE-2026-57941 and CVE-2026-57942.</p>"
+        enrich_cvss.enrich_articles(
+            [a], {}, cache, now=NOW, max_nvd=1,
+            notice_fetcher=notice,
+            nvd_fetcher=lambda _: {"score": 8.1, "cvss_version": "3.1", "score_source": "NIST"},
+            sleeper=lambda _: None,
+        )
+        self.assertEqual(fetched, [a["url"]])
+        self.assertEqual(a["severity"], "elevee")
+        self.assertEqual(a["cvss_score"], 8.1)
+        self.assertEqual(a["severity_basis"], "nvd_cvss")
+        self.assertEqual(a["cve_identified_count"], 2)
+        self.assertEqual(a["severity_coverage"], "partial")
+
     def test_nvd_metrics_verified_and_provenance(self):
         body = {
             "vulnerabilities": [
