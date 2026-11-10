@@ -1,19 +1,20 @@
 {
   "version": 2,
-  "generated_at": "2026-11-10T08:08:32.357709Z",
-  "last_successful_sync": "2026-11-10T08:08:32.357709Z",
+  "generated_at": "2026-11-10T08:11:16.780593Z",
+  "last_successful_sync": "2026-11-10T08:11:16.780593Z",
   "sources_checked": 8,
   "sources_total": 8,
   "source_errors": [],
-  "ai_new_summaries": 6,
-  "ai_errors": 2,
+  "ai_new_summaries": 5,
+  "ai_errors": 3,
   "ai_http_errors": [
+    503,
     503,
     503
   ],
   "ai_key_configured": true,
   "new_articles": 8,
-  "recent_count": 45,
+  "recent_count": 53,
   "archive_count": 0,
   "recent_days": 60,
   "archive_days": 365,
@@ -97,6 +98,16 @@
       "collected_at": "2026-11-10T08:08:32.357709Z",
       "category": "Cybersécurité",
       "summary_fr": "Des vulnérabilités ont été découvertes dans plusieurs composants d'OpenJDK 8, permettant à un attaquant distant de lire, modifier des données sensibles ou provoquer un déni de service.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "USN-9010-1: OpenJDK 11 vulnerabilities",
+      "url": "https://ubuntu.com/security/notices/USN-9010-1",
+      "source": "Ubuntu Security",
+      "published_at": "2026-11-09T15:35:24Z",
+      "collected_at": "2026-11-10T08:11:16.780593Z",
+      "category": "Cybersécurité",
+      "summary_fr": "Des vulnérabilités ont été découvertes dans plusieurs composants d'OpenJDK 11, permettant à un attaquant distant d'accéder à des données sensibles ou de perturber le service. Ces failles affectent l'authentification et l'autorisation au sein de la plateforme.",
       "summary_kind": "ia"
     },
     {
@@ -278,6 +289,26 @@
       "category": "Cybersécurité",
       "summary_fr": "De multiples vulnérabilités ont été découvertes dans MongoDB. Celles-ci peuvent permettre l'exécution de code à distance, un déni de service et une atteinte à la confidentialité des données.",
       "summary_kind": "ia"
+    },
+    {
+      "title": "Multiples vulnérabilités dans SolarWinds Dameware (04 novembre 2026)",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1459/",
+      "source": "CERT-FR · Avis",
+      "published_at": "2026-11-04T00:00:00Z",
+      "collected_at": "2026-11-10T08:11:16.780593Z",
+      "category": "Cybersécurité",
+      "summary_fr": "De multiples vulnérabilités ont été découvertes dans SolarWinds Dameware. Celles-ci permettent à un attaquant de provoquer une exécution de code arbitraire à distance et un contournement de la politique de sécurité.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "Multiples vulnérabilités dans les produits Mattermost (04 novembre 2026)",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1458/",
+      "source": "CERT-FR · Avis",
+      "published_at": "2026-11-04T00:00:00Z",
+      "collected_at": "2026-11-10T08:11:16.780593Z",
+      "category": "Cybersécurité",
+      "summary_fr": "De multiples vulnérabilités ont été découvertes dans les produits Mattermost. Elles permettent à un attaquant de provoquer un problème de sécurité non spécifié par l'éditeur.",
+      "summary_kind": "extrait"
     },
     {
       "title": "Vulnérabilité dans Laravel (04 novembre 2026)",
@@ -468,6 +499,56 @@
       "category": "Windows",
       "summary_fr": "Keeping up with Windows management shouldn't require piecing together announcements, documentation, and demos just to understand what matters for your environment. Release notes can tell you what changed, but they don't always tell you why it matters, where it fits, or what you should do next. That's why I'm launching Ctrl + Manage , a new monthly podcast for IT professionals and Windows administrators. Starting October 1, we'll spend r",
       "summary_kind": "extrait"
+    },
+    {
+      "title": "Win the Agentic Era, Together: Introducing the Docker Navigator Partner Program",
+      "url": "https://www.docker.com/blog/docker-navigator-partner-program/",
+      "source": "Docker",
+      "published_at": "2026-10-28T13:00:00Z",
+      "collected_at": "2026-11-10T08:11:16.780593Z",
+      "category": "Conteneurs",
+      "summary_fr": "Docker is launching the Navigator Partner Program, with three tiers, co-selling benefits, and a new incentive for every registered AI governance deal.",
+      "summary_kind": "extrait"
+    },
+    {
+      "title": "What took the Internet offline in Q3 2026",
+      "url": "https://blog.cloudflare.com/q3-2026-internet-disruption-summary/",
+      "source": "Cloudflare",
+      "published_at": "2026-10-27T13:00:00Z",
+      "collected_at": "2026-11-10T08:11:16.780593Z",
+      "category": "Réseaux",
+      "summary_fr": "Cloudflare examine les perturbations mondiales d'Internet observées au troisième trimestre 2026. Cette analyse étudie l'impact des pannes de courant, des catastrophes naturelles et des coupures gouvernementales sur la connectivité.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "Announcing the Workload Conformance Working Group",
+      "url": "https://kubernetes.io/blog/2026/10/27/announcing-workload-conformance-wg/",
+      "source": "Kubernetes",
+      "published_at": "2026-10-27T04:30:00Z",
+      "collected_at": "2026-11-10T08:11:16.780593Z",
+      "category": "Conteneurs",
+      "summary_fr": "La communauté Kubernetes annonce la création d'un groupe de travail sur la conformité des charges de travail. Celui-ci vise à définir un standard partagé pour le comportement des applications à l'exécution.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "PHP2Shell and eMudhra Patched",
+      "url": "https://www.docker.com/blog/php2shell-and-emudhra-patched/",
+      "source": "Docker",
+      "published_at": "2026-10-23T13:08:08Z",
+      "collected_at": "2026-11-10T08:11:16.780593Z",
+      "category": "Conteneurs",
+      "summary_fr": "PHP2Shell and the eMudhra certificate compromise landed in the same week. Docker published a fixed PHP image within 24 hours and rebuilt the trust store across the catalog.",
+      "summary_kind": "extrait"
+    },
+    {
+      "title": "Your Windows release information toolbox",
+      "url": "https://techcommunity.microsoft.com/t5/windows-it-pro-blog/your-windows-release-information-toolbox/ba-p/4566273",
+      "source": "Microsoft · Windows IT Pro",
+      "published_at": "2026-10-20T22:55:28Z",
+      "collected_at": "2026-11-10T08:11:16.780593Z",
+      "category": "Windows",
+      "summary_fr": "Microsoft propose un guide pour cartographier les ressources d'information sur les versions de Windows en 2026. Ce répertoire aide les administrateurs à suivre les mises à jour, les problèmes connus et les actualités techniques.",
+      "summary_kind": "ia"
     }
   ]
 }
