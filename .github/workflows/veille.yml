@@ -40,12 +40,14 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: gemini-3.5-flash-lite
+          NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
         run: python scripts/collect.py
       - name: Vérifier les trois jeux de données et leurs invariants
         run: |
           python -m json.tool site/data/recent.json > /dev/null
           python -m json.tool site/data/archives.json > /dev/null
           python -m json.tool site/data/articles.json > /dev/null
+          python -m json.tool site/data/cvss-cache.json > /dev/null
           python - <<'PY'
           import datetime as dt
           import json
@@ -60,6 +62,20 @@ jobs:
           assert recent["archive_count"] == len(archive["articles"])
           assert len(recent["articles"]) + len(archive["articles"]) <= 1000
           assert legacy["articles"] == recent["articles"]
+          cache = json.loads((directory / "cvss-cache.json").read_text(encoding="utf-8"))
+          assert cache.get("version") == 1 and isinstance(cache.get("entries"), dict)
+          assert len(cache["entries"]) <= 2400
+          allowed = {"critique","elevee","moderee","faible","aucune","non_evaluee","information"}
+          for row in recent["articles"] + archive["articles"]:
+              assert row.get("severity") in allowed
+              if row.get("severity_basis") == "nvd_cvss":
+                  assert row.get("severity_cve") in row.get("cve_ids", [])
+                  assert isinstance(row.get("cvss_score"), (int, float))
+                  assert 0 <= row["cvss_score"] <= 10
+                  assert row.get("severity_source_url") == (
+                      "https://nvd.nist.gov/vuln/detail/" + row["severity_cve"]
+                  )
+                  assert row.get("cve_assessed_count", 0) >= 1
           all_urls = [a["url"] for a in recent["articles"] + archive["articles"]]
           assert len(all_urls) == len(set(all_urls)), "URLs dupliquées"
           now = dt.datetime.fromisoformat(recent["generated_at"].replace("Z", "+00:00"))
@@ -71,10 +87,11 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: gemini-3.5-flash-lite
+          NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
         run: |
           git config user.name 'veille-bot'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add site/data/articles.json site/data/recent.json site/data/archives.json
+          git add site/data/articles.json site/data/recent.json site/data/archives.json site/data/cvss-cache.json
           if ! git diff --cached --quiet; then
             git commit -m 'data: veille récente et archives quotidiennes'
           fi
@@ -94,7 +111,8 @@ jobs:
             python -m json.tool site/data/recent.json > /dev/null
             python -m json.tool site/data/archives.json > /dev/null
             python -m json.tool site/data/articles.json > /dev/null
-            git add site/data/articles.json site/data/recent.json site/data/archives.json
+            python -m json.tool site/data/cvss-cache.json > /dev/null
+            git add site/data/articles.json site/data/recent.json site/data/archives.json site/data/cvss-cache.json
             if git diff --cached --quiet; then
               succeeded=1
               break
