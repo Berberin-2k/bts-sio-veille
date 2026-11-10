@@ -160,6 +160,49 @@ def is_relevant(item):
     ))
 
 
+def select_articles(candidates, known_urls, cutoff, limit=MAX_NEW):
+    """Round-robin selection: ensure low-frequency feeds such as Windows are not starved.
+
+    Within each source, newer publications are prioritized. Across sources we
+    take one item per round, up to the daily budget and per-source cap.
+    """
+    ordering = [source[0] for source in SOURCES]
+    buckets = {name: [] for name in ordering}
+    for item in sorted(candidates, key=lambda a: a.get("published_at") or "", reverse=True):
+        if item["url"] in known_urls or not is_relevant(item):
+            continue
+        published = item.get("published_at")
+        if published:
+            try:
+                if dt.datetime.fromisoformat(published.replace("Z", "+00:00")) < cutoff:
+                    continue
+            except (ValueError, TypeError):
+                continue
+        buckets.setdefault(item["source"], []).append(item)
+
+    selected, seen, counts = [], set(known_urls), {}
+    while len(selected) < limit:
+        progress = False
+        for source in ordering:
+            if len(selected) >= limit:
+                break
+            if counts.get(source, 0) >= MAX_PER_SOURCE:
+                continue
+            queue = buckets.get(source, [])
+            while queue and queue[0]["url"] in seen:
+                queue.pop(0)
+            if not queue:
+                continue
+            item = queue.pop(0)
+            seen.add(item["url"])
+            counts[source] = counts.get(source, 0) + 1
+            selected.append(item)
+            progress = True
+        if not progress:
+            break
+    return selected
+
+
 def fallback(item):
     return clean(item["excerpt"], 440) or "Consultez la publication originale pour en savoir plus."
 
@@ -221,19 +264,7 @@ def main():
         return 1
 
     cutoff = dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=RECENT_DAYS)
-    seen = set(known)
-    counts = {}
-    selected = []
-    for item in sorted(new_candidates, key=lambda x: x["published_at"] or "", reverse=True):
-        if not is_relevant(item) or item["url"] in seen or counts.get(item["source"], 0) >= MAX_PER_SOURCE:
-            continue
-        if item["published_at"] and dt.datetime.fromisoformat(item["published_at"].replace("Z", "+00:00")) < cutoff:
-            continue
-        selected.append(item)
-        seen.add(item["url"])
-        counts[item["source"]] = counts.get(item["source"], 0) + 1
-        if len(selected) >= MAX_NEW:
-            break
+    selected = select_articles(new_candidates, set(known), cutoff)
 
     key = os.getenv("GEMINI_API_KEY", "").strip()
     ai_count, ai_errors, api_disabled = 0, 0, False
