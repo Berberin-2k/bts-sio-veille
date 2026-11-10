@@ -1,20 +1,18 @@
 {
   "version": 2,
-  "generated_at": "2026-11-10T08:11:16.780593Z",
-  "last_successful_sync": "2026-11-10T08:11:16.780593Z",
+  "generated_at": "2026-11-10T09:03:41.329866Z",
+  "last_successful_sync": "2026-11-10T09:03:41.329866Z",
   "sources_checked": 8,
   "sources_total": 8,
   "source_errors": [],
-  "ai_new_summaries": 5,
-  "ai_errors": 3,
+  "ai_new_summaries": 0,
+  "ai_errors": 1,
   "ai_http_errors": [
-    503,
-    503,
-    503
+    429
   ],
   "ai_key_configured": true,
   "new_articles": 8,
-  "recent_count": 53,
+  "recent_count": 61,
   "archive_count": 0,
   "recent_days": 60,
   "archive_days": 365,
@@ -28,7 +26,11 @@
       "collected_at": "2026-11-10T07:53:10.844657Z",
       "category": "Cybersécurité",
       "summary_fr": "Des vulnérabilités ont été découvertes dans le serveur HTTP Apache sur plusieurs versions d'Ubuntu. Celles-ci peuvent potentiellement mener à un déni de service ou à une fuite d'informations.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "USN-8890-3: libsoup regression",
@@ -38,7 +40,11 @@
       "collected_at": "2026-11-10T07:53:10.844657Z",
       "category": "Cybersécurité",
       "summary_fr": "Une mise à jour Ubuntu résout une régression et des vulnérabilités dans libsoup. Ces failles concernaient la gestion des requêtes HTTP et des proxys.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "USN-9015-1: OpenJDK 21 vulnerabilities",
@@ -48,7 +54,11 @@
       "collected_at": "2026-11-10T07:53:10.844657Z",
       "category": "Cybersécurité",
       "summary_fr": "Des vulnérabilités ont été découvertes dans plusieurs composants d'OpenJDK 21, affectant l'authentification et l'autorisation des utilisateurs. Un attaquant distant pourrait exploiter ces failles pour compromettre des données sensibles ou provoquer un déni de service.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "USN-9014-1: OpenJDK 17 vulnerabilities",
@@ -58,7 +68,11 @@
       "collected_at": "2026-11-10T08:06:22.142346Z",
       "category": "Cybersécurité",
       "summary_fr": "Des vulnérabilités ont été découvertes dans plusieurs composants d'OpenJDK 17, permettant à un attaquant distant d'accéder à des données sensibles ou de provoquer un déni de service.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "USN-9013-1: Fetchmail vulnerabilities",
@@ -68,7 +82,11 @@
       "collected_at": "2026-11-10T08:06:22.142346Z",
       "category": "Cybersécurité",
       "summary_fr": "Des vulnérabilités ont été découvertes dans Fetchmail sous Ubuntu, permettant à un attaquant distant de provoquer un déni de service ou d'exécuter du code arbitraire. Ces failles concernent le traitement des messages de journal, des codes de statut SMTP et des défis d'authentification NTLM.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "USN-9012-1: libheif vulnerability",
@@ -78,7 +96,11 @@
       "collected_at": "2026-11-10T08:06:22.142346Z",
       "category": "Cybersécurité",
       "summary_fr": "Une vulnérabilité a été découverte dans libheif lors du traitement de certaines images HEIF, permettant potentiellement l'exécution de code arbitraire.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "USN-9011-1: pyasn1 vulnerabilities",
@@ -88,7 +110,11 @@
       "collected_at": "2026-11-10T08:08:32.357709Z",
       "category": "Systèmes",
       "summary_fr": "It was discovered that pyasn1 did not properly bound the size of long-form tag identifiers when parsing BER, CER, or DER encoded data. An attacker could possibly use this issue to cause applications decoding untrusted ASN.1 data to consume excessive CPU resources, resulting in a denial of service. This issue only affected Ubuntu 14.04 LTS, Ubuntu 16.04 LTS, Ubuntu 18.04 LTS, and Ubuntu 20.04 LTS. (CVE-2026-59884) It was discovered that ",
-      "summary_kind": "extrait"
+      "summary_kind": "extrait",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "USN-9009-1: OpenJDK 8 vulnerabilities",
@@ -98,7 +124,11 @@
       "collected_at": "2026-11-10T08:08:32.357709Z",
       "category": "Cybersécurité",
       "summary_fr": "Des vulnérabilités ont été découvertes dans plusieurs composants d'OpenJDK 8, permettant à un attaquant distant de lire, modifier des données sensibles ou provoquer un déni de service.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "USN-9010-1: OpenJDK 11 vulnerabilities",
@@ -108,7 +138,11 @@
       "collected_at": "2026-11-10T08:11:16.780593Z",
       "category": "Cybersécurité",
       "summary_fr": "Des vulnérabilités ont été découvertes dans plusieurs composants d'OpenJDK 11, permettant à un attaquant distant d'accéder à des données sensibles ou de perturber le service. Ces failles affectent l'authentification et l'autorisation au sein de la plateforme.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "USN-9008-1: libnfs vulnerability",
@@ -118,7 +152,11 @@
       "collected_at": "2026-11-09T14:57:37.489964Z",
       "category": "Systèmes",
       "summary_fr": "It was discovered that libnfs did not properly enforce the maximum size bound during ZDR decoding, resulting in an out-of-bounds write. An attacker could possibly use this issue to cause libnfs to crash, resulting in a denial of service, or execute arbitrary code.",
-      "summary_kind": "extrait"
+      "summary_kind": "extrait",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "USN-9007-1: FreeRDP vulnerabilities",
@@ -128,7 +166,11 @@
       "collected_at": "2026-11-09T14:57:37.489964Z",
       "category": "Systèmes",
       "summary_fr": "It was discovered that FreeRDP contained multiple security issues. An attacker could possibly use these issues to obtain sensitive information, cause FreeRDP to crash, resulting in a denial of service, or execute arbitrary code.",
-      "summary_kind": "extrait"
+      "summary_kind": "extrait",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "USN-9001-2: ca-certificates update",
@@ -138,7 +180,11 @@
       "collected_at": "2026-11-09T14:57:37.489964Z",
       "category": "Systèmes",
       "summary_fr": "USN-9001-1 fixed a vulnerability in ca-certificates, ca-certificates-java. This update provides the corresponding fix for Ubuntu 18.04 LTS and Ubuntu 20.04 LTS. Original advisory details: It was discovered that the ca-certificates JKS integration was not working properly, resulting in CA certificates removed from the system bundle not being removed from the JKS keystore. This update corrects the feature and resyncs the keystore with the",
-      "summary_kind": "extrait"
+      "summary_kind": "extrait",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "7.4-rc2: mainline",
@@ -148,7 +194,11 @@
       "collected_at": "2026-11-09T14:57:37.489964Z",
       "category": "Systèmes",
       "summary_fr": "Version: 7.4-rc2 (mainline) Released: 2026-11-09 Source: linux-7.4-rc2.tar.gz Patch: full ( incremental )",
-      "summary_kind": "extrait"
+      "summary_kind": "extrait",
+      "severity": "information",
+      "severity_basis": "actualite",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "USN-8952-2: Tornado regression",
@@ -158,7 +208,11 @@
       "collected_at": "2026-11-09T14:58:21.831071Z",
       "category": "Cybersécurité",
       "summary_fr": "USN-8952-1 fixed vulnerabilities in Tornado. Unfortunately that update was incomplete due to an incomplete fix for CVE-2026-103263, which broke static file serving for applications that subclass Tornado's StaticFileHandler, such as Jupyter, and could introduce a regression. This update fixes the problem. We apologize for the inconvenience. Original advisory details: It was discovered that Tornado did not properly handle certain HTTP req",
-      "summary_kind": "extrait"
+      "summary_kind": "extrait",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "The post-quantum future of web privacy",
@@ -168,7 +222,11 @@
       "collected_at": "2026-11-09T14:57:37.489964Z",
       "category": "Réseaux",
       "summary_fr": "Cryptographic protocols like Privacy Pass help keep web sites safe from abuse while keeping their users private. This post looks at the quantum threat to these protocols, and some new post-quantum cryptography that may help close the gap.",
-      "summary_kind": "extrait"
+      "summary_kind": "extrait",
+      "severity": "information",
+      "severity_basis": "actualite",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "USN-9003-1: Linux kernel (NVIDIA) vulnerabilities",
@@ -178,7 +236,11 @@
       "collected_at": "2026-11-09T14:58:21.831071Z",
       "category": "Cybersécurité",
       "summary_fr": "It was discovered that some AMD processors did not properly perform Reverse Map Table (RMP) checks when the IOMMU accessed certain host buffers. A local attacker with hypervisor access could possibly use this to trigger an out-of-bounds condition and compromise the integrity of SEV-SNP guest memory. (CVE-2023-20585) Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system",
-      "summary_kind": "extrait"
+      "summary_kind": "extrait",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "USN-9002-1: Linux kernel (NVIDIA Tegra) vulnerabilities",
@@ -188,7 +250,11 @@
       "collected_at": "2026-11-09T14:58:21.831071Z",
       "category": "Cybersécurité",
       "summary_fr": "It was discovered that the io_uring subsystem in the Linux kernel did not properly handle canceled task work when processing certain wait operations, leading to the operation being performed in the wrong task context. A local attacker could possibly use this to cause a denial of service (system crash). (CVE-2026-81010) Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the sys",
-      "summary_kind": "extrait"
+      "summary_kind": "extrait",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "Docker Sandboxes vs. Containers: Choosing the Right Isolation for AI Agents",
@@ -198,7 +264,11 @@
       "collected_at": "2026-11-09T14:57:37.489964Z",
       "category": "Conteneurs",
       "summary_fr": "A container shares the host kernel. Docker Sandboxes are microVMs with their own kernel and private Docker Engine. See how they differ and when to use each.",
-      "summary_kind": "extrait"
+      "summary_kind": "extrait",
+      "severity": "information",
+      "severity_basis": "actualite",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "What’s new in Windows 365: October 2026 recap",
@@ -208,7 +278,11 @@
       "collected_at": "2026-11-10T08:06:22.142346Z",
       "category": "Windows",
       "summary_fr": "Microsoft présente les nouveautés d'octobre 2026 pour Windows 365 et Azure Virtual Desktop. Les mises à jour incluent la disponibilité générale de RDP Multipath et RDP Shortpath pour améliorer la résilience des connexions.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "information",
+      "severity_basis": "actualite",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "Docker and ActiveState Extending Secure Defaults to the Packages Developers Install",
@@ -218,7 +292,11 @@
       "collected_at": "2026-11-09T14:58:21.831071Z",
       "category": "Conteneurs",
       "summary_fr": "Docker partners with ActiveState to continue to provide one standard for trusted content across everything you and your teams build on.",
-      "summary_kind": "extrait"
+      "summary_kind": "extrait",
+      "severity": "information",
+      "severity_basis": "actualite",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "USN-9001-1: ca-certificates update",
@@ -228,7 +306,11 @@
       "collected_at": "2026-11-09T15:00:30.975222Z",
       "category": "Cybersécurité",
       "summary_fr": "Une mise à jour de ca-certificates corrige un problème d'intégration JKS où les certificats supprimés du système n'étaient pas retirés du keystore.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "USN-8955-2: nginx vulnerabilities",
@@ -238,7 +320,11 @@
       "collected_at": "2026-11-09T15:00:30.975222Z",
       "category": "Cybersécurité",
       "summary_fr": "Des vulnérabilités ont été corrigées dans le serveur nginx pour plusieurs versions d'Ubuntu. Un attaquant distant pouvait exploiter ces failles pour provoquer un déni de service ou exécuter du code arbitraire.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "CNCF Score project improved its security posture by joining the Docker-Sponsored Open Source Program",
@@ -248,7 +334,11 @@
       "collected_at": "2026-11-09T14:58:21.831071Z",
       "category": "Conteneurs",
       "summary_fr": "See how CNCF Score improved container security with Docker Scout, Hardened Images, and the Docker-Sponsored Open Source Program.",
-      "summary_kind": "extrait"
+      "summary_kind": "extrait",
+      "severity": "information",
+      "severity_basis": "actualite",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "USN-7230-3: FRR regression",
@@ -258,7 +348,11 @@
       "collected_at": "2026-11-09T15:00:30.975222Z",
       "category": "Réseaux",
       "summary_fr": "Une correction de sécurité Ubuntu pour FRR a introduit une régression affectant la gestion des mises à jour RPKI et le démarrage du démon BGP. Cette mise à jour résout le problème.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "Multiples vulnérabilités dans les produits Siemens (05 novembre 2026)",
@@ -268,7 +362,11 @@
       "collected_at": "2026-11-10T07:53:10.844657Z",
       "category": "Cybersécurité",
       "summary_fr": "De multiples vulnérabilités ont été découvertes dans les produits Siemens. Celles-ci permettent notamment une exécution de code ou un déni de service à distance.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "Multiples vulnérabilités dans OpenOffice (05 novembre 2026)",
@@ -278,7 +376,11 @@
       "collected_at": "2026-11-10T07:53:10.844657Z",
       "category": "Cybersécurité",
       "summary_fr": "De multiples vulnérabilités ont été découvertes dans OpenOffice. Celles-ci peuvent permettre une exécution de code à distance ainsi que des atteintes à la confidentialité et à l'intégrité des données.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "Multiples vulnérabilités dans MongoDB (05 novembre 2026)",
@@ -288,7 +390,39 @@
       "collected_at": "2026-11-10T07:53:10.844657Z",
       "category": "Cybersécurité",
       "summary_fr": "De multiples vulnérabilités ont été découvertes dans MongoDB. Celles-ci peuvent permettre l'exécution de code à distance, un déni de service et une atteinte à la confidentialité des données.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
+    },
+    {
+      "title": "Multiples vulnérabilités dans les produits Elastic (04 novembre 2026)",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1461/",
+      "source": "CERT-FR · Avis",
+      "published_at": "2026-11-04T00:00:00Z",
+      "collected_at": "2026-11-10T09:03:41.329866Z",
+      "category": "Cybersécurité",
+      "summary_fr": "De multiples vulnérabilités ont été découvertes dans les produits Elastic. Certaines d'entre elles permettent à un attaquant de provoquer une exécution de code arbitraire à distance, un déni de service à distance et une atteinte à la confidentialité des données.",
+      "summary_kind": "extrait",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
+    },
+    {
+      "title": "Multiples vulnérabilités dans les produits Symfony (04 novembre 2026)",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1460/",
+      "source": "CERT-FR · Avis",
+      "published_at": "2026-11-04T00:00:00Z",
+      "collected_at": "2026-11-10T09:03:41.329866Z",
+      "category": "Cybersécurité",
+      "summary_fr": "De multiples vulnérabilités ont été découvertes dans les produits Symfony. Certaines d'entre elles permettent à un attaquant de provoquer un déni de service à distance, une atteinte à la confidentialité des données et un contournement de la politique de sécurité.",
+      "summary_kind": "extrait",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "Multiples vulnérabilités dans SolarWinds Dameware (04 novembre 2026)",
@@ -298,7 +432,11 @@
       "collected_at": "2026-11-10T08:11:16.780593Z",
       "category": "Cybersécurité",
       "summary_fr": "De multiples vulnérabilités ont été découvertes dans SolarWinds Dameware. Celles-ci permettent à un attaquant de provoquer une exécution de code arbitraire à distance et un contournement de la politique de sécurité.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "Multiples vulnérabilités dans les produits Mattermost (04 novembre 2026)",
@@ -308,7 +446,11 @@
       "collected_at": "2026-11-10T08:11:16.780593Z",
       "category": "Cybersécurité",
       "summary_fr": "De multiples vulnérabilités ont été découvertes dans les produits Mattermost. Elles permettent à un attaquant de provoquer un problème de sécurité non spécifié par l'éditeur.",
-      "summary_kind": "extrait"
+      "summary_kind": "extrait",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "Vulnérabilité dans Laravel (04 novembre 2026)",
@@ -318,7 +460,11 @@
       "collected_at": "2026-11-10T08:08:32.357709Z",
       "category": "Cybersécurité",
       "summary_fr": "Une vulnérabilité a été découverte dans Laravel, permettant à un attaquant de provoquer une exécution de code arbitraire à distance.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "Multiples vulnérabilités dans les produits SonicWall (04 novembre 2026)",
@@ -328,7 +474,11 @@
       "collected_at": "2026-11-10T08:08:32.357709Z",
       "category": "Cybersécurité",
       "summary_fr": "De multiples vulnérabilités ont été découvertes dans les produits SonicWall, permettant notamment une injection SQL et une atteinte à la confidentialité des données.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "Vulnérabilité dans Mozilla Firefox (04 novembre 2026)",
@@ -338,7 +488,11 @@
       "collected_at": "2026-11-10T08:06:22.142346Z",
       "category": "Cybersécurité",
       "summary_fr": "Une vulnérabilité a été découverte dans Mozilla Firefox, permettant à un attaquant de provoquer un problème de sécurité non spécifié par l'éditeur.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "Vulnérabilité dans MongoDB (04 novembre 2026)",
@@ -348,7 +502,11 @@
       "collected_at": "2026-11-10T08:06:22.142346Z",
       "category": "Cybersécurité",
       "summary_fr": "Une vulnérabilité a été découverte dans MongoDB, permettant à un attaquant de compromettre la confidentialité et l'intégrité des données.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "Multiples vulnérabilités dans NetApp StorageGRID (04 novembre 2026)",
@@ -358,7 +516,11 @@
       "collected_at": "2026-11-10T08:06:22.142346Z",
       "category": "Cybersécurité",
       "summary_fr": "De multiples vulnérabilités ont été découvertes dans NetApp StorageGRID. Celles-ci permettent à un attaquant de compromettre la confidentialité et l'intégrité des données.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "Multiples vulnérabilités dans Ruby on Rails (04 novembre 2026)",
@@ -368,7 +530,11 @@
       "collected_at": "2026-11-09T15:00:30.975222Z",
       "category": "Cybersécurité",
       "summary_fr": "De multiples vulnérabilités ont été découvertes dans Ruby on Rails. Elles permettent notamment une exécution de code arbitraire, un déni de service et une atteinte à la confidentialité des données.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "Multiples vulnérabilités dans les produits HPE Aruba Networking (04 novembre 2026)",
@@ -378,7 +544,11 @@
       "collected_at": "2026-11-09T15:00:30.975222Z",
       "category": "Cybersécurité",
       "summary_fr": "De multiples vulnérabilités ont été découvertes dans les produits HPE Aruba Networking. Celles-ci permettent notamment l'exécution de code à distance, une élévation de privilèges et un déni de service.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "Multiples vulnérabilités dans Google Chrome (04 novembre 2026)",
@@ -388,7 +558,11 @@
       "collected_at": "2026-11-09T15:00:30.975222Z",
       "category": "Cybersécurité",
       "summary_fr": "De multiples vulnérabilités non spécifiées ont été découvertes dans Google Chrome par le CERT-FR. Ces failles permettent à un attaquant de provoquer des problèmes de sécurité.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "Multiples vulnérabilités dans les produits Citrix (04 novembre 2026)",
@@ -398,7 +572,11 @@
       "collected_at": "2026-11-09T14:58:21.831071Z",
       "category": "Cybersécurité",
       "summary_fr": "De multiples vulnérabilités ont été découvertes dans les produits Citrix. Elles permettent à un attaquant de provoquer une exécution de code arbitraire à distance et une élévation de privilèges.",
-      "summary_kind": "extrait"
+      "summary_kind": "extrait",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "Multiples vulnérabilités dans Apache Zookeeper (04 novembre 2026)",
@@ -408,7 +586,11 @@
       "collected_at": "2026-11-09T14:58:21.831071Z",
       "category": "Cybersécurité",
       "summary_fr": "De multiples vulnérabilités ont été découvertes dans Apache Zookeeper. Elles permettent à un attaquant de provoquer un déni de service à distance et un contournement de la politique de sécurité.",
-      "summary_kind": "extrait"
+      "summary_kind": "extrait",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "Windows news you can use: October 2026",
@@ -418,7 +600,11 @@
       "collected_at": "2026-11-10T08:06:22.142346Z",
       "category": "Windows",
       "summary_fr": "Microsoft présente les nouveautés de Windows pour octobre 2026, incluant des améliorations de fonctionnalités, de sécurité et de gestion.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "information",
+      "severity_basis": "actualite",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "Introducing Zero Wire, a hub for investigating critical Internet vulnerabilities",
@@ -428,7 +614,11 @@
       "collected_at": "2026-11-09T15:00:30.975222Z",
       "category": "Cybersécurité",
       "summary_fr": "Cloudflare lance Zero Wire, un outil centralisant des analyses, des données de télémétrie et des correctifs pour enquêter sur les vulnérabilités critiques.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "Where should your code live in a Docker Sandbox?",
@@ -438,7 +628,11 @@
       "collected_at": "2026-11-10T07:53:10.844657Z",
       "category": "Conteneurs",
       "summary_fr": "Docker Sandboxes propose trois méthodes pour organiser le code d'un agent : les montages partagés, les worktrees Git et le mode clone. Cet article aide à choisir la solution la plus adaptée.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "information",
+      "severity_basis": "actualite",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "The Ecosystem is the Answer: Docker, the Blueprint Alliance, and the Importance of Collaboration in the Agentic Era",
@@ -448,7 +642,11 @@
       "collected_at": "2026-11-09T15:00:30.975222Z",
       "category": "Conteneurs",
       "summary_fr": "Docker a rejoint en tant que membre fondateur la Blueprint Alliance, une initiative de douze entreprises visant à créer une architecture de référence pour sécuriser les agents d'intelligence artificielle.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "information",
+      "severity_basis": "actualite",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "How we halved DNS build delay and cut memory use by 85%",
@@ -458,7 +656,11 @@
       "collected_at": "2026-11-10T07:53:10.844657Z",
       "category": "Réseaux",
       "summary_fr": "Cloudflare a développé un planificateur pour optimiser la reconstruction des zones DNS en ciblant uniquement les modifications nécessaires.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "information",
+      "severity_basis": "actualite",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "Coding Agent Horror Stories: The CVE That Did Not Exist",
@@ -468,7 +670,11 @@
       "collected_at": "2026-11-10T08:08:32.357709Z",
       "category": "Cybersécurité",
       "summary_fr": "Un agent de revue de code par IA a inventé une vulnérabilité et conseillé des correctifs dangereux. Docker Sandboxes permet de contenir ces outils dont les sorties doivent être vérifiées.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "information",
+      "severity_basis": "actualite",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "Cloudflare DDoS Threat Report 2026 Q3: More swarms, fewer giants",
@@ -478,7 +684,11 @@
       "collected_at": "2026-11-10T08:08:32.357709Z",
       "category": "Cybersécurité",
       "summary_fr": "Au troisième trimestre 2026, Cloudflare a atténué plus de 8 200 attaques DDoS par heure, caractérisées par des frappes plus courtes et fréquentes.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "information",
+      "severity_basis": "actualite",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "From Working Group to SIG Architecture: spotlight on AI Conformance",
@@ -488,7 +698,11 @@
       "collected_at": "2026-11-10T08:08:32.357709Z",
       "category": "Conteneurs",
       "summary_fr": "Kubernetes évoque le parcours de l'initiative AI Conformance, passée de groupe de travail à sous-projet de SIG Architecture.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "information",
+      "severity_basis": "actualite",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "Introducing Ctrl + Manage: Your shortcut to practical Windows management",
@@ -498,7 +712,11 @@
       "collected_at": "2026-11-10T08:08:32.357709Z",
       "category": "Windows",
       "summary_fr": "Keeping up with Windows management shouldn't require piecing together announcements, documentation, and demos just to understand what matters for your environment. Release notes can tell you what changed, but they don't always tell you why it matters, where it fits, or what you should do next. That's why I'm launching Ctrl + Manage , a new monthly podcast for IT professionals and Windows administrators. Starting October 1, we'll spend r",
-      "summary_kind": "extrait"
+      "summary_kind": "extrait",
+      "severity": "information",
+      "severity_basis": "actualite",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "Win the Agentic Era, Together: Introducing the Docker Navigator Partner Program",
@@ -508,7 +726,11 @@
       "collected_at": "2026-11-10T08:11:16.780593Z",
       "category": "Conteneurs",
       "summary_fr": "Docker is launching the Navigator Partner Program, with three tiers, co-selling benefits, and a new incentive for every registered AI governance deal.",
-      "summary_kind": "extrait"
+      "summary_kind": "extrait",
+      "severity": "information",
+      "severity_basis": "actualite",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "What took the Internet offline in Q3 2026",
@@ -518,7 +740,11 @@
       "collected_at": "2026-11-10T08:11:16.780593Z",
       "category": "Réseaux",
       "summary_fr": "Cloudflare examine les perturbations mondiales d'Internet observées au troisième trimestre 2026. Cette analyse étudie l'impact des pannes de courant, des catastrophes naturelles et des coupures gouvernementales sur la connectivité.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "information",
+      "severity_basis": "actualite",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "Announcing the Workload Conformance Working Group",
@@ -528,7 +754,25 @@
       "collected_at": "2026-11-10T08:11:16.780593Z",
       "category": "Conteneurs",
       "summary_fr": "La communauté Kubernetes annonce la création d'un groupe de travail sur la conformité des charges de travail. Celui-ci vise à définir un standard partagé pour le comportement des applications à l'exécution.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "information",
+      "severity_basis": "actualite",
+      "cvss_score": null,
+      "severity_version": 1
+    },
+    {
+      "title": "Bringing post-quantum cryptography to geographically fenced key management",
+      "url": "https://blog.cloudflare.com/post-quantum-geo-key-manager/",
+      "source": "Cloudflare",
+      "published_at": "2026-10-23T18:06:56Z",
+      "collected_at": "2026-11-10T09:03:41.329866Z",
+      "category": "Réseaux",
+      "summary_fr": "Cloudflare's new post-quantum GeoKey Manager protects geographically fenced decryption keys from harvest now, decrypt later attacks. Learn how we redesigned our cryptography stack to support strict data sovereignty in a post-quantum world.",
+      "summary_kind": "extrait",
+      "severity": "information",
+      "severity_basis": "actualite",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "PHP2Shell and eMudhra Patched",
@@ -538,7 +782,39 @@
       "collected_at": "2026-11-10T08:11:16.780593Z",
       "category": "Conteneurs",
       "summary_fr": "PHP2Shell and the eMudhra certificate compromise landed in the same week. Docker published a fixed PHP image within 24 hours and rebuilt the trust store across the catalog.",
-      "summary_kind": "extrait"
+      "summary_kind": "extrait",
+      "severity": "information",
+      "severity_basis": "actualite",
+      "cvss_score": null,
+      "severity_version": 1
+    },
+    {
+      "title": "Security Update on PHP2Shell: Impact for Docker Customers",
+      "url": "https://www.docker.com/blog/security-update-on-php2shell-impact-for-docker-customers/",
+      "source": "Docker",
+      "published_at": "2026-10-22T17:22:47Z",
+      "collected_at": "2026-11-10T09:03:41.329866Z",
+      "category": "Cybersécurité",
+      "summary_fr": "On Tuesday, October 20, 2026, Docker began tracking two critical vulnerabilities in PHP, CVE-2026-109618 and CVE-2026-109619, commonly known as PHP2Shell.",
+      "summary_kind": "extrait",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
+    },
+    {
+      "title": "ActiveState Partners with Docker to Secure the Open Source in Enterprise Containers",
+      "url": "https://www.docker.com/blog/docker-activestate-partnership/",
+      "source": "Docker",
+      "published_at": "2026-10-22T11:30:00Z",
+      "collected_at": "2026-11-10T09:03:41.329866Z",
+      "category": "Conteneurs",
+      "summary_fr": "Container security spans the image, build, and runtime. See the practical steps that shrink your attack surface and keep vulnerabilities out of production.",
+      "summary_kind": "extrait",
+      "severity": "non_evaluee",
+      "severity_basis": "donnees_insuffisantes",
+      "cvss_score": null,
+      "severity_version": 1
     },
     {
       "title": "Your Windows release information toolbox",
@@ -548,7 +824,53 @@
       "collected_at": "2026-11-10T08:11:16.780593Z",
       "category": "Windows",
       "summary_fr": "Microsoft propose un guide pour cartographier les ressources d'information sur les versions de Windows en 2026. Ce répertoire aide les administrateurs à suivre les mises à jour, les problèmes connus et les actualités techniques.",
-      "summary_kind": "ia"
+      "summary_kind": "ia",
+      "severity": "information",
+      "severity_basis": "actualite",
+      "cvss_score": null,
+      "severity_version": 1
+    },
+    {
+      "title": "Collecting Delivery Optimization logs the easy way",
+      "url": "https://techcommunity.microsoft.com/t5/windows-it-pro-blog/collecting-delivery-optimization-logs-the-easy-way/ba-p/4547884",
+      "source": "Microsoft · Windows IT Pro",
+      "published_at": "2026-10-20T17:55:46Z",
+      "collected_at": "2026-11-10T09:03:41.329866Z",
+      "category": "Windows",
+      "summary_fr": "You've deployed Delivery Optimization settings and perhaps even a Microsoft Connected Cache node to reduce network traffic on Patch Tuesday. But things aren't working as expected. You aren't seeing good content peering efficiency. You notice peers reaching across the internet to other sites or find that content isn't coming from a Connected Cache. What do you do next? If you've ever had to troubleshoot a content delivery issue with Deli",
+      "summary_kind": "extrait",
+      "severity": "information",
+      "severity_basis": "actualite",
+      "cvss_score": null,
+      "severity_version": 1
+    },
+    {
+      "title": "Why Is My Kubernetes Job Still Pending? Tracing Kueue Admission with Headlamp",
+      "url": "https://kubernetes.io/blog/2026/10/14/tracing-kueue-admission-with-headlamp/",
+      "source": "Kubernetes",
+      "published_at": "2026-10-14T18:35:00Z",
+      "collected_at": "2026-11-10T09:03:41.329866Z",
+      "category": "Conteneurs",
+      "summary_fr": "You submit a Kubernetes Job and wait for its Pods to appear. A minute passes. Then another. The Job is still suspended, there are no application logs, and there may not even be a Pod to inspect. In a cluster managed by Kueue , this can be completely normal. Kueue may still be deciding whether the Job can use the requested resources. The useful question is not only “Why is the Pod pending?” It is first “Has Kueue admitted the Workload?” ",
+      "summary_kind": "extrait",
+      "severity": "information",
+      "severity_basis": "actualite",
+      "cvss_score": null,
+      "severity_version": 1
+    },
+    {
+      "title": "The Shift to cgroup v2 in Kubernetes: What You Need to Know",
+      "url": "https://kubernetes.io/blog/2026/10/06/kubernetes-cgroups-v2-shift/",
+      "source": "Kubernetes",
+      "published_at": "2026-10-06T18:00:00Z",
+      "collected_at": "2026-11-10T09:03:41.329866Z",
+      "category": "Conteneurs",
+      "summary_fr": "In Linux, cgroups (control groups) are a kernel feature used for managing system resources. Kubernetes uses cgroups to allocate resources like CPU and memory to containers, ensuring that applications run smoothly without interfering with each other. With the release of Kubernetes v1.31, support for v1 cgroup management moved into maintenance mode . Support for v2 cgroup management has been stable since Kubernetes v1.25. Compared with cg",
+      "summary_kind": "extrait",
+      "severity": "information",
+      "severity_basis": "actualite",
+      "cvss_score": null,
+      "severity_version": 1
     }
   ]
 }
