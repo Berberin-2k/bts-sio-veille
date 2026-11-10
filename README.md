@@ -18,7 +18,7 @@ Le portfolio Framer télécharge **uniquement recent.json au démarrage**. Il r�
 ## Collecte et intelligence artificielle
 
 - Sources : CERT-FR alertes et avis, Ubuntu Security, Docker, Kubernetes, Cloudflare, Linux Kernel, **Microsoft Windows IT Pro Blog** (Windows, Windows Server, administration et sécurité).
-- Jusqu’à **8 nouveaux articles par exécution** et **3 par source** ; classification SISR (dont une catégorie **Windows** dédiée) et déduplication.
+- Jusqu’à **8 nouveaux articles par exécution** et **3 par source** ; sélection **équilibrée par rotation entre les sources (round-robin)** afin que les flux moins fréquents, notamment Windows IT Pro, ne soient pas masqués par les autres ; classification SISR (dont une catégorie **Windows** dédiée) et déduplication.
 - Gemini produit un résumé factuel en français si disponible. Sinon la description RSS est conservée et indiquée comme `summary_kind: extrait`.
 - Aucun secret dans les données publiques : la clé `GEMINI_API_KEY` reste dans les GitHub Actions Secrets.
 - En cas d’échec de tous les flux RSS, le script échoue sans écraser les données existantes. Les erreurs partielles sont consignées.
