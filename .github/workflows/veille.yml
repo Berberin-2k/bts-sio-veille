@@ -39,15 +39,39 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: gemini-3.5-flash-lite
         run: python scripts/collect.py
-      - name: Vérifier le JSON
-        run: python -m json.tool site/data/articles.json > /dev/null
-      - name: Enregistrer les nouveaux articles
+      - name: Vérifier les trois jeux de données et leurs invariants
         run: |
-          if ! git diff --quiet -- site/data/articles.json; then
+          python -m json.tool site/data/recent.json > /dev/null
+          python -m json.tool site/data/archives.json > /dev/null
+          python -m json.tool site/data/articles.json > /dev/null
+          python - <<'PY'
+          import datetime as dt
+          import json
+          from pathlib import Path
+          from scripts.retention import partition_articles
+          directory = Path("site/data")
+          recent = json.loads((directory / "recent.json").read_text(encoding="utf-8"))
+          archive = json.loads((directory / "archives.json").read_text(encoding="utf-8"))
+          legacy = json.loads((directory / "articles.json").read_text(encoding="utf-8"))
+          assert recent["version"] == archive["version"] == 2
+          assert recent["recent_count"] == len(recent["articles"])
+          assert recent["archive_count"] == len(archive["articles"])
+          assert len(recent["articles"]) + len(archive["articles"]) <= 1000
+          assert legacy["articles"] == recent["articles"]
+          all_urls = [a["url"] for a in recent["articles"] + archive["articles"]]
+          assert len(all_urls) == len(set(all_urls)), "URLs dupliquées"
+          now = dt.datetime.fromisoformat(recent["generated_at"].replace("Z", "+00:00"))
+          test_recent, test_archive = partition_articles(recent["articles"] + archive["articles"], now)
+          assert test_recent == recent["articles"] and test_archive == archive["articles"]
+          print("Validation OK:", len(test_recent), "récents;", len(test_archive), "archives")
+          PY
+      - name: Enregistrer les nouveaux articles et archives
+        run: |
+          git add site/data/articles.json site/data/recent.json site/data/archives.json
+          if ! git diff --cached --quiet; then
             git config user.name 'veille-bot'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git add site/data/articles.json
-            git commit -m 'data: synchronisation veille quotidienne'
+            git commit -m 'data: veille récente et archives quotidiennes'
             git push
           fi
       - name: Configurer GitHub Pages
