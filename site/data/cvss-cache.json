@@ -1,6 +1,88 @@
 {
   "version": 1,
   "entries": {
+    "CVE-2026-48005": {
+      "checked_at": "2026-11-10T09:42:55.199333Z",
+      "score": 7.5,
+      "cvss_version": "3.1",
+      "score_source": "134c704f-9b21-4f2e-91b3-4a467353bcc0"
+    },
+    "CVE-2026-6324": {
+      "checked_at": "2026-11-10T09:42:55.199333Z",
+      "score": 4.8,
+      "cvss_version": "3.1",
+      "score_source": "secalert@redhat.com"
+    },
+    "CVE-2026-83387": {
+      "checked_at": "2026-11-10T09:42:55.199333Z",
+      "score": 5.9,
+      "cvss_version": "3.1",
+      "score_source": "secalert_us@oracle.com"
+    },
+    "CVE-2026-83395": {
+      "checked_at": "2026-11-10T09:42:55.199333Z",
+      "score": 6.5,
+      "cvss_version": "3.1",
+      "score_source": "secalert_us@oracle.com"
+    },
+    "CVE-2025-61962": {
+      "checked_at": "2026-11-10T09:42:55.199333Z",
+      "score": 5.9,
+      "cvss_version": "3.1",
+      "score_source": "cve@mitre.org"
+    },
+    "CVE-2026-59885": {
+      "checked_at": "2026-11-10T09:42:55.199333Z",
+      "score": 7.5,
+      "cvss_version": "3.1",
+      "score_source": "security-advisories@github.com"
+    },
+    "CVE-2026-87294": {
+      "checked_at": "2026-11-10T09:42:55.199333Z",
+      "score": 6.5,
+      "cvss_version": "3.1",
+      "score_source": "secalert_us@oracle.com"
+    },
+    "CVE-2026-83400": {
+      "checked_at": "2026-11-10T09:42:55.199333Z",
+      "score": 5.3,
+      "cvss_version": "3.1",
+      "score_source": "secalert_us@oracle.com"
+    },
+    "CVE-2026-121411": {
+      "checked_at": "2026-11-10T09:42:55.199333Z",
+      "score": 3.1,
+      "cvss_version": "3.1",
+      "score_source": "disclosure@vulncheck.com"
+    },
+    "CVE-2026-103263": {
+      "checked_at": "2026-11-10T09:42:55.199333Z",
+      "score": 8.2,
+      "cvss_version": "4.0",
+      "score_source": "disclosure@vulncheck.com"
+    },
+    "CVE-2023-20585": {
+      "checked_at": "2026-11-10T09:42:55.199333Z",
+      "score": 5.6,
+      "cvss_version": "4.0",
+      "score_source": "psirt@amd.com"
+    },
+    "CVE-2026-81010": {
+      "checked_at": "2026-11-10T09:42:55.199333Z",
+      "score": null
+    },
+    "CVE-2026-42533": {
+      "checked_at": "2026-11-10T09:42:55.199333Z",
+      "score": 9.2,
+      "cvss_version": "4.0",
+      "score_source": "f5sirt@f5.com"
+    },
+    "CVE-2024-55553": {
+      "checked_at": "2026-11-10T09:42:55.199333Z",
+      "score": 7.5,
+      "cvss_version": "3.1",
+      "score_source": "134c704f-9b21-4f2e-91b3-4a467353bcc0"
+    },
     "CVE-2026-46729": {
       "checked_at": "2026-11-10T09:38:58.192304Z",
       "score": 7.5,
