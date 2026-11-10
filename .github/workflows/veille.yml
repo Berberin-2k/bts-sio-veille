@@ -69,6 +69,8 @@ jobs:
           assert len(cache["entries"]) <= 2400
           allowed = {"critique","elevee","moderee","faible","aucune","non_evaluee","information"}
           for row in recent["articles"] + archive["articles"]:
+              assert row.get("source") != "Ubuntu Security", "Source Ubuntu retirée"
+              assert not str(row.get("url", "")).startswith("https://ubuntu.com/security/notices/"), "URL Ubuntu retirée"
               assert row.get("severity") in allowed
               if row.get("severity_basis") == "nvd_cvss":
                   assert row.get("severity_cve") in row.get("cve_ids", [])
