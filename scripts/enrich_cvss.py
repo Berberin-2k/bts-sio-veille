@@ -25,6 +25,7 @@ NVD_SECONDS_BETWEEN_REQUESTS = 7.0
 CVE_RE = re.compile(r"\bCVE-(?:19|20)\d{2}-\d{4,}\b", re.IGNORECASE)
 USN_PATH = re.compile(r"/security/notices/(USN-\d{3,6}-\d{1,3})/?$", re.IGNORECASE)
 CERT_PATH = re.compile(r"/(?:alerte|avis|cti|actualite)/[A-Z0-9\-]+/?$", re.IGNORECASE)
+DEBIAN_DSA_PATH = re.compile(r"/debian-security-announce/(?:19|20)\d{2}/msg\d{5}\.html$", re.IGNORECASE)
 USER_AGENT = "BTS-SIO-Veille/2.0 (public advisory reader)"
 NVD_PREFIX = "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId="
 CHECKED_POSITIVE_DAYS = 14
@@ -68,7 +69,7 @@ class NoticeParser(HTMLParser):
             self.skip += 1
         if tag == "a":
             href = dict(attrs).get("href") or ""
-            # Official Ubuntu/CERT link references, not arbitrary external links.
+            # Official bulletin links only, never arbitrary external destinations.
             if "/security/cves/" in href or "cve.mitre.org/cgi-bin/cvename.cgi" in href or "nvd.nist.gov/vuln/detail/" in href:
                 self.linked.extend(cve_ids_from(href))
 
@@ -103,6 +104,9 @@ def official_notice_url(article: dict) -> str | None:
         match = USN_PATH.fullmatch(parts.path)
         if match:
             return "https://ubuntu.com/security/notices/" + match.group(1).upper()
+    if (article.get("source") == "Debian Security" and
+            parts.hostname == "lists.debian.org" and DEBIAN_DSA_PATH.fullmatch(parts.path)):
+        return "https://lists.debian.org" + parts.path
     if (str(article.get("source") or "").startswith("CERT-FR") and
             parts.hostname == "cert.cyber.gouv.fr" and CERT_PATH.fullmatch(parts.path)):
         return "https://cert.cyber.gouv.fr" + parts.path
@@ -290,7 +294,7 @@ def enrich_articles(
     budget = max(0, max_nvd)
     queried = set()
     requests_made = 0
-    # One CVE per bulletin per round avoids allowing multi-CVE Ubuntu notices
+    # One CVE per bulletin per round avoids allowing multi-CVE advisories
     # to monopolize the unauthenticated NVD quota.
     while budget:
         progress = False
