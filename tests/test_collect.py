@@ -49,6 +49,70 @@ class CollectorTests(unittest.TestCase):
         self.assertIn("CVE-2026-57941", items[0]["excerpt"])
         self.assertGreater(len(items[0]["excerpt"]), 1600)
 
+    def test_debian_replaces_ubuntu_and_rdf_rss_is_parsed(self):
+        self.assertFalse(any(source[0] == "Ubuntu Security" for source in collector.SOURCES))
+        debian = next(source for source in collector.SOURCES if source[0] == "Debian Security")
+        self.assertEqual(debian[1], "https://www.debian.org/security/dsa-long")
+        self.assertEqual(debian[2], "Cybersécurité")
+        rdf = b"""<?xml version="1.0" encoding="UTF-8"?>
+        <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                 xmlns="http://purl.org/rss/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+        <item rdf:about="https://lists.debian.org/debian-security-announce/2026/msg00537.html">
+          <title>DSA-6617-1 symfony - security update</title>
+          <link>https://lists.debian.org/debian-security-announce/2026/msg00537.html</link>
+          <dc:date>2026-11-09</dc:date>
+          <description>Multiple vulnerabilities in Symfony.</description>
+        </item></rdf:RDF>"""
+        entries = collector.parse_feed(rdf, debian)
+        self.assertEqual(len(entries), 1)
+        self.assertEqual(entries[0]["source"], "Debian Security")
+        self.assertEqual(entries[0]["published_at"], "2026-11-09T00:00:00Z")
+        self.assertEqual(entries[0]["url"],
+                         "https://lists.debian.org/debian-security-announce/2026/msg00537.html")
+        self.assertTrue(collector.is_relevant(entries[0]))
+
+    def test_retired_ubuntu_notices_never_selected(self):
+        now = dt.datetime(2026, 11, 10, tzinfo=dt.timezone.utc)
+        cutoff = now - dt.timedelta(days=60)
+        good = dict(source="Debian Security", title="DSA-6617-1 security update",
+                    url="https://lists.debian.org/debian-security-announce/2026/msg00537.html",
+                    excerpt="Several vulnerabilities fixed", category="Cybersécurité",
+                    published_at="2026-11-09T00:00:00Z")
+        bad_source = {**good, "source": "Ubuntu Security",
+                      "url": "https://ubuntu.com/security/notices/USN-9022-1"}
+        bad_url = {**good, "url": "https://ubuntu.com/security/notices/USN-9022-1"}
+        self.assertFalse(collector.is_relevant(bad_source))
+        self.assertFalse(collector.is_relevant(bad_url))
+        selected = collector.select_articles([bad_source, bad_url, good], set(), cutoff)
+        self.assertEqual([row["url"] for row in selected], [good["url"]])
+
+    def test_existing_ubuntu_articles_are_purged_from_all_outputs(self):
+        now = dt.datetime.now(dt.timezone.utc)
+        with tempfile.TemporaryDirectory() as temp:
+            directory = Path(temp)
+            ubuntu = item("https://ubuntu.com/security/notices/USN-9022-1",
+                          now.isoformat())
+            ubuntu["source"] = "Ubuntu Security"
+            good = item("https://cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-555",
+                        now.isoformat())
+            (directory / "articles.json").write_text(
+                json.dumps({"articles": [ubuntu, good]}), encoding="utf-8")
+            with patch.object(collector, "DATA_DIR", directory), \
+                 patch.object(collector, "CVE_CACHE_FILE", directory / "cvss-cache.json"), \
+                 patch.object(collector, "fetch_feed", return_value=[]), \
+                 patch.object(collector, "enrich_articles", return_value={
+                     "nvd_requests": 0, "cvss_verified_articles": 0
+                 }), \
+                 patch.dict(os.environ, {"GEMINI_API_KEY": ""}):
+                self.assertEqual(collector.main(), 0)
+            for filename in ("recent.json", "archives.json", "articles.json"):
+                payload = json.loads((directory / filename).read_text(encoding="utf-8"))
+                self.assertFalse(any(a.get("source") == "Ubuntu Security" or
+                                     "ubuntu.com/security/notices/" in a.get("url", "")
+                                     for a in payload["articles"]))
+            articles = json.loads((directory / "recent.json").read_text(encoding="utf-8"))["articles"]
+            self.assertEqual([a["url"] for a in articles], [good["url"]])
+
     def test_windows_itpro_source_and_classification(self):
         self.assertTrue(any(s[0] == "Microsoft · Windows IT Pro" and s[2] == "Windows" for s in collector.SOURCES))
         self.assertEqual(collector.category_for({"title":"Windows 11 enterprise management update","source":"Microsoft · Windows IT Pro","excerpt":"Windows IT admin","category":"Windows"}), "Windows")
