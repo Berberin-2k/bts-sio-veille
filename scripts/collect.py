@@ -117,7 +117,7 @@ def parse_feed(content, source):
         results.append({
             "title": title, "url": url, "source": source[0],
             "published_at": date_iso(child_text(e, {"pubdate", "published", "updated", "date"})),
-            "excerpt": clean(child_text(e, {"description", "summary", "encoded", "content"})),
+            "excerpt": clean(child_text(e, {"description", "summary", "encoded", "content"}), 12000),
             "category": source[2],
         })
     return results
