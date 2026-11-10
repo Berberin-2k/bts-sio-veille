@@ -269,6 +269,7 @@ def enrich_articles(
         last_page = parse_date(article.get("notice_checked_at"))
         should_fetch = (
             notices < max_notices and official_notice_url(article) and
+            len(article["cve_ids"]) < 2 and
             (not last_page or now - last_page > dt.timedelta(days=7))
         )
         if should_fetch:
