@@ -15,6 +15,7 @@ import xml.etree.ElementTree as ET
 
 from retention import (RECENT_DAYS, ARCHIVE_DAYS, MAX_STORED, SCHEMA_VERSION,
                        article_date, load_history, partition_articles, save_feeds)
+from severity import SEVERITY_VERSION, classify as classify_severity
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "site" / "data"
@@ -248,6 +249,11 @@ def main():
         a["url"]: a for a in pre_recent + pre_archive
         if is_relevant({"title": a.get("title", ""), "source": a.get("source", "")})
     }
+    # Backfill existing records safely. Historical AI summaries are not used as
+    # evidence for an official CVSS score; classify from source excerpts/title only.
+    for old in known.values():
+        if old.get("severity_version") != SEVERITY_VERSION:
+            old.update(classify_severity(old))
     new_candidates, source_errors, source_ok = [], [], 0
     for source in SOURCES:
         try:
@@ -290,6 +296,7 @@ def main():
             "title": item["title"], "url": item["url"], "source": item["source"],
             "published_at": item["published_at"], "collected_at": now,
             "category": category, "summary_fr": summary, "summary_kind": kind,
+            **classify_severity(item, source_excerpt=item.get("excerpt", "")),
         }
 
     # Retenter les anciens extraits lors des prochains runs si l'IA redevient disponible.
