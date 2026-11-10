@@ -16,9 +16,11 @@ import xml.etree.ElementTree as ET
 from retention import (RECENT_DAYS, ARCHIVE_DAYS, MAX_STORED, SCHEMA_VERSION,
                        article_date, load_history, partition_articles, save_feeds)
 from severity import SEVERITY_VERSION, classify as classify_severity
+from enrich_cvss import enrich_articles, read_cache as read_cve_cache, write_cache as write_cve_cache
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "site" / "data"
+CVE_CACHE_FILE = DATA_DIR / "cvss-cache.json"
 MODEL = os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite")
 MAX_NEW, MAX_PER_SOURCE = 8, 3
 SOURCES = [
@@ -254,12 +256,15 @@ def main():
     for old in known.values():
         if old.get("severity_version") != SEVERITY_VERSION:
             old.update(classify_severity(old))
+    cve_cache = read_cve_cache(CVE_CACHE_FILE)
+    feed_by_url = {}
     new_candidates, source_errors, source_ok = [], [], 0
     for source in SOURCES:
         try:
             entries = fetch_feed(source)
             source_ok += 1
             print(f"[RSS] {source[0]}: {len(entries)}")
+            feed_by_url.update({e['url']: e for e in entries[:60]})
             new_candidates.extend(e for e in entries[:18] if e["url"] not in known)
         except Exception as exc:
             message = source[0] + ": " + str(exc)[:100]
@@ -333,6 +338,10 @@ def main():
                 ai_errors += 1
                 print(f"[WARN] Gemini {type(exc).__name__}; ancien extrait conservé", file=sys.stderr)
 
+    # Enrich official bulletins and previously collected articles incrementally.
+    # No speculative CVSS: failed NVD lookups leave existing severities intact.
+    enrichment_stats = enrich_articles(list(known.values()), feed_by_url, cve_cache)
+
     # Retention is based on the publication date, or collection date when absent.
     # Recent and archive are disjoint. The 1,000-article cap applies to both combined.
     recent, archives = partition_articles(known.values(), dt.datetime.now(dt.timezone.utc))
@@ -345,9 +354,11 @@ def main():
         "recent_count": len(recent), "archive_count": len(archives),
         "recent_days": RECENT_DAYS, "archive_days": ARCHIVE_DAYS,
         "max_stored": MAX_STORED, "articles": recent,
+        "enrichment": enrichment_stats,
     }
     save_feeds(DATA_DIR, updated, archives)
-    print(f"[OK] sources {source_ok}/{len(SOURCES)}, nouveaux {len(selected)}, IA {ai_count}, récents {len(recent)}, archives {len(archives)}, total {len(recent)+len(archives)}")
+    write_cve_cache(CVE_CACHE_FILE, cve_cache)
+    print(f"[OK] sources {source_ok}/{len(SOURCES)}, nouveaux {len(selected)}, IA {ai_count}, CVSS NVD {enrichment_stats['nvd_requests']} requêtes, vérifiés {enrichment_stats['cvss_verified_articles']}, récents {len(recent)}, archives {len(archives)}, total {len(recent)+len(archives)}")
     if not key:
         print("[WARN] GEMINI_API_KEY absent: seuls les extraits des flux sont affichés.", file=sys.stderr)
     return 0
