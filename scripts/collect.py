@@ -28,8 +28,9 @@ SOURCES = [
     ("Kubernetes", "https://kubernetes.io/feed.xml", "Conteneurs"),
     ("Cloudflare", "https://blog.cloudflare.com/rss/", "Réseaux"),
     ("Linux Kernel", "https://www.kernel.org/feeds/kdist.xml", "Systèmes"),
+    ("Microsoft · Windows IT Pro", "https://techcommunity.microsoft.com/t5/s/gxcuf89792/rss/board?board.id=Windows-ITPro-blog", "Windows"),
 ]
-CATEGORIES = {"Cybersécurité", "Systèmes", "Réseaux", "Cloud", "Conteneurs"}
+CATEGORIES = {"Cybersécurité", "Systèmes", "Windows", "Réseaux", "Cloud", "Conteneurs"}
 
 
 class StripHTML(HTMLParser):
@@ -129,6 +130,8 @@ def fetch_feed(source):
 
 
 def category_for(item):
+    if item["source"] == "Microsoft · Windows IT Pro":
+        return "Windows"
     text = (item["title"] + " " + item["excerpt"][:400]).lower()
     if item["source"].startswith("CERT-FR"):
         return "Cybersécurité"
@@ -168,7 +171,7 @@ def summarize(item, api_key):
         "Écris en français un résumé factuel de deux phrases au plus (360 caractères maximum), "
         "fondé UNIQUEMENT sur le titre et l'extrait. N'invente aucune version, CVE, date, "
         "conséquence ni correction. Si l'extrait manque, reformule prudemment le titre. "
-        "Choisis une seule catégorie : Cybersécurité, Systèmes, Réseaux, Cloud, Conteneurs. "
+        "Choisis une seule catégorie : Cybersécurité, Systèmes, Windows, Réseaux, Cloud, Conteneurs. "
         "Retourne UNIQUEMENT un objet JSON avec summary et category.\n"
         f"Titre: {item['title']}\nSource: {item['source']}\nExtrait: {item['excerpt'][:1300]}"
     )
@@ -186,7 +189,7 @@ def summarize(item, api_key):
     if not summary:
         raise ValueError("Résumé IA vide")
     selected = obj.get("category", "")
-    return summary, selected if selected in CATEGORIES else category_for(item)
+    return summary, ("Windows" if item["source"] == "Microsoft · Windows IT Pro" else (selected if selected in CATEGORIES else category_for(item)))
 
 
 def timestamp():
