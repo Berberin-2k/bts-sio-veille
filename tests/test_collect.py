@@ -38,6 +38,11 @@ class CollectorTests(unittest.TestCase):
         self.assertEqual(collector.parse_feed(rss, source)[0]["title"], "Alerte")
         self.assertEqual(collector.parse_feed(atom, source)[0]["url"], "https://a.test/2")
 
+    def test_windows_itpro_source_and_classification(self):
+        self.assertTrue(any(s[0] == "Microsoft · Windows IT Pro" and s[2] == "Windows" for s in collector.SOURCES))
+        self.assertEqual(collector.category_for({"title":"Windows 11 enterprise management update","source":"Microsoft · Windows IT Pro","excerpt":"Windows IT admin","category":"Windows"}), "Windows")
+        self.assertEqual(collector.parse_feed(b"<rss><channel><item><title>Windows Server update</title><link>https://techcommunity.microsoft.com/windows/post</link><pubDate>Mon, 09 Nov 2026 10:00:00 GMT</pubDate></item></channel></rss>",("Microsoft · Windows IT Pro","https://techcommunity.microsoft.com/t5/s/gxcuf89792/rss/board?board.id=Windows-ITPro-blog","Windows"))[0]["category"],"Windows")
+
     def test_sanitize(self):
         self.assertEqual(collector.clean("<p>CVE &amp; Linux</p>"), "CVE & Linux")
 
