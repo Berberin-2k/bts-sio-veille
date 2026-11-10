@@ -28,6 +28,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: main  # Always start from latest published data, not a stale push SHA
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
@@ -66,20 +68,42 @@ jobs:
           print("Validation OK:", len(test_recent), "récents;", len(test_archive), "archives")
           PY
       - name: Enregistrer les nouveaux articles et archives
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: gemini-3.5-flash-lite
         run: |
+          git config user.name 'veille-bot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add site/data/articles.json site/data/recent.json site/data/archives.json
           if ! git diff --cached --quiet; then
-            git config user.name 'veille-bot'
-            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
             git commit -m 'data: veille récente et archives quotidiennes'
-            # Another commit can land while the collector runs. Integrate it safely;
-            # never force-push and never silently overwrite newer published JSON.
-            if ! git push origin HEAD:main; then
-              echo 'Remote updated during collection; attempting a safe rebase.'
-              git fetch origin main
-              git rebase origin/main
-              git push origin HEAD:main
+          fi
+          # If remote changed, discard only our unpushed generated files, fetch the
+          # latest authoritative history, and run the collector again against it.
+          # Never force push or merge conflicting JSON by choosing one side.
+          succeeded=0
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then
+              succeeded=1
+              break
             fi
+            echo "Concurrent push on attempt $attempt: refetching and rebuilding JSON."
+            git fetch origin main
+            git reset --hard origin/main
+            python scripts/collect.py
+            python -m json.tool site/data/recent.json > /dev/null
+            python -m json.tool site/data/archives.json > /dev/null
+            python -m json.tool site/data/articles.json > /dev/null
+            git add site/data/articles.json site/data/recent.json site/data/archives.json
+            if git diff --cached --quiet; then
+              succeeded=1
+              break
+            fi
+            git commit -m 'data: veille récente et archives quotidiennes (rebuilt)'
+          done
+          if [ "$succeeded" != 1 ]; then
+            echo 'Could not push data safely after three attempts.' >&2
+            exit 1
           fi
       - name: Configurer GitHub Pages
         uses: actions/configure-pages@v5
