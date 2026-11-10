@@ -118,10 +118,10 @@ class EnrichmentTests(unittest.TestCase):
             loaded = enrich_cvss.read_cache(path)
             self.assertEqual(set(cache), set(loaded))
             self.assertEqual(loaded["CVE-2026-57941"]["score"], 7.5)
-            with self.assertRaises(AssertionError):
-                enrich_cvss.enrich_articles([a, b], {}, loaded, now=NOW,
-                                            max_nvd=0, max_notices=0,
-                                            nvd_fetcher=lambda _: (_ for _ in ()).throw(AssertionError("should not query")))
+            rerun = enrich_cvss.enrich_articles([a, b], {}, loaded, now=NOW,
+                                                max_nvd=0, max_notices=0,
+                                                nvd_fetcher=lambda _: (_ for _ in ()).throw(AssertionError("should not query")))
+            self.assertEqual(rerun["nvd_requests"], 0)
 
     def test_failures_preserve_unrated_state(self):
         a = advisory("USN-9012-1: libheif vulnerability")
