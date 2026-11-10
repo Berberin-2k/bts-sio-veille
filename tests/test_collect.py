@@ -1,23 +1,117 @@
+"""Offline regression tests for RSS parsing, retention, migration and fail-safe runs."""
+import datetime as dt
 import importlib.util
+import json
+import os
 from pathlib import Path
+import sys
+import tempfile
 import unittest
+from unittest.mock import patch
 
-spec = importlib.util.spec_from_file_location("collector", Path(__file__).resolve().parents[1] / "scripts" / "collect.py")
-module = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(module)
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+import retention
+
+spec = importlib.util.spec_from_file_location("collector", ROOT / "scripts" / "collect.py")
+collector = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(collector)
+
+
+def item(url, at, summary_kind="ia"):
+    return {
+        "url": url, "title": "Test article", "published_at": at,
+        "collected_at": at, "source": "CERT-FR · Avis", "category": "Cybersécurité",
+        "summary_fr": "Information source.", "summary_kind": summary_kind,
+    }
+
 
 class CollectorTests(unittest.TestCase):
     def test_tracking_cleanup(self):
-        self.assertEqual(module.canonical("https://example.org/a?x=1&utm_source=rss#hi"), "https://example.org/a?x=1")
-        self.assertIsNone(module.canonical("javascript:alert(1)"))
+        self.assertEqual(collector.canonical("https://example.org/a?x=1&utm_source=rss#hi"), "https://example.org/a?x=1")
+        self.assertIsNone(collector.canonical("javascript:alert(1)"))
+
     def test_rss_and_atom(self):
         rss = b"<rss><channel><item><title>Alerte</title><link>https://a.test/1</link><description>Information</description><pubDate>Mon, 09 Nov 2026 10:00:00 GMT</pubDate></item></channel></rss>"
         atom = b'<feed xmlns="http://www.w3.org/2005/Atom"><entry><title>Linux</title><link rel="alternate" href="https://a.test/2"/><summary>Update</summary><updated>2026-11-09T10:00:00Z</updated></entry></feed>'
         source = ("A", "https://a.test/feed", "Systèmes")
-        self.assertEqual(module.parse_feed(rss, source)[0]["title"], "Alerte")
-        self.assertEqual(module.parse_feed(atom, source)[0]["url"], "https://a.test/2")
+        self.assertEqual(collector.parse_feed(rss, source)[0]["title"], "Alerte")
+        self.assertEqual(collector.parse_feed(atom, source)[0]["url"], "https://a.test/2")
+
     def test_sanitize(self):
-        self.assertEqual(module.clean("<p>CVE &amp; Linux</p>"), "CVE & Linux")
+        self.assertEqual(collector.clean("<p>CVE &amp; Linux</p>"), "CVE & Linux")
+
+    def test_partition_boundaries(self):
+        now = dt.datetime(2026, 11, 10, 12, tzinfo=dt.timezone.utc)
+        def ago(days, seconds=0):
+            return (now - dt.timedelta(days=days, seconds=seconds)).isoformat()
+        articles = [
+            item("https://example.org/recent", ago(60)),
+            item("https://example.org/archive", ago(60, 1)),
+            item("https://example.org/year", ago(365)),
+            item("https://example.org/expired", ago(365, 1)),
+        ]
+        recent, archive = retention.partition_articles(articles, now)
+        self.assertEqual([x["url"] for x in recent], ["https://example.org/recent"])
+        self.assertEqual([x["url"] for x in archive], ["https://example.org/archive", "https://example.org/year"])
+        self.assertEqual(len(recent) + len(archive), 3)
+
+    def test_max_1000_and_url_deduplication(self):
+        now = dt.datetime(2026, 11, 10, tzinfo=dt.timezone.utc)
+        items = [item(f"https://example.org/{i}", (now-dt.timedelta(days=2)).isoformat()) for i in range(1200)]
+        items += [items[0]] * 3
+        recent, archive = retention.partition_articles(items, now)
+        self.assertEqual(len(recent), 1000)
+        self.assertEqual(len(archive), 0)
+        self.assertEqual(len({a["url"] for a in recent}), 1000)
+
+    def test_missing_publication_falls_back_to_collection_date(self):
+        now = dt.datetime(2026, 11, 10, tzinfo=dt.timezone.utc)
+        x = item("https://example.org/missing-date", now.isoformat())
+        x["published_at"] = None
+        recent, archive = retention.partition_articles([x], now)
+        self.assertEqual(len(recent), 1)
+        self.assertEqual(archive, [])
+
+    def test_legacy_migration_and_disjoint_files(self):
+        now = dt.datetime(2026, 11, 10, tzinfo=dt.timezone.utc)
+        with tempfile.TemporaryDirectory() as temp:
+            directory = Path(temp)
+            legacy = [
+                item("https://example.org/fresh", (now-dt.timedelta(days=4)).isoformat()),
+                item("https://example.org/old", (now-dt.timedelta(days=80)).isoformat()),
+            ]
+            (directory / "articles.json").write_text(json.dumps({"articles":legacy}),encoding="utf-8")
+            self.assertEqual(len(retention.load_history(directory)), 2)
+            recent, archive = retention.partition_articles(retention.load_history(directory), now)
+            payload = {"version":2, "last_successful_sync":now.isoformat(),"recent_count":len(recent),"archive_count":len(archive),"articles":recent}
+            retention.save_feeds(directory,payload,archive)
+            self.assertEqual(len(retention.read_articles(directory / "recent.json")), 1)
+            self.assertEqual(len(retention.read_articles(directory / "archives.json")), 1)
+            self.assertEqual(len(retention.read_articles(directory / "articles.json")), 1)
+            self.assertEqual(len(retention.load_history(directory)), 2)
+
+    def test_invalid_partial_migration_does_not_delete_data(self):
+        with tempfile.TemporaryDirectory() as temp:
+            directory = Path(temp)
+            (directory / "articles.json").write_text(json.dumps({"articles":[item("https://example.org/a","2026-11-09T00:00:00Z")]}),encoding="utf-8")
+            (directory / "recent.json").write_text(json.dumps({"articles":[]}),encoding="utf-8")
+            with self.assertRaises(RuntimeError):
+                retention.load_history(directory)
+            (directory / "archives.json").write_text("{broken",encoding="utf-8")
+            with self.assertRaises(RuntimeError):
+                retention.load_history(directory)
+
+    def test_all_sources_unavailable_preserves_previous_files(self):
+        with tempfile.TemporaryDirectory() as temp:
+            directory = Path(temp)
+            original = json.dumps({"articles":[item("https://example.org/a","2026-11-09T00:00:00Z")]})
+            (directory / "articles.json").write_text(original,encoding="utf-8")
+            with patch.object(collector, "DATA_DIR", directory), patch.object(collector, "fetch_feed", side_effect=RuntimeError("offline")):
+                self.assertEqual(collector.main(), 1)
+            self.assertEqual((directory / "articles.json").read_text(encoding="utf-8"), original)
+            self.assertFalse((directory / "recent.json").exists())
+
 
 if __name__ == "__main__":
     unittest.main()
