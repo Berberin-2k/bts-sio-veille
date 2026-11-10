@@ -26,7 +26,7 @@ MAX_NEW, MAX_PER_SOURCE = 8, 3
 SOURCES = [
     ("CERT-FR · Alertes", "https://cert.cyber.gouv.fr/alerte/feed/", "Cybersécurité"),
     ("CERT-FR · Avis", "https://cert.cyber.gouv.fr/avis/feed/", "Cybersécurité"),
-    ("Ubuntu Security", "https://ubuntu.com/security/notices/rss.xml", "Systèmes"),
+    ("Debian Security", "https://www.debian.org/security/dsa-long", "Cybersécurité"),
     ("Docker", "https://www.docker.com/blog/feed/", "Conteneurs"),
     ("Kubernetes", "https://kubernetes.io/feed.xml", "Conteneurs"),
     ("Cloudflare", "https://blog.cloudflare.com/rss/", "Réseaux"),
@@ -150,7 +150,19 @@ def category_for(item):
 
 
 def is_relevant(item):
-    """Exclude promotional/developer-funding items from the broad Cloudflare feed."""
+    """Block retired Ubuntu source and exclude off-topic Cloudflare promotions.
+
+    This runs on both newly fetched items and historical JSON records, so
+    excluded Ubuntu notices cannot re-enter recent.json from the archive.
+    """
+    if str(item.get("source") or "").casefold() == "ubuntu security":
+        return False
+    try:
+        url = parse.urlsplit(str(item.get("url") or ""))
+    except ValueError:
+        return False
+    if url.hostname in ("ubuntu.com", "www.ubuntu.com") and url.path.startswith("/security/notices/"):
+        return False
     if item["source"] != "Cloudflare":
         return True
     title = item["title"].lower()
@@ -249,7 +261,7 @@ def main():
     pre_recent, pre_archive = partition_articles(history, dt.datetime.now(dt.timezone.utc))
     known = {
         a["url"]: a for a in pre_recent + pre_archive
-        if is_relevant({"title": a.get("title", ""), "source": a.get("source", "")})
+        if is_relevant({"title": a.get("title", ""), "source": a.get("source", ""), "url": a.get("url", "")})
     }
     # Backfill existing records safely. Historical AI summaries are not used as
     # evidence for an official CVSS score; classify from source excerpts/title only.
