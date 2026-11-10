@@ -13,10 +13,13 @@ import time
 from urllib import error, parse, request
 import xml.etree.ElementTree as ET
 
+from retention import (RECENT_DAYS, ARCHIVE_DAYS, MAX_STORED, SCHEMA_VERSION,
+                       article_date, load_history, partition_articles, save_feeds)
+
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT = ROOT / "site" / "data" / "articles.json"
+DATA_DIR = ROOT / "site" / "data"
 MODEL = os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite")
-MAX_NEW, MAX_PER_SOURCE, MAX_STORED = 8, 3, 180
+MAX_NEW, MAX_PER_SOURCE = 8, 3
 SOURCES = [
     ("CERT-FR · Alertes", "https://cert.cyber.gouv.fr/alerte/feed/", "Cybersécurité"),
     ("CERT-FR · Avis", "https://cert.cyber.gouv.fr/avis/feed/", "Cybersécurité"),
@@ -191,11 +194,14 @@ def timestamp():
 
 
 def main():
-    try:
-        state = json.loads(OUTPUT.read_text(encoding="utf-8"))
-    except (OSError, ValueError):
-        state = {"version": 1, "articles": []}
-    known = {a["url"]: a for a in state.get("articles", []) if isinstance(a, dict) and a.get("url") and is_relevant({"title": a.get("title", ""), "source": a.get("source", "")})}
+    # Migrate the legacy articles.json automatically; later runs merge both partitions.
+    # Corrupt/missing partial data raises an error rather than deleting the history.
+    history = load_history(DATA_DIR)
+    pre_recent, pre_archive = partition_articles(history, dt.datetime.now(dt.timezone.utc))
+    known = {
+        a["url"]: a for a in pre_recent + pre_archive
+        if is_relevant({"title": a.get("title", ""), "source": a.get("source", "")})
+    }
     new_candidates, source_errors, source_ok = [], [], 0
     for source in SOURCES:
         try:
@@ -211,7 +217,7 @@ def main():
         print("[ERROR] Aucun flux RSS accessible; aucune donnée écrasée.", file=sys.stderr)
         return 1
 
-    cutoff = dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=30)
+    cutoff = dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=RECENT_DAYS)
     seen = set(known)
     counts = {}
     selected = []
@@ -261,6 +267,9 @@ def main():
                 break
             if old_article["url"] in attempted or old_article.get("summary_kind") != "extrait":
                 continue
+            # Spend AI credits on currently visible articles, never expired archives.
+            if not article_date(old_article) or article_date(old_article) < cutoff:
+                continue
             attempted.add(old_article["url"])
             old_entry = {
                 "title": old_article["title"],
@@ -283,17 +292,21 @@ def main():
                 ai_errors += 1
                 print(f"[WARN] Gemini {type(exc).__name__}; ancien extrait conservé", file=sys.stderr)
 
-    articles = sorted(known.values(), key=lambda x: x.get("published_at") or x.get("collected_at") or "", reverse=True)[:MAX_STORED]
+    # Retention is based on the publication date, or collection date when absent.
+    # Recent and archive are disjoint. The 1,000-article cap applies to both combined.
+    recent, archives = partition_articles(known.values(), dt.datetime.now(dt.timezone.utc))
     updated = {
-        "version": 1, "generated_at": now, "last_successful_sync": now,
+        "version": SCHEMA_VERSION, "generated_at": now, "last_successful_sync": now,
         "sources_checked": source_ok, "sources_total": len(SOURCES),
         "source_errors": source_errors, "ai_new_summaries": ai_count,
         "ai_errors": ai_errors, "ai_http_errors": ai_http_errors, "ai_key_configured": bool(key),
-        "new_articles": len(selected), "articles": articles,
+        "new_articles": len(selected),
+        "recent_count": len(recent), "archive_count": len(archives),
+        "recent_days": RECENT_DAYS, "archive_days": ARCHIVE_DAYS,
+        "max_stored": MAX_STORED, "articles": recent,
     }
-    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT.write_text(json.dumps(updated, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"[OK] sources {source_ok}/{len(SOURCES)}, nouveaux {len(selected)}, IA {ai_count}, stockés {len(articles)}")
+    save_feeds(DATA_DIR, updated, archives)
+    print(f"[OK] sources {source_ok}/{len(SOURCES)}, nouveaux {len(selected)}, IA {ai_count}, récents {len(recent)}, archives {len(archives)}, total {len(recent)+len(archives)}")
     if not key:
         print("[WARN] GEMINI_API_KEY absent: seuls les extraits des flux sont affichés.", file=sys.stderr)
     return 0
