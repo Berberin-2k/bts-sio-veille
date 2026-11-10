@@ -39,6 +39,16 @@ class CollectorTests(unittest.TestCase):
         self.assertEqual(collector.parse_feed(rss, source)[0]["title"], "Alerte")
         self.assertEqual(collector.parse_feed(atom, source)[0]["url"], "https://a.test/2")
 
+    def test_long_rss_description_retains_cves_beyond_1600_characters(self):
+        long_intro = "Technical fix notes. " * 105
+        rss = ("<rss><channel><item><title>Security notice</title>"
+               "<link>https://ubuntu.com/security/notices/USN-9001-1</link>"
+               "<description>" + long_intro + " CVE-2026-57941</description>"
+               "</item></channel></rss>").encode()
+        items = collector.parse_feed(rss, ("Ubuntu Security", "https://ubuntu.com/security/notices/rss.xml", "Systèmes"))
+        self.assertIn("CVE-2026-57941", items[0]["excerpt"])
+        self.assertGreater(len(items[0]["excerpt"]), 1600)
+
     def test_windows_itpro_source_and_classification(self):
         self.assertTrue(any(s[0] == "Microsoft · Windows IT Pro" and s[2] == "Windows" for s in collector.SOURCES))
         self.assertEqual(collector.category_for({"title":"Windows 11 enterprise management update","source":"Microsoft · Windows IT Pro","excerpt":"Windows IT admin","category":"Windows"}), "Windows")
