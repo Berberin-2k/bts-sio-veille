@@ -1,16 +1,19 @@
 {
   "version": 2,
-  "generated_at": "2026-11-10T08:06:22.142346Z",
-  "last_successful_sync": "2026-11-10T08:06:22.142346Z",
+  "generated_at": "2026-11-10T08:08:32.357709Z",
+  "last_successful_sync": "2026-11-10T08:08:32.357709Z",
   "sources_checked": 8,
   "sources_total": 8,
   "source_errors": [],
-  "ai_new_summaries": 8,
-  "ai_errors": 0,
-  "ai_http_errors": [],
+  "ai_new_summaries": 6,
+  "ai_errors": 2,
+  "ai_http_errors": [
+    503,
+    503
+  ],
   "ai_key_configured": true,
   "new_articles": 8,
-  "recent_count": 37,
+  "recent_count": 45,
   "archive_count": 0,
   "recent_days": 60,
   "archive_days": 365,
@@ -74,6 +77,26 @@
       "collected_at": "2026-11-10T08:06:22.142346Z",
       "category": "Cybersécurité",
       "summary_fr": "Une vulnérabilité a été découverte dans libheif lors du traitement de certaines images HEIF, permettant potentiellement l'exécution de code arbitraire.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "USN-9011-1: pyasn1 vulnerabilities",
+      "url": "https://ubuntu.com/security/notices/USN-9011-1",
+      "source": "Ubuntu Security",
+      "published_at": "2026-11-09T16:15:14Z",
+      "collected_at": "2026-11-10T08:08:32.357709Z",
+      "category": "Systèmes",
+      "summary_fr": "It was discovered that pyasn1 did not properly bound the size of long-form tag identifiers when parsing BER, CER, or DER encoded data. An attacker could possibly use this issue to cause applications decoding untrusted ASN.1 data to consume excessive CPU resources, resulting in a denial of service. This issue only affected Ubuntu 14.04 LTS, Ubuntu 16.04 LTS, Ubuntu 18.04 LTS, and Ubuntu 20.04 LTS. (CVE-2026-59884) It was discovered that ",
+      "summary_kind": "extrait"
+    },
+    {
+      "title": "USN-9009-1: OpenJDK 8 vulnerabilities",
+      "url": "https://ubuntu.com/security/notices/USN-9009-1",
+      "source": "Ubuntu Security",
+      "published_at": "2026-11-09T16:04:44Z",
+      "collected_at": "2026-11-10T08:08:32.357709Z",
+      "category": "Cybersécurité",
+      "summary_fr": "Des vulnérabilités ont été découvertes dans plusieurs composants d'OpenJDK 8, permettant à un attaquant distant de lire, modifier des données sensibles ou provoquer un déni de service.",
       "summary_kind": "ia"
     },
     {
@@ -257,6 +280,26 @@
       "summary_kind": "ia"
     },
     {
+      "title": "Vulnérabilité dans Laravel (04 novembre 2026)",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1457/",
+      "source": "CERT-FR · Avis",
+      "published_at": "2026-11-04T00:00:00Z",
+      "collected_at": "2026-11-10T08:08:32.357709Z",
+      "category": "Cybersécurité",
+      "summary_fr": "Une vulnérabilité a été découverte dans Laravel, permettant à un attaquant de provoquer une exécution de code arbitraire à distance.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "Multiples vulnérabilités dans les produits SonicWall (04 novembre 2026)",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1456/",
+      "source": "CERT-FR · Avis",
+      "published_at": "2026-11-04T00:00:00Z",
+      "collected_at": "2026-11-10T08:08:32.357709Z",
+      "category": "Cybersécurité",
+      "summary_fr": "De multiples vulnérabilités ont été découvertes dans les produits SonicWall, permettant notamment une injection SQL et une atteinte à la confidentialité des données.",
+      "summary_kind": "ia"
+    },
+    {
       "title": "Vulnérabilité dans Mozilla Firefox (04 novembre 2026)",
       "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1455/",
       "source": "CERT-FR · Avis",
@@ -385,6 +428,46 @@
       "category": "Réseaux",
       "summary_fr": "Cloudflare a développé un planificateur pour optimiser la reconstruction des zones DNS en ciblant uniquement les modifications nécessaires.",
       "summary_kind": "ia"
+    },
+    {
+      "title": "Coding Agent Horror Stories: The CVE That Did Not Exist",
+      "url": "https://www.docker.com/blog/coding-agent-horror-stories-the-cve-that-did-not-exist/",
+      "source": "Docker",
+      "published_at": "2026-10-29T13:00:00Z",
+      "collected_at": "2026-11-10T08:08:32.357709Z",
+      "category": "Cybersécurité",
+      "summary_fr": "Un agent de revue de code par IA a inventé une vulnérabilité et conseillé des correctifs dangereux. Docker Sandboxes permet de contenir ces outils dont les sorties doivent être vérifiées.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "Cloudflare DDoS Threat Report 2026 Q3: More swarms, fewer giants",
+      "url": "https://blog.cloudflare.com/ddos-threat-report-2026-q3/",
+      "source": "Cloudflare",
+      "published_at": "2026-10-29T12:55:00Z",
+      "collected_at": "2026-11-10T08:08:32.357709Z",
+      "category": "Cybersécurité",
+      "summary_fr": "Au troisième trimestre 2026, Cloudflare a atténué plus de 8 200 attaques DDoS par heure, caractérisées par des frappes plus courtes et fréquentes.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "From Working Group to SIG Architecture: spotlight on AI Conformance",
+      "url": "https://kubernetes.io/blog/2026/10/29/sig-arch-ai-conformance-2026/",
+      "source": "Kubernetes",
+      "published_at": "2026-10-29T05:00:00Z",
+      "collected_at": "2026-11-10T08:08:32.357709Z",
+      "category": "Conteneurs",
+      "summary_fr": "Kubernetes évoque le parcours de l'initiative AI Conformance, passée de groupe de travail à sous-projet de SIG Architecture.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "Introducing Ctrl + Manage: Your shortcut to practical Windows management",
+      "url": "https://techcommunity.microsoft.com/t5/windows-it-pro-blog/introducing-ctrl-manage-your-shortcut-to-practical-windows/ba-p/4560916",
+      "source": "Microsoft · Windows IT Pro",
+      "published_at": "2026-10-28T22:58:48Z",
+      "collected_at": "2026-11-10T08:08:32.357709Z",
+      "category": "Windows",
+      "summary_fr": "Keeping up with Windows management shouldn't require piecing together announcements, documentation, and demos just to understand what matters for your environment. Release notes can tell you what changed, but they don't always tell you why it matters, where it fits, or what you should do next. That's why I'm launching Ctrl + Manage , a new monthly podcast for IT professionals and Windows administrators. Starting October 1, we'll spend r",
+      "summary_kind": "extrait"
     }
   ]
 }
