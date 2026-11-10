@@ -19,7 +19,9 @@ permissions:
 
 concurrency:
   group: veille-publication
-  cancel-in-progress: false
+  # A new code release supersedes an older still-running sync. This prevents
+  # old jobs from blocking the deployment or racing to publish obsolete JSON.
+  cancel-in-progress: true
 
 jobs:
   veille:
