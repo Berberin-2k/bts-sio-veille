@@ -69,7 +69,7 @@ def from_cvss_score(score: float) -> str:
 
 def security_relevant(item: dict[str, Any]) -> bool:
     source = str(item.get("source") or "")
-    if source.startswith("CERT-FR") or source == "Ubuntu Security":
+    if source.startswith("CERT-FR") or source in ("Debian Security", "Ubuntu Security"):
         return True
     # Category Cybersécurité alone is insufficient: an educational security
     # article can be a harmless news item, not a vulnerability notice.
