@@ -1,16 +1,16 @@
 {
   "version": 2,
-  "generated_at": "2026-11-10T07:53:10.844657Z",
-  "last_successful_sync": "2026-11-10T07:53:10.844657Z",
-  "sources_checked": 7,
-  "sources_total": 7,
+  "generated_at": "2026-11-10T08:06:22.142346Z",
+  "last_successful_sync": "2026-11-10T08:06:22.142346Z",
+  "sources_checked": 8,
+  "sources_total": 8,
   "source_errors": [],
   "ai_new_summaries": 8,
   "ai_errors": 0,
   "ai_http_errors": [],
   "ai_key_configured": true,
   "new_articles": 8,
-  "recent_count": 29,
+  "recent_count": 37,
   "archive_count": 0,
   "recent_days": 60,
   "archive_days": 365,
@@ -44,6 +44,36 @@
       "collected_at": "2026-11-10T07:53:10.844657Z",
       "category": "Cybersécurité",
       "summary_fr": "Des vulnérabilités ont été découvertes dans plusieurs composants d'OpenJDK 21, affectant l'authentification et l'autorisation des utilisateurs. Un attaquant distant pourrait exploiter ces failles pour compromettre des données sensibles ou provoquer un déni de service.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "USN-9014-1: OpenJDK 17 vulnerabilities",
+      "url": "https://ubuntu.com/security/notices/USN-9014-1",
+      "source": "Ubuntu Security",
+      "published_at": "2026-11-09T17:27:36Z",
+      "collected_at": "2026-11-10T08:06:22.142346Z",
+      "category": "Cybersécurité",
+      "summary_fr": "Des vulnérabilités ont été découvertes dans plusieurs composants d'OpenJDK 17, permettant à un attaquant distant d'accéder à des données sensibles ou de provoquer un déni de service.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "USN-9013-1: Fetchmail vulnerabilities",
+      "url": "https://ubuntu.com/security/notices/USN-9013-1",
+      "source": "Ubuntu Security",
+      "published_at": "2026-11-09T17:17:55Z",
+      "collected_at": "2026-11-10T08:06:22.142346Z",
+      "category": "Cybersécurité",
+      "summary_fr": "Des vulnérabilités ont été découvertes dans Fetchmail sous Ubuntu, permettant à un attaquant distant de provoquer un déni de service ou d'exécuter du code arbitraire. Ces failles concernent le traitement des messages de journal, des codes de statut SMTP et des défis d'authentification NTLM.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "USN-9012-1: libheif vulnerability",
+      "url": "https://ubuntu.com/security/notices/USN-9012-1",
+      "source": "Ubuntu Security",
+      "published_at": "2026-11-09T16:44:41Z",
+      "collected_at": "2026-11-10T08:06:22.142346Z",
+      "category": "Cybersécurité",
+      "summary_fr": "Une vulnérabilité a été découverte dans libheif lors du traitement de certaines images HEIF, permettant potentiellement l'exécution de code arbitraire.",
       "summary_kind": "ia"
     },
     {
@@ -137,6 +167,16 @@
       "summary_kind": "extrait"
     },
     {
+      "title": "What’s new in Windows 365: October 2026 recap",
+      "url": "https://techcommunity.microsoft.com/t5/windows-it-pro-blog/what-s-new-in-windows-365-october-2026-recap/ba-p/4558778",
+      "source": "Microsoft · Windows IT Pro",
+      "published_at": "2026-11-05T17:00:00Z",
+      "collected_at": "2026-11-10T08:06:22.142346Z",
+      "category": "Windows",
+      "summary_fr": "Microsoft présente les nouveautés d'octobre 2026 pour Windows 365 et Azure Virtual Desktop. Les mises à jour incluent la disponibilité générale de RDP Multipath et RDP Shortpath pour améliorer la résilience des connexions.",
+      "summary_kind": "ia"
+    },
+    {
       "title": "Docker and ActiveState Extending Secure Defaults to the Packages Developers Install",
       "url": "https://www.docker.com/blog/docker-activestate-trusted-content/",
       "source": "Docker",
@@ -217,6 +257,36 @@
       "summary_kind": "ia"
     },
     {
+      "title": "Vulnérabilité dans Mozilla Firefox (04 novembre 2026)",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1455/",
+      "source": "CERT-FR · Avis",
+      "published_at": "2026-11-04T00:00:00Z",
+      "collected_at": "2026-11-10T08:06:22.142346Z",
+      "category": "Cybersécurité",
+      "summary_fr": "Une vulnérabilité a été découverte dans Mozilla Firefox, permettant à un attaquant de provoquer un problème de sécurité non spécifié par l'éditeur.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "Vulnérabilité dans MongoDB (04 novembre 2026)",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1454/",
+      "source": "CERT-FR · Avis",
+      "published_at": "2026-11-04T00:00:00Z",
+      "collected_at": "2026-11-10T08:06:22.142346Z",
+      "category": "Cybersécurité",
+      "summary_fr": "Une vulnérabilité a été découverte dans MongoDB, permettant à un attaquant de compromettre la confidentialité et l'intégrité des données.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "Multiples vulnérabilités dans NetApp StorageGRID (04 novembre 2026)",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1453/",
+      "source": "CERT-FR · Avis",
+      "published_at": "2026-11-04T00:00:00Z",
+      "collected_at": "2026-11-10T08:06:22.142346Z",
+      "category": "Cybersécurité",
+      "summary_fr": "De multiples vulnérabilités ont été découvertes dans NetApp StorageGRID. Celles-ci permettent à un attaquant de compromettre la confidentialité et l'intégrité des données.",
+      "summary_kind": "ia"
+    },
+    {
       "title": "Multiples vulnérabilités dans Ruby on Rails (04 novembre 2026)",
       "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1452/",
       "source": "CERT-FR · Avis",
@@ -265,6 +335,16 @@
       "category": "Cybersécurité",
       "summary_fr": "De multiples vulnérabilités ont été découvertes dans Apache Zookeeper. Elles permettent à un attaquant de provoquer un déni de service à distance et un contournement de la politique de sécurité.",
       "summary_kind": "extrait"
+    },
+    {
+      "title": "Windows news you can use: October 2026",
+      "url": "https://techcommunity.microsoft.com/t5/windows-it-pro-blog/windows-news-you-can-use-october-2026/ba-p/4552396",
+      "source": "Microsoft · Windows IT Pro",
+      "published_at": "2026-11-03T22:00:00Z",
+      "collected_at": "2026-11-10T08:06:22.142346Z",
+      "category": "Windows",
+      "summary_fr": "Microsoft présente les nouveautés de Windows pour octobre 2026, incluant des améliorations de fonctionnalités, de sécurité et de gestion.",
+      "summary_kind": "ia"
     },
     {
       "title": "Introducing Zero Wire, a hub for investigating critical Internet vulnerabilities",
