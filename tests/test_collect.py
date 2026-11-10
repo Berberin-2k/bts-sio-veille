@@ -12,6 +12,7 @@ from unittest.mock import patch
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 import retention
+import severity
 
 spec = importlib.util.spec_from_file_location("collector", ROOT / "scripts" / "collect.py")
 collector = importlib.util.module_from_spec(spec)
@@ -62,6 +63,66 @@ class CollectorTests(unittest.TestCase):
         self.assertEqual(len(selected), 8)
         self.assertIn("Microsoft · Windows IT Pro", [x["source"] for x in selected])
         self.assertEqual(len(set(x["source"] for x in selected)), 8)
+
+    def test_cvss_severity_exact_thresholds(self):
+        examples = [
+            (0.0, "aucune"), (0.1, "faible"), (3.9, "faible"),
+            (4.0, "moderee"), (6.9, "moderee"),
+            (7.0, "elevee"), (8.9, "elevee"), (9.0, "critique"),
+            (10.0, "critique"),
+        ]
+        for score, expected in examples:
+            with self.subTest(score=score):
+                self.assertEqual(severity.from_cvss_score(score), expected)
+        with self.assertRaises(ValueError):
+            severity.from_cvss_score(10.1)
+
+    def test_source_cvss_score_and_provenance(self):
+        article = {"title": "Notice CVE-2026-10002", "source": "Ubuntu Security",
+                   "excerpt": "CVSS v3.1 base score: 9.8; CVSS v4.0 score: 7.5."}
+        result = severity.classify(article)
+        self.assertEqual(result["severity"], "critique")
+        self.assertEqual(result["cvss_score"], 9.8)
+        self.assertEqual(result["severity_basis"], "cvss")
+        self.assertEqual(result["severity_version"], 1)
+
+    def test_source_declared_severity(self):
+        article = {"title": "Security advisory", "source": "CERT-FR · Alertes",
+                   "excerpt": "Severity: High. No explicit numeric score."}
+        result = severity.classify(article)
+        self.assertEqual(result["severity"], "elevee")
+        self.assertEqual(result["severity_basis"], "mention_source")
+        self.assertIsNone(result["cvss_score"])
+
+    def test_non_evaluated_security_is_not_automatically_critical(self):
+        result = severity.classify({"title": "USN-9015: vulnerabilities", "source": "Ubuntu Security",
+                                     "excerpt": "Multiple vulnerabilities have been fixed."})
+        self.assertEqual(result["severity"], "non_evaluee")
+        self.assertEqual(result["severity_basis"], "donnees_insuffisantes")
+
+    def test_regular_windows_blog_post_is_information(self):
+        result = severity.classify({"title": "Windows 365 management improvements",
+                                    "source": "Microsoft · Windows IT Pro",
+                                    "excerpt": "New management tools and deployment options."})
+        self.assertEqual(result["severity"], "information")
+
+    def test_cvss_vector_version_is_not_falsely_scored(self):
+        result = severity.classify({"title": "Security bulletin", "source": "Ubuntu Security",
+                                    "excerpt": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"})
+        self.assertEqual(result["severity"], "non_evaluee")
+
+    def test_ai_summary_is_not_treated_as_official_cvss(self):
+        result = severity.classify({"title": "USN-9016-1: vulnerabilities",
+                                    "source": "Ubuntu Security", "summary_kind": "ia",
+                                    "summary_fr": "The model claims CVSS score: 10.0."})
+        self.assertEqual(result["severity"], "non_evaluee")
+        self.assertIsNone(result["cvss_score"])
+
+    def test_legacy_extracted_rss_text_can_be_backfilled(self):
+        result = severity.classify({"title": "Security notice", "source": "Ubuntu Security",
+                                    "summary_kind": "extrait",
+                                    "summary_fr": "CVSS base score: 7.3"})
+        self.assertEqual(result["severity"], "elevee")
 
     def test_sanitize(self):
         self.assertEqual(collector.clean("<p>CVE &amp; Linux</p>"), "CVE & Linux")
