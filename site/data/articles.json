@@ -1,7 +1,7 @@
 {
-  "version": 1,
-  "generated_at": "2026-11-09T15:00:30.975222Z",
-  "last_successful_sync": "2026-11-09T15:00:30.975222Z",
+  "version": 2,
+  "generated_at": "2026-11-10T07:53:10.844657Z",
+  "last_successful_sync": "2026-11-10T07:53:10.844657Z",
   "sources_checked": 7,
   "sources_total": 7,
   "source_errors": [],
@@ -10,7 +10,42 @@
   "ai_http_errors": [],
   "ai_key_configured": true,
   "new_articles": 8,
+  "recent_count": 29,
+  "archive_count": 0,
+  "recent_days": 60,
+  "archive_days": 365,
+  "max_stored": 1000,
   "articles": [
+    {
+      "title": "USN-9016-1: Apache HTTP Server vulnerabilities",
+      "url": "https://ubuntu.com/security/notices/USN-9016-1",
+      "source": "Ubuntu Security",
+      "published_at": "2026-11-10T02:43:47Z",
+      "collected_at": "2026-11-10T07:53:10.844657Z",
+      "category": "Cybersécurité",
+      "summary_fr": "Des vulnérabilités ont été découvertes dans le serveur HTTP Apache sur plusieurs versions d'Ubuntu. Celles-ci peuvent potentiellement mener à un déni de service ou à une fuite d'informations.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "USN-8890-3: libsoup regression",
+      "url": "https://ubuntu.com/security/notices/USN-8890-3",
+      "source": "Ubuntu Security",
+      "published_at": "2026-11-09T23:12:32Z",
+      "collected_at": "2026-11-10T07:53:10.844657Z",
+      "category": "Cybersécurité",
+      "summary_fr": "Une mise à jour Ubuntu résout une régression et des vulnérabilités dans libsoup. Ces failles concernaient la gestion des requêtes HTTP et des proxys.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "USN-9015-1: OpenJDK 21 vulnerabilities",
+      "url": "https://ubuntu.com/security/notices/USN-9015-1",
+      "source": "Ubuntu Security",
+      "published_at": "2026-11-09T18:01:03Z",
+      "collected_at": "2026-11-10T07:53:10.844657Z",
+      "category": "Cybersécurité",
+      "summary_fr": "Des vulnérabilités ont été découvertes dans plusieurs composants d'OpenJDK 21, affectant l'authentification et l'autorisation des utilisateurs. Un attaquant distant pourrait exploiter ces failles pour compromettre des données sensibles ou provoquer un déni de service.",
+      "summary_kind": "ia"
+    },
     {
       "title": "USN-9008-1: libnfs vulnerability",
       "url": "https://ubuntu.com/security/notices/USN-9008-1",
@@ -152,43 +187,33 @@
       "summary_kind": "ia"
     },
     {
-      "title": "Multiples vulnérabilités dans Apache Zookeeper (04 novembre 2026)",
-      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1448/",
+      "title": "Multiples vulnérabilités dans les produits Siemens (05 novembre 2026)",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1464/",
       "source": "CERT-FR · Avis",
-      "published_at": "2026-11-04T00:00:00Z",
-      "collected_at": "2026-11-09T14:58:21.831071Z",
+      "published_at": "2026-11-05T00:00:00Z",
+      "collected_at": "2026-11-10T07:53:10.844657Z",
       "category": "Cybersécurité",
-      "summary_fr": "De multiples vulnérabilités ont été découvertes dans Apache Zookeeper. Elles permettent à un attaquant de provoquer un déni de service à distance et un contournement de la politique de sécurité.",
-      "summary_kind": "extrait"
-    },
-    {
-      "title": "Multiples vulnérabilités dans les produits Citrix (04 novembre 2026)",
-      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1449/",
-      "source": "CERT-FR · Avis",
-      "published_at": "2026-11-04T00:00:00Z",
-      "collected_at": "2026-11-09T14:58:21.831071Z",
-      "category": "Cybersécurité",
-      "summary_fr": "De multiples vulnérabilités ont été découvertes dans les produits Citrix. Elles permettent à un attaquant de provoquer une exécution de code arbitraire à distance et une élévation de privilèges.",
-      "summary_kind": "extrait"
-    },
-    {
-      "title": "Multiples vulnérabilités dans Google Chrome (04 novembre 2026)",
-      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1450/",
-      "source": "CERT-FR · Avis",
-      "published_at": "2026-11-04T00:00:00Z",
-      "collected_at": "2026-11-09T15:00:30.975222Z",
-      "category": "Cybersécurité",
-      "summary_fr": "De multiples vulnérabilités non spécifiées ont été découvertes dans Google Chrome par le CERT-FR. Ces failles permettent à un attaquant de provoquer des problèmes de sécurité.",
+      "summary_fr": "De multiples vulnérabilités ont été découvertes dans les produits Siemens. Celles-ci permettent notamment une exécution de code ou un déni de service à distance.",
       "summary_kind": "ia"
     },
     {
-      "title": "Multiples vulnérabilités dans les produits HPE Aruba Networking (04 novembre 2026)",
-      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1451/",
+      "title": "Multiples vulnérabilités dans OpenOffice (05 novembre 2026)",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1463/",
       "source": "CERT-FR · Avis",
-      "published_at": "2026-11-04T00:00:00Z",
-      "collected_at": "2026-11-09T15:00:30.975222Z",
+      "published_at": "2026-11-05T00:00:00Z",
+      "collected_at": "2026-11-10T07:53:10.844657Z",
       "category": "Cybersécurité",
-      "summary_fr": "De multiples vulnérabilités ont été découvertes dans les produits HPE Aruba Networking. Celles-ci permettent notamment l'exécution de code à distance, une élévation de privilèges et un déni de service.",
+      "summary_fr": "De multiples vulnérabilités ont été découvertes dans OpenOffice. Celles-ci peuvent permettre une exécution de code à distance ainsi que des atteintes à la confidentialité et à l'intégrité des données.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "Multiples vulnérabilités dans MongoDB (05 novembre 2026)",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1462/",
+      "source": "CERT-FR · Avis",
+      "published_at": "2026-11-05T00:00:00Z",
+      "collected_at": "2026-11-10T07:53:10.844657Z",
+      "category": "Cybersécurité",
+      "summary_fr": "De multiples vulnérabilités ont été découvertes dans MongoDB. Celles-ci peuvent permettre l'exécution de code à distance, un déni de service et une atteinte à la confidentialité des données.",
       "summary_kind": "ia"
     },
     {
@@ -202,6 +227,46 @@
       "summary_kind": "ia"
     },
     {
+      "title": "Multiples vulnérabilités dans les produits HPE Aruba Networking (04 novembre 2026)",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1451/",
+      "source": "CERT-FR · Avis",
+      "published_at": "2026-11-04T00:00:00Z",
+      "collected_at": "2026-11-09T15:00:30.975222Z",
+      "category": "Cybersécurité",
+      "summary_fr": "De multiples vulnérabilités ont été découvertes dans les produits HPE Aruba Networking. Celles-ci permettent notamment l'exécution de code à distance, une élévation de privilèges et un déni de service.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "Multiples vulnérabilités dans Google Chrome (04 novembre 2026)",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1450/",
+      "source": "CERT-FR · Avis",
+      "published_at": "2026-11-04T00:00:00Z",
+      "collected_at": "2026-11-09T15:00:30.975222Z",
+      "category": "Cybersécurité",
+      "summary_fr": "De multiples vulnérabilités non spécifiées ont été découvertes dans Google Chrome par le CERT-FR. Ces failles permettent à un attaquant de provoquer des problèmes de sécurité.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "Multiples vulnérabilités dans les produits Citrix (04 novembre 2026)",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1449/",
+      "source": "CERT-FR · Avis",
+      "published_at": "2026-11-04T00:00:00Z",
+      "collected_at": "2026-11-09T14:58:21.831071Z",
+      "category": "Cybersécurité",
+      "summary_fr": "De multiples vulnérabilités ont été découvertes dans les produits Citrix. Elles permettent à un attaquant de provoquer une exécution de code arbitraire à distance et une élévation de privilèges.",
+      "summary_kind": "extrait"
+    },
+    {
+      "title": "Multiples vulnérabilités dans Apache Zookeeper (04 novembre 2026)",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1448/",
+      "source": "CERT-FR · Avis",
+      "published_at": "2026-11-04T00:00:00Z",
+      "collected_at": "2026-11-09T14:58:21.831071Z",
+      "category": "Cybersécurité",
+      "summary_fr": "De multiples vulnérabilités ont été découvertes dans Apache Zookeeper. Elles permettent à un attaquant de provoquer un déni de service à distance et un contournement de la politique de sécurité.",
+      "summary_kind": "extrait"
+    },
+    {
       "title": "Introducing Zero Wire, a hub for investigating critical Internet vulnerabilities",
       "url": "https://blog.cloudflare.com/zero-wire/",
       "source": "Cloudflare",
@@ -212,6 +277,16 @@
       "summary_kind": "ia"
     },
     {
+      "title": "Where should your code live in a Docker Sandbox?",
+      "url": "https://www.docker.com/blog/docker-sandbox-code-checkout-workflows/",
+      "source": "Docker",
+      "published_at": "2026-11-02T14:00:00Z",
+      "collected_at": "2026-11-10T07:53:10.844657Z",
+      "category": "Conteneurs",
+      "summary_fr": "Docker Sandboxes propose trois méthodes pour organiser le code d'un agent : les montages partagés, les worktrees Git et le mode clone. Cet article aide à choisir la solution la plus adaptée.",
+      "summary_kind": "ia"
+    },
+    {
       "title": "The Ecosystem is the Answer: Docker, the Blueprint Alliance, and the Importance of Collaboration in the Agentic Era",
       "url": "https://www.docker.com/blog/docker-blueprint-alliance-agent-baseline/",
       "source": "Docker",
@@ -219,6 +294,16 @@
       "collected_at": "2026-11-09T15:00:30.975222Z",
       "category": "Conteneurs",
       "summary_fr": "Docker a rejoint en tant que membre fondateur la Blueprint Alliance, une initiative de douze entreprises visant à créer une architecture de référence pour sécuriser les agents d'intelligence artificielle.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "How we halved DNS build delay and cut memory use by 85%",
+      "url": "https://blog.cloudflare.com/dns-targeted-zone-builds/",
+      "source": "Cloudflare",
+      "published_at": "2026-11-02T14:00:00Z",
+      "collected_at": "2026-11-10T07:53:10.844657Z",
+      "category": "Réseaux",
+      "summary_fr": "Cloudflare a développé un planificateur pour optimiser la reconstruction des zones DNS en ciblant uniquement les modifications nécessaires.",
       "summary_kind": "ia"
     }
   ]

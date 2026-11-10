@@ -1,0 +1,310 @@
+{
+  "version": 2,
+  "generated_at": "2026-11-10T07:53:10.844657Z",
+  "last_successful_sync": "2026-11-10T07:53:10.844657Z",
+  "sources_checked": 7,
+  "sources_total": 7,
+  "source_errors": [],
+  "ai_new_summaries": 8,
+  "ai_errors": 0,
+  "ai_http_errors": [],
+  "ai_key_configured": true,
+  "new_articles": 8,
+  "recent_count": 29,
+  "archive_count": 0,
+  "recent_days": 60,
+  "archive_days": 365,
+  "max_stored": 1000,
+  "articles": [
+    {
+      "title": "USN-9016-1: Apache HTTP Server vulnerabilities",
+      "url": "https://ubuntu.com/security/notices/USN-9016-1",
+      "source": "Ubuntu Security",
+      "published_at": "2026-11-10T02:43:47Z",
+      "collected_at": "2026-11-10T07:53:10.844657Z",
+      "category": "Cybersécurité",
+      "summary_fr": "Des vulnérabilités ont été découvertes dans le serveur HTTP Apache sur plusieurs versions d'Ubuntu. Celles-ci peuvent potentiellement mener à un déni de service ou à une fuite d'informations.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "USN-8890-3: libsoup regression",
+      "url": "https://ubuntu.com/security/notices/USN-8890-3",
+      "source": "Ubuntu Security",
+      "published_at": "2026-11-09T23:12:32Z",
+      "collected_at": "2026-11-10T07:53:10.844657Z",
+      "category": "Cybersécurité",
+      "summary_fr": "Une mise à jour Ubuntu résout une régression et des vulnérabilités dans libsoup. Ces failles concernaient la gestion des requêtes HTTP et des proxys.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "USN-9015-1: OpenJDK 21 vulnerabilities",
+      "url": "https://ubuntu.com/security/notices/USN-9015-1",
+      "source": "Ubuntu Security",
+      "published_at": "2026-11-09T18:01:03Z",
+      "collected_at": "2026-11-10T07:53:10.844657Z",
+      "category": "Cybersécurité",
+      "summary_fr": "Des vulnérabilités ont été découvertes dans plusieurs composants d'OpenJDK 21, affectant l'authentification et l'autorisation des utilisateurs. Un attaquant distant pourrait exploiter ces failles pour compromettre des données sensibles ou provoquer un déni de service.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "USN-9008-1: libnfs vulnerability",
+      "url": "https://ubuntu.com/security/notices/USN-9008-1",
+      "source": "Ubuntu Security",
+      "published_at": "2026-11-09T13:29:36Z",
+      "collected_at": "2026-11-09T14:57:37.489964Z",
+      "category": "Systèmes",
+      "summary_fr": "It was discovered that libnfs did not properly enforce the maximum size bound during ZDR decoding, resulting in an out-of-bounds write. An attacker could possibly use this issue to cause libnfs to crash, resulting in a denial of service, or execute arbitrary code.",
+      "summary_kind": "extrait"
+    },
+    {
+      "title": "USN-9007-1: FreeRDP vulnerabilities",
+      "url": "https://ubuntu.com/security/notices/USN-9007-1",
+      "source": "Ubuntu Security",
+      "published_at": "2026-11-09T13:21:41Z",
+      "collected_at": "2026-11-09T14:57:37.489964Z",
+      "category": "Systèmes",
+      "summary_fr": "It was discovered that FreeRDP contained multiple security issues. An attacker could possibly use these issues to obtain sensitive information, cause FreeRDP to crash, resulting in a denial of service, or execute arbitrary code.",
+      "summary_kind": "extrait"
+    },
+    {
+      "title": "USN-9001-2: ca-certificates update",
+      "url": "https://ubuntu.com/security/notices/USN-9001-2",
+      "source": "Ubuntu Security",
+      "published_at": "2026-11-09T12:01:46Z",
+      "collected_at": "2026-11-09T14:57:37.489964Z",
+      "category": "Systèmes",
+      "summary_fr": "USN-9001-1 fixed a vulnerability in ca-certificates, ca-certificates-java. This update provides the corresponding fix for Ubuntu 18.04 LTS and Ubuntu 20.04 LTS. Original advisory details: It was discovered that the ca-certificates JKS integration was not working properly, resulting in CA certificates removed from the system bundle not being removed from the JKS keystore. This update corrects the feature and resyncs the keystore with the",
+      "summary_kind": "extrait"
+    },
+    {
+      "title": "7.4-rc2: mainline",
+      "url": "https://www.kernel.org/",
+      "source": "Linux Kernel",
+      "published_at": "2026-11-09T00:22:20Z",
+      "collected_at": "2026-11-09T14:57:37.489964Z",
+      "category": "Systèmes",
+      "summary_fr": "Version: 7.4-rc2 (mainline) Released: 2026-11-09 Source: linux-7.4-rc2.tar.gz Patch: full ( incremental )",
+      "summary_kind": "extrait"
+    },
+    {
+      "title": "USN-8952-2: Tornado regression",
+      "url": "https://ubuntu.com/security/notices/USN-8952-2",
+      "source": "Ubuntu Security",
+      "published_at": "2026-11-06T15:04:17Z",
+      "collected_at": "2026-11-09T14:58:21.831071Z",
+      "category": "Cybersécurité",
+      "summary_fr": "USN-8952-1 fixed vulnerabilities in Tornado. Unfortunately that update was incomplete due to an incomplete fix for CVE-2026-103263, which broke static file serving for applications that subclass Tornado's StaticFileHandler, such as Jupyter, and could introduce a regression. This update fixes the problem. We apologize for the inconvenience. Original advisory details: It was discovered that Tornado did not properly handle certain HTTP req",
+      "summary_kind": "extrait"
+    },
+    {
+      "title": "The post-quantum future of web privacy",
+      "url": "https://blog.cloudflare.com/vole-mole/",
+      "source": "Cloudflare",
+      "published_at": "2026-11-06T14:00:00Z",
+      "collected_at": "2026-11-09T14:57:37.489964Z",
+      "category": "Réseaux",
+      "summary_fr": "Cryptographic protocols like Privacy Pass help keep web sites safe from abuse while keeping their users private. This post looks at the quantum threat to these protocols, and some new post-quantum cryptography that may help close the gap.",
+      "summary_kind": "extrait"
+    },
+    {
+      "title": "USN-9003-1: Linux kernel (NVIDIA) vulnerabilities",
+      "url": "https://ubuntu.com/security/notices/USN-9003-1",
+      "source": "Ubuntu Security",
+      "published_at": "2026-11-06T11:30:38Z",
+      "collected_at": "2026-11-09T14:58:21.831071Z",
+      "category": "Cybersécurité",
+      "summary_fr": "It was discovered that some AMD processors did not properly perform Reverse Map Table (RMP) checks when the IOMMU accessed certain host buffers. A local attacker with hypervisor access could possibly use this to trigger an out-of-bounds condition and compromise the integrity of SEV-SNP guest memory. (CVE-2023-20585) Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the system",
+      "summary_kind": "extrait"
+    },
+    {
+      "title": "USN-9002-1: Linux kernel (NVIDIA Tegra) vulnerabilities",
+      "url": "https://ubuntu.com/security/notices/USN-9002-1",
+      "source": "Ubuntu Security",
+      "published_at": "2026-11-06T11:22:23Z",
+      "collected_at": "2026-11-09T14:58:21.831071Z",
+      "category": "Cybersécurité",
+      "summary_fr": "It was discovered that the io_uring subsystem in the Linux kernel did not properly handle canceled task work when processing certain wait operations, leading to the operation being performed in the wrong task context. A local attacker could possibly use this to cause a denial of service (system crash). (CVE-2026-81010) Several security issues were discovered in the Linux kernel. An attacker could possibly use these to compromise the sys",
+      "summary_kind": "extrait"
+    },
+    {
+      "title": "Docker Sandboxes vs. Containers: Choosing the Right Isolation for AI Agents",
+      "url": "https://www.docker.com/blog/docker-sandboxes-vs-containers/",
+      "source": "Docker",
+      "published_at": "2026-11-06T03:17:04Z",
+      "collected_at": "2026-11-09T14:57:37.489964Z",
+      "category": "Conteneurs",
+      "summary_fr": "A container shares the host kernel. Docker Sandboxes are microVMs with their own kernel and private Docker Engine. See how they differ and when to use each.",
+      "summary_kind": "extrait"
+    },
+    {
+      "title": "Docker and ActiveState Extending Secure Defaults to the Packages Developers Install",
+      "url": "https://www.docker.com/blog/docker-activestate-trusted-content/",
+      "source": "Docker",
+      "published_at": "2026-11-05T15:28:22Z",
+      "collected_at": "2026-11-09T14:58:21.831071Z",
+      "category": "Conteneurs",
+      "summary_fr": "Docker partners with ActiveState to continue to provide one standard for trusted content across everything you and your teams build on.",
+      "summary_kind": "extrait"
+    },
+    {
+      "title": "USN-9001-1: ca-certificates update",
+      "url": "https://ubuntu.com/security/notices/USN-9001-1",
+      "source": "Ubuntu Security",
+      "published_at": "2026-11-05T14:46:13Z",
+      "collected_at": "2026-11-09T15:00:30.975222Z",
+      "category": "Cybersécurité",
+      "summary_fr": "Une mise à jour de ca-certificates corrige un problème d'intégration JKS où les certificats supprimés du système n'étaient pas retirés du keystore.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "USN-8955-2: nginx vulnerabilities",
+      "url": "https://ubuntu.com/security/notices/USN-8955-2",
+      "source": "Ubuntu Security",
+      "published_at": "2026-11-05T14:40:26Z",
+      "collected_at": "2026-11-09T15:00:30.975222Z",
+      "category": "Cybersécurité",
+      "summary_fr": "Des vulnérabilités ont été corrigées dans le serveur nginx pour plusieurs versions d'Ubuntu. Un attaquant distant pouvait exploiter ces failles pour provoquer un déni de service ou exécuter du code arbitraire.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "CNCF Score project improved its security posture by joining the Docker-Sponsored Open Source Program",
+      "url": "https://www.docker.com/blog/cncf-score-project-improved-its-security-posture-by-joining-the-docker-sponsored-open-source-program/",
+      "source": "Docker",
+      "published_at": "2026-11-05T14:00:00Z",
+      "collected_at": "2026-11-09T14:58:21.831071Z",
+      "category": "Conteneurs",
+      "summary_fr": "See how CNCF Score improved container security with Docker Scout, Hardened Images, and the Docker-Sponsored Open Source Program.",
+      "summary_kind": "extrait"
+    },
+    {
+      "title": "USN-7230-3: FRR regression",
+      "url": "https://ubuntu.com/security/notices/USN-7230-3",
+      "source": "Ubuntu Security",
+      "published_at": "2026-11-05T13:39:13Z",
+      "collected_at": "2026-11-09T15:00:30.975222Z",
+      "category": "Réseaux",
+      "summary_fr": "Une correction de sécurité Ubuntu pour FRR a introduit une régression affectant la gestion des mises à jour RPKI et le démarrage du démon BGP. Cette mise à jour résout le problème.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "Multiples vulnérabilités dans les produits Siemens (05 novembre 2026)",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1464/",
+      "source": "CERT-FR · Avis",
+      "published_at": "2026-11-05T00:00:00Z",
+      "collected_at": "2026-11-10T07:53:10.844657Z",
+      "category": "Cybersécurité",
+      "summary_fr": "De multiples vulnérabilités ont été découvertes dans les produits Siemens. Celles-ci permettent notamment une exécution de code ou un déni de service à distance.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "Multiples vulnérabilités dans OpenOffice (05 novembre 2026)",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1463/",
+      "source": "CERT-FR · Avis",
+      "published_at": "2026-11-05T00:00:00Z",
+      "collected_at": "2026-11-10T07:53:10.844657Z",
+      "category": "Cybersécurité",
+      "summary_fr": "De multiples vulnérabilités ont été découvertes dans OpenOffice. Celles-ci peuvent permettre une exécution de code à distance ainsi que des atteintes à la confidentialité et à l'intégrité des données.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "Multiples vulnérabilités dans MongoDB (05 novembre 2026)",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1462/",
+      "source": "CERT-FR · Avis",
+      "published_at": "2026-11-05T00:00:00Z",
+      "collected_at": "2026-11-10T07:53:10.844657Z",
+      "category": "Cybersécurité",
+      "summary_fr": "De multiples vulnérabilités ont été découvertes dans MongoDB. Celles-ci peuvent permettre l'exécution de code à distance, un déni de service et une atteinte à la confidentialité des données.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "Multiples vulnérabilités dans Ruby on Rails (04 novembre 2026)",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1452/",
+      "source": "CERT-FR · Avis",
+      "published_at": "2026-11-04T00:00:00Z",
+      "collected_at": "2026-11-09T15:00:30.975222Z",
+      "category": "Cybersécurité",
+      "summary_fr": "De multiples vulnérabilités ont été découvertes dans Ruby on Rails. Elles permettent notamment une exécution de code arbitraire, un déni de service et une atteinte à la confidentialité des données.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "Multiples vulnérabilités dans les produits HPE Aruba Networking (04 novembre 2026)",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1451/",
+      "source": "CERT-FR · Avis",
+      "published_at": "2026-11-04T00:00:00Z",
+      "collected_at": "2026-11-09T15:00:30.975222Z",
+      "category": "Cybersécurité",
+      "summary_fr": "De multiples vulnérabilités ont été découvertes dans les produits HPE Aruba Networking. Celles-ci permettent notamment l'exécution de code à distance, une élévation de privilèges et un déni de service.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "Multiples vulnérabilités dans Google Chrome (04 novembre 2026)",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1450/",
+      "source": "CERT-FR · Avis",
+      "published_at": "2026-11-04T00:00:00Z",
+      "collected_at": "2026-11-09T15:00:30.975222Z",
+      "category": "Cybersécurité",
+      "summary_fr": "De multiples vulnérabilités non spécifiées ont été découvertes dans Google Chrome par le CERT-FR. Ces failles permettent à un attaquant de provoquer des problèmes de sécurité.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "Multiples vulnérabilités dans les produits Citrix (04 novembre 2026)",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1449/",
+      "source": "CERT-FR · Avis",
+      "published_at": "2026-11-04T00:00:00Z",
+      "collected_at": "2026-11-09T14:58:21.831071Z",
+      "category": "Cybersécurité",
+      "summary_fr": "De multiples vulnérabilités ont été découvertes dans les produits Citrix. Elles permettent à un attaquant de provoquer une exécution de code arbitraire à distance et une élévation de privilèges.",
+      "summary_kind": "extrait"
+    },
+    {
+      "title": "Multiples vulnérabilités dans Apache Zookeeper (04 novembre 2026)",
+      "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1448/",
+      "source": "CERT-FR · Avis",
+      "published_at": "2026-11-04T00:00:00Z",
+      "collected_at": "2026-11-09T14:58:21.831071Z",
+      "category": "Cybersécurité",
+      "summary_fr": "De multiples vulnérabilités ont été découvertes dans Apache Zookeeper. Elles permettent à un attaquant de provoquer un déni de service à distance et un contournement de la politique de sécurité.",
+      "summary_kind": "extrait"
+    },
+    {
+      "title": "Introducing Zero Wire, a hub for investigating critical Internet vulnerabilities",
+      "url": "https://blog.cloudflare.com/zero-wire/",
+      "source": "Cloudflare",
+      "published_at": "2026-11-03T14:00:00Z",
+      "collected_at": "2026-11-09T15:00:30.975222Z",
+      "category": "Cybersécurité",
+      "summary_fr": "Cloudflare lance Zero Wire, un outil centralisant des analyses, des données de télémétrie et des correctifs pour enquêter sur les vulnérabilités critiques.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "Where should your code live in a Docker Sandbox?",
+      "url": "https://www.docker.com/blog/docker-sandbox-code-checkout-workflows/",
+      "source": "Docker",
+      "published_at": "2026-11-02T14:00:00Z",
+      "collected_at": "2026-11-10T07:53:10.844657Z",
+      "category": "Conteneurs",
+      "summary_fr": "Docker Sandboxes propose trois méthodes pour organiser le code d'un agent : les montages partagés, les worktrees Git et le mode clone. Cet article aide à choisir la solution la plus adaptée.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "The Ecosystem is the Answer: Docker, the Blueprint Alliance, and the Importance of Collaboration in the Agentic Era",
+      "url": "https://www.docker.com/blog/docker-blueprint-alliance-agent-baseline/",
+      "source": "Docker",
+      "published_at": "2026-11-02T14:00:00Z",
+      "collected_at": "2026-11-09T15:00:30.975222Z",
+      "category": "Conteneurs",
+      "summary_fr": "Docker a rejoint en tant que membre fondateur la Blueprint Alliance, une initiative de douze entreprises visant à créer une architecture de référence pour sécuriser les agents d'intelligence artificielle.",
+      "summary_kind": "ia"
+    },
+    {
+      "title": "How we halved DNS build delay and cut memory use by 85%",
+      "url": "https://blog.cloudflare.com/dns-targeted-zone-builds/",
+      "source": "Cloudflare",
+      "published_at": "2026-11-02T14:00:00Z",
+      "collected_at": "2026-11-10T07:53:10.844657Z",
+      "category": "Réseaux",
+      "summary_fr": "Cloudflare a développé un planificateur pour optimiser la reconstruction des zones DNS en ciblant uniquement les modifications nécessaires.",
+      "summary_kind": "ia"
+    }
+  ]
+}
