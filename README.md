@@ -15,6 +15,22 @@ Chaque synchronisation classe les publications par date, élimine les URL en dou
 
 Le portfolio Framer télécharge **uniquement recent.json au démarrage**. Il récupère archives.json seulement lorsque le lecteur choisit l’onglet Archives. Recherche, filtres, tri et pagination fonctionnent sur chaque vue.
 
+## Gravité des bulletins de sécurité
+
+Le tableau de veille présente un **tag Gravité** et un filtre sur les actualités récentes et les archives. Il distingue l'évaluation technique d'une vulnérabilité des informations générales et ne présente jamais une estimation IA comme un score officiel.
+
+- **Critique :** CVSS 9,0–10,0
+- **Élevée :** CVSS 7,0–8,9
+- **Modérée :** CVSS 4,0–6,9
+- **Faible :** CVSS 0,1–3,9
+- **Aucune :** CVSS 0,0
+- **Non évaluée :** bulletin de sécurité sans note CVSS ni niveau de gravité explicitement indiqué dans le titre ou l'extrait source disponible.
+- **Information :** actualité technologique sans bulletin de sécurité identifié.
+
+Référence : [FIRST CVSS v4.0](https://www.first.org/cvss/specification-document) (bornes qualitatives également utilisées pour CVSS v3.x).
+
+**Règles de sécurité et traçabilité :** la gravité n'est déduite que d'un score CVSS ou d'une mention « Severity / Sévérité / Gravité » clairement indiquée dans **le flux source** ; elle n'est jamais inventée à partir du titre « vulnerability », des résumés IA ou de la catégorie. Si plusieurs scores figurent dans le flux source, le score le plus haut est affiché. Un bulletin multi-CVE n'est donc pas nécessairement évaluable à partir du seul RSS : le tag **Non évaluée ne signifie pas faible**. Le JSON expose `severity`, `severity_basis`, `cvss_score` (si présent) et `severity_version`. Les anciennes données sont rétro-classifiées prudemment, sans rappel de Gemini ni suppression de l'historique. Les scores CVSS ne sont pas une évaluation du risque pour une infrastructure spécifique.
+
 ## Collecte et intelligence artificielle
 
 - Sources : CERT-FR alertes et avis, Ubuntu Security, Docker, Kubernetes, Cloudflare, Linux Kernel, **Microsoft Windows IT Pro Blog** (Windows, Windows Server, administration et sécurité).
