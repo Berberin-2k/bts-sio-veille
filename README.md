@@ -1,6 +1,6 @@
 # Veille technologique — BTS SIO SISR
 
-Architecture : **RSS / Atom → GitHub Actions → Python → Gemini API → JSON → GitHub Pages → Framer /veille**.
+Architecture : **RSS / Atom → GitHub Actions / Python → collecte des bulletins officiels → API NVD (CVE/CVSS avec cache) + Gemini → JSON → GitHub Pages → Framer /veille**.
 
 ## Règles de conservation et performance
 
@@ -24,19 +24,23 @@ Le tableau de veille présente un **tag Gravité** et un filtre sur les actualit
 - **Modérée :** CVSS 4,0–6,9
 - **Faible :** CVSS 0,1–3,9
 - **Aucune :** CVSS 0,0
-- **Non évaluée :** bulletin de sécurité sans note CVSS ni niveau de gravité explicitement indiqué dans le titre ou l'extrait source disponible.
+- **Non évaluée :** bulletin de sécurité sans score fiable déjà récupéré (données manquantes, CVE en attente de consultation ou absence de métrique disponible). Ce statut n'indique pas un faible risque.
 - **Information :** actualité technologique sans bulletin de sécurité identifié.
 
 Référence : [FIRST CVSS v4.0](https://www.first.org/cvss/specification-document) (bornes qualitatives également utilisées pour CVSS v3.x).
 
-**Règles de sécurité et traçabilité :** la gravité n'est déduite que d'un score CVSS ou d'une mention « Severity / Sévérité / Gravité » clairement indiquée dans **le flux source** ; elle n'est jamais inventée à partir du titre « vulnerability », des résumés IA ou de la catégorie. Si plusieurs scores figurent dans le flux source, le score le plus haut est affiché. Un bulletin multi-CVE n'est donc pas nécessairement évaluable à partir du seul RSS : le tag **Non évaluée ne signifie pas faible**. Le JSON expose `severity`, `severity_basis`, `cvss_score` (si présent) et `severity_version`. Les anciennes données sont rétro-classifiées prudemment, sans rappel de Gemini ni suppression de l'historique. Les scores CVSS ne sont pas une évaluation du risque pour une infrastructure spécifique.
+**Règles de sécurité et traçabilité :** la gravité n'est jamais inventée par Gemini. Le système cherche des CVE dans le flux RSS et dans les **bulletins officiels Ubuntu/CERT-FR**, puis interroge l'API **NVD 2.0** pour les scores CVSS v3.x/v4.0. Chaque score utilisé est associé à **une CVE identifiée, sa source NVD/CVSS et un lien de vérification**. Lorsqu'un avis contient plusieurs CVE, le badge correspond au **plus haut score parmi les CVE effectivement consultées** et affiche sa couverture (CVE consultées / identifiées). Une couverture partielle ne représente pas la gravité officielle de tout l'avis. À défaut de métrique, « Non évaluée » n'implique pas un faible risque.
+
+La consultation NVD est limitée à **14 requêtes par workflow**, espacées d'au moins **7 secondes** sans clé (quota prudent), et les résultats sont conservés dans `site/data/cvss-cache.json` pour réduire les appels. Les résultats positifs sont revérifiés au bout de 14 jours, les CVE sans métrique au bout de deux jours. Le script évite les requêtes vers des domaines externes non approuvés. Une panne NVD n'interrompt pas le flux RSS : les scores déjà sourcés restent affichés avec leur date de vérification.
+
+Champs publiés : `severity`, `severity_basis`, `cvss_score`, `cvss_version`, `severity_cve`, `severity_source`, `severity_source_url`, `cve_ids`, `cve_checked_count`, `cve_identified_count`, `severity_coverage`. Le score CVSS est une caractéristique de la vulnérabilité : il ne mesure pas le risque réel pour une infrastructure donnée.
 
 ## Collecte et intelligence artificielle
 
 - Sources : CERT-FR alertes et avis, Ubuntu Security, Docker, Kubernetes, Cloudflare, Linux Kernel, **Microsoft Windows IT Pro Blog** (Windows, Windows Server, administration et sécurité).
 - Jusqu’à **8 nouveaux articles par exécution** et **3 par source** ; sélection **équilibrée par rotation entre les sources (round-robin)** afin que les flux moins fréquents, notamment Windows IT Pro, ne soient pas masqués par les autres ; classification SISR (dont une catégorie **Windows** dédiée) et déduplication.
 - Gemini produit un résumé factuel en français si disponible. Sinon la description RSS est conservée et indiquée comme `summary_kind: extrait`.
-- Aucun secret dans les données publiques : la clé `GEMINI_API_KEY` reste dans les GitHub Actions Secrets.
+- Aucun secret dans les données publiques : la clé `GEMINI_API_KEY` reste dans les GitHub Actions Secrets. `NVD_API_KEY` est facultative, **non nécessaire** pour le fonctionnement à cadence limitée.
 - En cas d’échec de tous les flux RSS, le script échoue sans écraser les données existantes. Les erreurs partielles sont consignées.
 - Migration automatique des données historiques de `articles.json` lors de la première exécution de la nouvelle version.
 
@@ -57,6 +61,7 @@ Avant publication : tests offline, validation des JSON, vérification des dates,
 1. Repository public ; ajouter le secret **GEMINI_API_KEY** dans Settings → Secrets and variables → Actions.
 2. Activer GitHub Pages avec **Source: GitHub Actions**.
 3. Lancer le workflow manuellement pour vérifier la première synchronisation.
+4. Aucune nouvelle clé API n'est nécessaire. En option : créer `NVD_API_KEY` dans les Secrets si un quota supérieur devient utile.
 
 ## Tests
 
