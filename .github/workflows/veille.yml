@@ -18,7 +18,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: veille-publication
+  group: veille-publication-cvss-v2
   # A new code release supersedes an older still-running sync. This prevents
   # old jobs from blocking the deployment or racing to publish obsolete JSON.
   cancel-in-progress: true
