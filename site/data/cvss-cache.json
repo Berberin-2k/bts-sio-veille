@@ -1,6 +1,84 @@
 {
   "version": 1,
   "entries": {
+    "CVE-2026-106023": {
+      "checked_at": "2026-11-12T13:46:08.848456Z",
+      "score": null
+    },
+    "CVE-2026-34588": {
+      "checked_at": "2026-11-12T13:46:08.848456Z",
+      "score": 8.8,
+      "cvss_version": "3.1",
+      "score_source": "0b0ca135-0b70-47e7-9f44-1890c2a1c46c"
+    },
+    "CVE-2026-122032": {
+      "checked_at": "2026-11-12T13:46:08.848456Z",
+      "score": 7.1,
+      "cvss_version": "4.0",
+      "score_source": "disclosure@vulncheck.com"
+    },
+    "CVE-2026-123824": {
+      "checked_at": "2026-11-12T13:46:08.848456Z",
+      "score": 6.3,
+      "cvss_version": "3.1",
+      "score_source": "134c704f-9b21-4f2e-91b3-4a467353bcc0"
+    },
+    "CVE-2026-41316": {
+      "checked_at": "2026-11-12T13:46:08.848456Z",
+      "score": 8.1,
+      "cvss_version": "3.1",
+      "score_source": "security-advisories@github.com"
+    },
+    "CVE-2026-27171": {
+      "checked_at": "2026-11-12T13:46:08.848456Z",
+      "score": 5.5,
+      "cvss_version": "3.1",
+      "score_source": "nvd@nist.gov"
+    },
+    "CVE-2026-109163": {
+      "checked_at": "2026-11-12T13:46:08.848456Z",
+      "score": null
+    },
+    "CVE-2026-34589": {
+      "checked_at": "2026-11-12T13:46:08.848456Z",
+      "score": 8.8,
+      "cvss_version": "3.1",
+      "score_source": "0b0ca135-0b70-47e7-9f44-1890c2a1c46c"
+    },
+    "CVE-2026-42245": {
+      "checked_at": "2026-11-12T13:46:08.848456Z",
+      "score": 7.5,
+      "cvss_version": "3.1",
+      "score_source": "nvd@nist.gov"
+    },
+    "CVE-2026-76844": {
+      "checked_at": "2026-11-12T13:46:08.848456Z",
+      "score": 8.3,
+      "cvss_version": "4.0",
+      "score_source": "disclosure@vulncheck.com"
+    },
+    "CVE-2026-119618": {
+      "checked_at": "2026-11-12T13:46:08.848456Z",
+      "score": null
+    },
+    "CVE-2026-40244": {
+      "checked_at": "2026-11-12T13:46:08.848456Z",
+      "score": 8.4,
+      "cvss_version": "4.0",
+      "score_source": "security-advisories@github.com"
+    },
+    "CVE-2026-42246": {
+      "checked_at": "2026-11-12T13:46:08.848456Z",
+      "score": 7.6,
+      "cvss_version": "4.0",
+      "score_source": "security-advisories@github.com"
+    },
+    "CVE-2026-85091": {
+      "checked_at": "2026-11-12T13:46:08.848456Z",
+      "score": 8.3,
+      "cvss_version": "4.0",
+      "score_source": "disclosure@vulncheck.com"
+    },
     "CVE-2026-27622": {
       "checked_at": "2026-11-11T12:42:47.931489Z",
       "score": 8.4,
