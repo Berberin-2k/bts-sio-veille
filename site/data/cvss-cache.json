@@ -1,6 +1,52 @@
 {
   "version": 1,
   "entries": {
+    "CVE-2026-6467": {
+      "checked_at": "2026-11-14T12:09:57.676632Z",
+      "score": 7.2,
+      "cvss_version": "3.1",
+      "score_source": "f86ef6dc-4d3a-42ad-8f28-e6d5547a5007"
+    },
+    "CVE-2025-62408": {
+      "checked_at": "2026-11-14T12:09:57.676632Z",
+      "score": 5.9,
+      "cvss_version": "3.1",
+      "score_source": "security-advisories@github.com"
+    },
+    "CVE-2026-42217": {
+      "checked_at": "2026-11-14T12:09:57.676632Z",
+      "score": 9.8,
+      "cvss_version": "3.1",
+      "score_source": "nvd@nist.gov"
+    },
+    "CVE-2026-55955": {
+      "checked_at": "2026-11-14T12:09:57.676632Z",
+      "score": 6.5,
+      "cvss_version": "3.1",
+      "score_source": "134c704f-9b21-4f2e-91b3-4a467353bcc0"
+    },
+    "CVE-2026-92499": {
+      "checked_at": "2026-11-14T12:09:57.676632Z",
+      "score": null
+    },
+    "CVE-2026-33630": {
+      "checked_at": "2026-11-14T12:09:57.676632Z",
+      "score": 7.5,
+      "cvss_version": "3.1",
+      "score_source": "security-advisories@github.com"
+    },
+    "CVE-2026-54920": {
+      "checked_at": "2026-11-14T12:09:57.676632Z",
+      "score": 0.0,
+      "cvss_version": "3.1",
+      "score_source": "security-advisories@github.com"
+    },
+    "CVE-2026-47240": {
+      "checked_at": "2026-11-14T12:09:57.676632Z",
+      "score": 5.8,
+      "cvss_version": "4.0",
+      "score_source": "security-advisories@github.com"
+    },
     "CVE-2026-100080": {
       "checked_at": "2026-11-13T13:04:51.838117Z",
       "score": null

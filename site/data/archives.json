@@ -3,6 +3,34 @@
   "retention_days": 365,
   "articles": [
     {
+      "title": "Kubernetes v1.37: Memory QoS Graduates to Beta",
+      "url": "https://kubernetes.io/blog/2026/09/14/kubernetes-v1-37-memory-qos-graduates-to-beta/",
+      "source": "Kubernetes",
+      "published_at": "2026-09-14T18:30:00Z",
+      "collected_at": "2026-11-10T09:42:27.761199Z",
+      "category": "Conteneurs",
+      "summary_fr": "La fonctionnalité Memory QoS passe au stade bêta et est désormais activée par défaut dans Kubernetes v1.37. Elle permet d'optimiser la gestion de la mémoire des conteneurs sur les nœuds Linux utilisant cgroup v2.",
+      "summary_kind": "ia",
+      "severity": "information",
+      "severity_basis": "actualite",
+      "cvss_score": null,
+      "severity_version": 1
+    },
+    {
+      "title": "Kubernetes Changed Block Tracking API - Beta Differences",
+      "url": "https://kubernetes.io/blog/2026/09/14/csi-changed-block-tracking-beta/",
+      "source": "Kubernetes",
+      "published_at": "2026-09-14T18:30:00Z",
+      "collected_at": "2026-11-10T09:38:24.968640Z",
+      "category": "Conteneurs",
+      "summary_fr": "L'API de suivi des blocs modifiés (CBT) pour les pilotes CSI de Kubernetes passe en version bêta avec la sortie v1.0.0 du projet external-snapshot-metadata en mars 2026.",
+      "summary_kind": "ia",
+      "severity": "information",
+      "severity_basis": "actualite",
+      "cvss_score": null,
+      "severity_version": 1
+    },
+    {
       "title": "Kubernetes v1.37: Native Histograms Graduates to Beta",
       "url": "https://kubernetes.io/blog/2026/09/11/kubernetes-v1-37-native-histograms-beta/",
       "source": "Kubernetes",
