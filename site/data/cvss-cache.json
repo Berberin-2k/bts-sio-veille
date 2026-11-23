@@ -1,6 +1,78 @@
 {
   "version": 1,
   "entries": {
+    "CVE-2026-129975": {
+      "checked_at": "2026-11-23T15:58:26.163212Z",
+      "score": null
+    },
+    "CVE-2026-89866": {
+      "checked_at": "2026-11-23T15:58:26.163212Z",
+      "score": null
+    },
+    "CVE-2026-73206": {
+      "checked_at": "2026-11-23T15:58:26.163212Z",
+      "score": null
+    },
+    "CVE-2026-124749": {
+      "checked_at": "2026-11-23T15:58:26.163212Z",
+      "score": null
+    },
+    "CVE-2026-99272": {
+      "checked_at": "2026-11-23T15:58:26.163212Z",
+      "score": null
+    },
+    "CVE-2026-132998": {
+      "checked_at": "2026-11-23T15:58:26.163212Z",
+      "score": null
+    },
+    "CVE-2026-11850": {
+      "checked_at": "2026-11-23T15:58:26.163212Z",
+      "score": 5.0,
+      "cvss_version": "3.1",
+      "score_source": "secalert@redhat.com"
+    },
+    "CVE-2026-123007": {
+      "checked_at": "2026-11-23T15:58:26.163212Z",
+      "score": 9.2,
+      "cvss_version": "4.0",
+      "score_source": "f5sirt@f5.com"
+    },
+    "CVE-2026-115560": {
+      "checked_at": "2026-11-23T15:58:26.163212Z",
+      "score": 9.2,
+      "cvss_version": "4.0",
+      "score_source": "security@php.net"
+    },
+    "CVE-2026-114946": {
+      "checked_at": "2026-11-23T15:58:26.163212Z",
+      "score": 4.8,
+      "cvss_version": "3.1",
+      "score_source": "secalert_us@oracle.com"
+    },
+    "CVE-2026-55204": {
+      "checked_at": "2026-11-23T15:58:26.163212Z",
+      "score": 8.7,
+      "cvss_version": "4.0",
+      "score_source": "disclosure@vulncheck.com"
+    },
+    "CVE-2026-116311": {
+      "checked_at": "2026-11-23T15:58:26.163212Z",
+      "score": 5.4,
+      "cvss_version": "3.1",
+      "score_source": "f86ef6dc-4d3a-42ad-8f28-e6d5547a5007"
+    },
+    "CVE-2026-65927": {
+      "checked_at": "2026-11-23T15:58:26.163212Z",
+      "score": 7.5,
+      "cvss_version": "3.1",
+      "score_source": "134c704f-9b21-4f2e-91b3-4a467353bcc0"
+    },
+    "CVE-2026-124864": {
+      "checked_at": "2026-11-23T15:58:26.163212Z",
+      "score": 9.6,
+      "cvss_version": "3.1",
+      "score_source": "134c704f-9b21-4f2e-91b3-4a467353bcc0"
+    },
     "CVE-2026-73205": {
       "checked_at": "2026-11-22T13:19:21.081430Z",
       "score": null
@@ -93,10 +165,6 @@
       "cvss_version": "3.1",
       "score_source": "cve@mitre.org"
     },
-    "CVE-2026-129975": {
-      "checked_at": "2026-11-21T13:27:11.719684Z",
-      "score": null
-    },
     "CVE-2026-118899": {
       "checked_at": "2026-11-21T13:27:11.719684Z",
       "score": 8.7,
@@ -161,14 +229,6 @@
       "checked_at": "2026-11-20T13:59:38.377769Z",
       "score": null
     },
-    "CVE-2026-89866": {
-      "checked_at": "2026-11-20T13:59:38.377769Z",
-      "score": null
-    },
-    "CVE-2026-73206": {
-      "checked_at": "2026-11-20T13:59:38.377769Z",
-      "score": null
-    },
     "CVE-2026-119618": {
       "checked_at": "2026-11-20T13:59:38.377769Z",
       "score": 8.1,
@@ -186,10 +246,6 @@
       "score": 7.0,
       "cvss_version": "3.1",
       "score_source": "secalert_us@oracle.com"
-    },
-    "CVE-2026-124749": {
-      "checked_at": "2026-11-20T13:59:38.377769Z",
-      "score": null
     },
     "CVE-2026-113425": {
       "checked_at": "2026-11-20T13:59:38.377769Z",

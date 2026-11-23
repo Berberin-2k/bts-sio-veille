@@ -3,6 +3,20 @@
   "retention_days": 365,
   "articles": [
     {
+      "title": "Giving you more control over camera, microphone, and location",
+      "url": "https://techcommunity.microsoft.com/t5/windows-it-pro-blog/giving-you-more-control-over-camera-microphone-and-location/ba-p/4559374",
+      "source": "Microsoft · Windows IT Pro",
+      "published_at": "2026-09-23T17:25:18Z",
+      "collected_at": "2026-11-10T14:31:20.648355Z",
+      "category": "Windows",
+      "summary_fr": "Microsoft permet aux testeurs du canal Experimental de gérer individuellement l'accès des applications de bureau à la caméra, au microphone et à la localisation. Cette mise à jour remplace le paramètre global unique par un contrôle précis par application.",
+      "summary_kind": "ia",
+      "severity": "information",
+      "severity_basis": "actualite",
+      "cvss_score": null,
+      "severity_version": 1
+    },
+    {
       "title": "Spotlight on SIG Apps",
       "url": "https://kubernetes.io/blog/2026/09/22/sig-apps-spotlight/",
       "source": "Kubernetes",
